@@ -13,7 +13,7 @@ public class Main extends Application {
 		try {			
 			 		
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/view/Start_Layout.fxml"));
+			loader.setLocation(getClass().getResource("/view/Main_Layout.fxml"));
 
 			AnchorPane mainLayout = (AnchorPane) loader.load();
 			Scene scene = new Scene(mainLayout);
@@ -22,7 +22,7 @@ public class Main extends Application {
 			primaryStage.setTitle("빌림 Villim");
 			primaryStage.setScene(scene);
 			primaryStage.show();
-					
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}	
