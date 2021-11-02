@@ -18,7 +18,7 @@
             <Image url="@../resources/koreanLogo_black.png" />
          </image>
       </ImageView>
-      <TextField id="searchTextfield" layoutX="260.0" layoutY="48.0" prefHeight="55.0" prefWidth="630.0" promptText="키워드를 검색해 보세요.">
+      <TextField layoutX="260.0" layoutY="48.0" prefHeight="55.0" prefWidth="630.0" promptText="키워드를 검색해 보세요." styleClass="grayTextfield">
          <font>
             <Font size="20.0" />
          </font>

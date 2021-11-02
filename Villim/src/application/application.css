@@ -16,6 +16,15 @@
 	-fx-border-color: rgba(255.0, 255.0, 255.0, 0.0);
 }
 
+/* 회색 버튼 */
+.grayBtn {
+	-fx-background-color: #E2E2E2;
+	-fx-background-radius: 5.0px;
+	-fx-border-color: #E2E2E2;
+	-fx-border-radius: 5.0px;
+	-fx-padding: 8.0px 20.0px;
+}
+
 /* 투명 텍스트필드 */
 .transparencyTextfield {
    -fx-border-color: rgba(190.0, 190.0, 190.0, 1.0);
@@ -23,8 +32,8 @@
    -fx-background-color: transparent;
 }
 
-/* 검색창 텍스트필드 */
-#searchTextfield {
+/* 회색 텍스트필드 */
+.grayTextfield {
    -fx-border-color: rgba(190.0, 190.0, 190.0, 1.0);
    -fx-border-width: 1 1 1 1;
    -fx-border-radius: 5.0px;
