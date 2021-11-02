@@ -1,43 +1,46 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
-/* 화이트 모드 */
 .whtiePane {
 	-fx-background-color: #fafafa;
 }
 
-/* 다크 모드 */
 .blackPane {
 	-fx-background-color: #303030;
 }
 
-/* 투명 버튼 */
 .transparencyBtn {
 	-fx-background-color: rgba(255.0, 255.0, 255.0, 0.0);
 	-fx-border-color: rgba(255.0, 255.0, 255.0, 0.0);
 }
 
-/* 회색 버튼 */
 .grayBtn {
 	-fx-background-color: #E2E2E2;
 	-fx-background-radius: 5.0px;
 	-fx-border-color: #E2E2E2;
 	-fx-border-radius: 5.0px;
-	-fx-padding: 8.0px 20.0px;
+	-fx-padding: 8.0px 25.0px;
 }
 
-/* 투명 텍스트필드 */
+.grayBtn:hover {
+	-fx-background-color: #d6d6d6;
+	-fx-border-color: #d6d6d6;
+}
+
 .transparencyTextfield {
    -fx-border-color: rgba(190.0, 190.0, 190.0, 1.0);
    -fx-border-width: 0 0 1 0;
    -fx-background-color: transparent;
 }
 
-/* 회색 텍스트필드 */
-.grayTextfield {
-   -fx-border-color: rgba(190.0, 190.0, 190.0, 1.0);
-   -fx-border-width: 1 1 1 1;
-   -fx-border-radius: 5.0px;
-   -fx-background-color: #fafafa;
-   -fx-background-radius: 5.0px;
-   -fx-effect: innershadow(three-pass-box, rgba(0.0, 0.0, 0.0, 0.2), 5.0, 0.0, 0.0, 0.5);
+#blueBtn {
+	-fx-background-color: #1187CF;
+	-fx-background-radius: 5.0px;
+	-fx-border-color: #1187CF;
+	-fx-border-radius: 5.0px;
+	-fx-padding: 8.0px 25.0px;
+}
+
+#blueBtn:hover {
+	-fx-background-color: #1187CF;
+	-fx-border-color: #1187CF;
 }
