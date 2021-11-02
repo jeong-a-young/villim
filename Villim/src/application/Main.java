@@ -19,8 +19,12 @@ public class Main extends Application {
 			Scene scene = new Scene(mainLayout);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
-			primaryStage.setTitle("빌림 Villim");
+			primaryStage.setTitle("Villim");
 			primaryStage.setScene(scene);
+			primaryStage.setMaxHeight(700);
+			primaryStage.setMaxWidth(1200);
+			primaryStage.setMinHeight(700);
+			primaryStage.setMinWidth(1200);
 			primaryStage.show();
 			
 		} catch (Exception e) {
