@@ -1,0 +1,3 @@
+dark #303030
+white #fafafa
+blue #1187CF
