@@ -3,7 +3,6 @@ package view;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
-import java.util.regex.Pattern;
 
 import database.JDBCUtill;
 import javafx.fxml.FXML;
@@ -44,7 +43,15 @@ public class Main_Controller {
 			sql = "INSERT INTO users VALUES(?, ?, ?, ?, ?)";
 			
 			pstmt = con.prepareStatement(sql);
+//			if(joinId != null && joinPass != null && joinName != null && joinEmail != null) {
+//				pstmt.setString(1, joinId);
+//				pstmt.setString(2, joinPass);
+//				pstmt.setString(3, joinName);
+//				pstmt.setString(4, joinEmail);
+//				pstmt.setInt(5, tree);
+//			}
 			
+
 			if(joinId != null) {
 				pstmt.setString(1, joinId);
 			}
@@ -64,9 +71,9 @@ public class Main_Controller {
 			int rs = pstmt.executeUpdate();
 			
 		    if(rs <= 1) {
-//				Parent c = FXMLLoader.load(getClass().getResource("login.fxml"));
+//				Parent c = FXMLLoader.load(getClass().getResource("Login_layout.fxml"));
 //				Scene scene = new Scene(c);
-//				Stage primaryStage = (Stage) joinButton.getScene().getWindow();
+//				Stage primaryStage = (Stage) join_button.getScene().getWindow();
 //				primaryStage.setScene(scene);
 				System.out.println("회원가입 성공");
 		    }
@@ -75,4 +82,11 @@ public class Main_Controller {
 			e.printStackTrace();
 		}
 	}
+	
+	public void join_id_check() {
+		String joinId = join_id.getText();
+		
+//		sql = "Select " 
+	}
 }
+

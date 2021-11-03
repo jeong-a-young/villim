@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" styleClass="whtiePane" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="500.0" layoutY="53.0" text="카테고리">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
+      <Button layoutX="37.0" layoutY="33.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="120.0" styleClass="grayBtn" text="이전">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ScrollPane layoutY="145.0" prefHeight="559.0" prefWidth="1200.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1055.0" prefWidth="1185.0" styleClass="whtiePane">
+               <children>
+                  <Button layoutX="486.0" layoutY="98.0" mnemonicParsing="false" prefHeight="225.0" prefWidth="228.0" styleClass="grayBtn">
+                     <graphic>
+                        <ImageView fitHeight="189.0" fitWidth="182.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/instrument.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button layoutX="131.0" layoutY="98.0" mnemonicParsing="false" prefHeight="225.0" prefWidth="228.0" styleClass="grayBtn">
+                     <graphic>
+                        <ImageView fitHeight="177.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/clothes.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button layoutX="843.0" layoutY="98.0" mnemonicParsing="false" prefHeight="225.0" prefWidth="228.0" styleClass="grayBtn">
+                     <graphic>
+                        <ImageView fitHeight="175.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/electronicEquipment.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="181.0" layoutY="340.0" text="의상 / 소품">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="539.0" layoutY="340.0" text="음반 / 악기">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="907.0" layoutY="340.0" text="전자기기">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="131.0" layoutY="406.0" mnemonicParsing="false" prefHeight="225.0" prefWidth="228.0" styleClass="grayBtn">
+                     <graphic>
+                        <ImageView fitHeight="175.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/health.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="117.0" layoutY="646.0" text="헬스 / 요가 / 필라테스">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="489.0" layoutY="406.0" mnemonicParsing="false" prefHeight="225.0" prefWidth="228.0" styleClass="grayBtn">
+                     <graphic>
+                        <ImageView fitHeight="175.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/sports.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="526.0" layoutY="646.0" text="스포츠 / 레저">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="843.0" layoutY="406.0" mnemonicParsing="false" prefHeight="225.0" prefWidth="228.0" styleClass="grayBtn">
+                     <graphic>
+                        <ImageView fitHeight="175.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/camping.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="853.0" layoutY="646.0" text="등산 / 낚시 / 캠핑">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="132.0" layoutY="719.0" mnemonicParsing="false" prefHeight="225.0" prefWidth="228.0" styleClass="grayBtn">
+                     <graphic>
+                        <ImageView fitHeight="175.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/book.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="182.0" layoutY="957.0" text="도서 / 문구">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="490.0" layoutY="719.0" mnemonicParsing="false" prefHeight="225.0" prefWidth="228.0" styleClass="grayBtn">
+                     <graphic>
+                        <ImageView fitHeight="175.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/kids.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="485.0" layoutY="957.0" text="유아 / 반려동물 용품">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="843.0" layoutY="719.0" mnemonicParsing="false" prefHeight="225.0" prefWidth="228.0" styleClass="grayBtn">
+                     <graphic>
+                        <ImageView fitHeight="175.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/etc.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label layoutX="932.0" layoutY="957.0" text="기타">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
