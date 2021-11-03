@@ -38,7 +38,7 @@
             <Font size="35.0" />
          </font>
       </Label>
-      <Button id="blueBtn" layoutX="661.0" layoutY="484.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="120.0" text="로그인" textFill="WHITE">
+      <Button id="blueBtn" layoutX="644.0" layoutY="474.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="120.0" text="로그인" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
@@ -46,7 +46,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="411.0" layoutY="483.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="198.0" styleClass="grayBtn" text="ID / 비밀번호 찾기">
+      <Button layoutX="412.0" layoutY="474.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="198.0" styleClass="grayBtn" text="ID / 비밀번호 찾기">
          <font>
             <Font size="17.0" />
          </font>
