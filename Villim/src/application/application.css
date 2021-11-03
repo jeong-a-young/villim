@@ -32,6 +32,26 @@
    -fx-background-color: transparent;
 }
 
+.grayMenuBtn {
+	-fx-background-color: #E2E2E2;
+	-fx-padding: 5px 5px;
+}
+
+.grayMenuBtn .arrow {
+    -fx-background-insets: 1 1 1 1, 0;
+    -fx-background-color: -fx-mark-color, #848484;
+    -fx-shape: "M 0 -3.5 v 7 l 4 -3.5 z";
+}
+
+.grayMenuBtn:hover {
+    -fx-background-color: -fx-mark-highlight-color, #d3d3d3;
+}
+
+.grayMenuBtn:openvertically .arrow {
+    -fx-padding: 0.166667em 0.333333em 0.166667em 0.333333em; /* 2 4 2 4 */
+    -fx-shape: "M 0 0 h 7 l -3.5 4 z";
+}
+
 #blueBtn {
 	-fx-background-color: #1187CF;
 	-fx-background-radius: 5.0px;
