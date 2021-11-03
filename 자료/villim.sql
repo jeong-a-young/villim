@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-11-02 04:26
+-- 생성 시간: 21-11-03 01:58
 -- 서버 버전: 10.4.20-MariaDB
 -- PHP 버전: 7.4.21
 
@@ -24,6 +24,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- 테이블 구조 `post`
+--
+
+CREATE TABLE `post` (
+  `title` varchar(30) NOT NULL,
+  `content` varchar(300) NOT NULL,
+  `price` int(100) NOT NULL,
+  `category` varchar(100) NOT NULL,
+  `recommend` int(100) NOT NULL DEFAULT 0,
+  `registration` date NOT NULL,
+  `writer_id` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- 테이블 구조 `users`
 --
 
@@ -31,6 +47,7 @@ CREATE TABLE `users` (
   `id` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
+  `tree` int(100) NOT NULL,
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
