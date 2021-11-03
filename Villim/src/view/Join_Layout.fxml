@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" styleClass="whtiePane" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" styleClass="whtiePane" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Main_Controller">
    <children>
       <Button layoutX="37.0" layoutY="33.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="120.0" styleClass="grayBtn" text="이전">
          <font>
@@ -26,12 +26,12 @@
             <Font size="50.0" />
          </font>
       </Label>
-      <Label layoutX="376.0" layoutY="194.0" text="ID">
+      <Label layoutX="310.0" layoutY="195.0" prefHeight="42.0" prefWidth="105.0" text="아이디">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <TextField layoutX="438.0" layoutY="190.0" prefHeight="50.0" prefWidth="350.0">
+      <TextField fx:id="join_id" layoutX="438.0" layoutY="190.0" prefHeight="50.0" prefWidth="350.0">
          <font>
             <Font size="25.0" />
          </font>
@@ -49,7 +49,7 @@
             <Font size="35.0" />
          </font>
       </Label>
-      <PasswordField layoutX="438.0" layoutY="272.0" prefHeight="50.0" prefWidth="350.0">
+      <PasswordField fx:id="join_pass" layoutX="438.0" layoutY="272.0" prefHeight="50.0" prefWidth="350.0">
          <font>
             <Font size="25.0" />
          </font>
@@ -59,7 +59,7 @@
             <Font size="35.0" />
          </font>
       </Label>
-      <PasswordField layoutX="438.0" layoutY="352.0" prefHeight="50.0" prefWidth="350.0">
+      <PasswordField fx:id="join_pass_ok" layoutX="438.0" layoutY="352.0" prefHeight="50.0" prefWidth="350.0">
          <font>
             <Font size="25.0" />
          </font>
@@ -69,7 +69,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField layoutX="438.0" layoutY="440.0" prefHeight="50.0" prefWidth="350.0">
+      <TextField fx:id="join_name" layoutX="438.0" layoutY="440.0" prefHeight="50.0" prefWidth="350.0">
          <font>
             <Font size="25.0" />
          </font>
@@ -79,12 +79,12 @@
             <Font size="35.0" />
          </font>
       </Label>
-      <Label layoutX="299.0" layoutY="526.0" text="E-mail">
+      <Label layoutX="310.0" layoutY="526.0" text="이메일">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
-      <TextField layoutX="437.0" layoutY="521.0" prefHeight="50.0" prefWidth="350.0">
+      <TextField fx:id="join_email" layoutX="437.0" layoutY="521.0" prefHeight="50.0" prefWidth="350.0">
          <font>
             <Font size="25.0" />
          </font>
@@ -97,7 +97,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="blueBtn" layoutX="552.0" layoutY="624.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="120.0" text="가입" textFill="WHITE">
+      <Button id="blueBtn" fx:id="join_button" layoutX="552.0" layoutY="624.0" mnemonicParsing="false" onAction="#join" prefHeight="36.0" prefWidth="120.0" text="가입" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>

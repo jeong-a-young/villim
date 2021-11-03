@@ -7,93 +7,116 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class JDBCUtill {
-	private Connection conn = null;
-	private PreparedStatement pstmt;
-	private ResultSet rs;
-	int rs2;
-
-	public Connection getConnection() {
+//	private Connection conn = null;
+//	private PreparedStatement pstmt;
+//	private ResultSet rs;
+//	int rs2;
+	
+	public static Connection getConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			String connectionString = "jdbc:mysql://localhost";
-			String userId = "root";
-			String password = "";
-			conn = DriverManager.getConnection(connectionString, userId, password);
-			System.out.println("µ¥ÀÌÅÍº£ÀÌ½º ¿¬°áµÊ");
-//			!Áß¿ä! ¾Æ·¡ ¸Þ¼Òµå¸¦ ÅëÇØ µ¥ÀÌÅÍº£ÀÌ½º¿Í Å×ÀÌºíÀÇ À¯¹«¸¦ È®ÀÎÇÏ°í Á¸Àç ÇÏÁö¾ÊÀ»½Ã µ¥ÀÌÅÍº£ÀÌ½º¿Í Å×ÀÌºíÀ» ÀüºÎ ÀÚµ¿ »ý¼ºÇÕ´Ï´Ù!
-//			xmpp¸¸ ½ÇÇàÇÏ¸é ¾Æ¹«°Íµµ ¾ÈÇÏ¼Åµµ µË´Ï´Ù
-//
-//			µ¥ÀÌÅÍ º£ÀÌ½ºÀÇ À¯¹« È®ÀÎ ÈÄ ¾øÀ»½Ã ÀÚµ¿ »ý¼ºÇÕ´Ï´Ù
-//			(µ¥ÀÌÅÍ º£ÀÌ½º ÀÌ¸§ dbcord)
-//			Å×ÀÌºíµµ À¯¹« È®ÀÎ ÈÄ ¾øÀ»½Ã ÀÚµ¿ »ý¼ºÇÕ´Ï´Ù
-//			(Å×ÀÌºí ÀÌ¸§ UserLoginData)
-//
-//			¼öÁ¤½Ã String connectionString = "jdbc:mysql://localhost";
-//			localhostÃ³·³ ½áÁÖ¼¼¿ä
-//			ÁÖ¼Ò µÚ¿¡ /(µ¥ÀÌÅÍº£ÀÌ½º ÀÌ¸§) ÀÌ ÇÊ¿ä¾ø½À´Ï´Ù
-			CreateTable("dbcord", "UserLoginData");
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("µ¥ÀÌÅÍº£ÀÌ½º ¿¬°á ½ÇÆÐ");
 		}
-		return conn;
+			
+		String connectionString = "jdbc:mysql://localhost/villim";
+		String userId = "root";
+		String password = "";
+		
+		Connection con = null;
+		try {
+			System.out.println("ì—°ê²°í•˜ëŠ”ì¤‘  .....");
+			con = DriverManager.getConnection(connectionString, userId, password);
+			System.out.println("ì—°ê²° ì„±ê³µ");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+				
+		return con;
 	}
 
-	public void CreateOrChangeDatabase(String dbName) {
-		try {
-			String dbSql = "SELECT * FROM Information_schema.SCHEMATA WHERE SCHEMA_NAME = ?";
-			pstmt = conn.prepareStatement(dbSql);
-			pstmt.setString(1, dbName);
-			rs = pstmt.executeQuery();
-			if (!rs.next()) {
-				Statement stmt = conn.createStatement();
-				String sql = "create database " + dbName;
-				boolean re = stmt.execute(sql);
-				if (!re)
-					System.out.println("µ¥ÀÌÅÍ º£ÀÌ½º ÃÖÃÊ »ý¼º ¿Ï·á" + re);
-				stmt.close();
-			}
-			conn.setCatalog(dbName);
-		} catch (Exception e) {
-			System.out.println("CreateOrChangeDatabase err : " + e);
-		} finally {
-			try {
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					pstmt.close();
-			} catch (Exception e) {
-			}
-		}
-	}
-	public void CreateTable(String DbName, String tName) {
-		try {
-			CreateOrChangeDatabase(DbName);
-			String tableSql = "SELECT table_name FROM information_schema.tables where table_schema = ? and table_name = ?";
-			pstmt = conn.prepareStatement(tableSql);
-			pstmt.setString(1, DbName);
-			pstmt.setString(2, tName);
-			rs = pstmt.executeQuery();
-			if (!rs.next()) {
-				Statement stmt = conn.createStatement();
-				String sql = "create table " + tName + "(id text not null, password text not null, nick text, lore text, theme text)";
-				rs2 = stmt.executeUpdate(sql);
-				stmt.close();
-			}
-		} catch (Exception e) {
-			System.out.println("µ¥ÀÌÅÍ º£ÀÌ½º Å×ÀÌºí »ý¼º ½ÇÆÐ... ¿øÀÎ: " + e);
-		} finally {
-			try {
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					pstmt.close();
-			} catch (Exception e) {
-			}
-		}
-	}
+//	public Connection getConnection() {
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//			String connectionString = "jdbc:mysql://localhost";
+//			String userId = "root";
+//			String password = "";
+//			conn = DriverManager.getConnection(connectionString, userId, password);
+//			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½");
+//			!ï¿½ß¿ï¿½! ï¿½Æ·ï¿½ ï¿½Þ¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½!
+//			xmppï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Æ¹ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½Ï¼Åµï¿½ ï¿½Ë´Ï´ï¿½
+//
+//			ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½
+//			(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Ì¸ï¿½ dbcord)
+//			ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½
+//			(ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Ì¸ï¿½ UserLoginData)
+//
+//			ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ String connectionString = "jdbc:mysql://localhost";
+//			localhostÃ³ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½
+//			ï¿½Ö¼ï¿½ ï¿½Ú¿ï¿½ /(ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½Ì¸ï¿½) ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
+//			CreateTable("dbcord", "UserLoginData");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+//		}
+//		return conn;
+//	}
+//	public void CreateOrChangeDatabase(String dbName) {
+//		try {
+//			String dbSql = "SELECT * FROM Information_schema.SCHEMATA WHERE SCHEMA_NAME = ?";
+//			pstmt = conn.prepareStatement(dbSql);
+//			pstmt.setString(1, dbName);
+//			rs = pstmt.executeQuery();
+//			if (!rs.next()) {
+//				Statement stmt = conn.createStatement();
+//				String sql = "create database " + dbName;
+//				boolean re = stmt.execute(sql);
+//				if (!re)
+//					System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½" + re);
+//				stmt.close();
+//			}
+//			conn.setCatalog(dbName);
+//		} catch (Exception e) {
+//			System.out.println("CreateOrChangeDatabase err : " + e);
+//		} finally {
+//			try {
+//				if (rs != null)
+//					rs.close();
+//				if (pstmt != null)
+//					pstmt.close();
+//				if (conn != null)
+//					pstmt.close();
+//			} catch (Exception e) {
+//			}
+//		}
+//	}
+//	public void CreateTable(String DbName, String tName) {
+//		try {
+//			CreateOrChangeDatabase(DbName);
+//			String tableSql = "SELECT table_name FROM information_schema.tables where table_schema = ? and table_name = ?";
+//			pstmt = conn.prepareStatement(tableSql);
+//			pstmt.setString(1, DbName);
+//			pstmt.setString(2, tName);
+//			rs = pstmt.executeQuery();
+//			if (!rs.next()) {
+//				Statement stmt = conn.createStatement();
+//				String sql = "create table " + tName + "(id text not null, password text not null, nick text, lore text, theme text)";
+//				rs2 = stmt.executeUpdate(sql);
+//				stmt.close();
+//			}
+//		} catch (Exception e) {
+//			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½... ï¿½ï¿½ï¿½ï¿½: " + e);
+//		} finally {
+//			try {
+//				if (rs != null)
+//					rs.close();
+//				if (pstmt != null)
+//					pstmt.close();
+//				if (conn != null)
+//					pstmt.close();
+//			} catch (Exception e) {
+//			}
+//		}
+//	}
+	
 }
