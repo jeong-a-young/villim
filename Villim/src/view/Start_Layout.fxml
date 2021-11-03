@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" styleClass="whtiePane" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="397.0" layoutY="275.0" text="사긴 아깝고, 꼭 필요할 때">
+      <Label layoutX="397.0" layoutY="273.0" text="사긴 아깝고, 꼭 필요할 때">
          <font>
             <Font size="35.0" />
          </font>
