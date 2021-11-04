@@ -29,7 +29,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="1202.0" styleClass="whtiePane" />
         </content>
       </ScrollPane>
-      <MenuButton layoutX="31.0" layoutY="152.0" mnemonicParsing="false" styleClass="grayMenuBtn" text="목록 선택">
+      <MenuButton layoutX="31.0" layoutY="150.0" mnemonicParsing="false" styleClass="grayMenuBtn" text="목록 선택">
         <items>
           <MenuItem mnemonicParsing="false" text="게시글" />
           <MenuItem mnemonicParsing="false" text="찜" />

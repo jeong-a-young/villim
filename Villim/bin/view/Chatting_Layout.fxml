@@ -16,12 +16,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField layoutX="298.0" layoutY="600.0" prefHeight="47.0" prefWidth="456.0" promptText="매너있는 대화를 해요. :)">
+      <TextField layoutX="305.0" layoutY="600.0" prefHeight="47.0" prefWidth="456.0" promptText="매너있는 대화를 해요. :)">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Button id="blueBtn" layoutX="780.0" layoutY="604.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="120.0" text="전송" textFill="WHITE">
+      <Button id="blueBtn" layoutX="784.0" layoutY="604.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="120.0" text="전송" textFill="WHITE">
          <font>
             <Font size="17.0" />
          </font>
