@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" styleClass="whtiePane" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Main_Controller">
    <children>
-      <Label layoutX="397.0" layoutY="273.0" text="사긴 아깝고, 꼭 필요할 때">
-         <font>
-            <Font size="35.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="103.0" fitWidth="188.0" layoutX="515.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="957.0" fitWidth="1600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resources/koreanLogo_black.png" />
+            <Image url="@../resources/startPage.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="113.0" fitWidth="165.0" layoutX="312.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/koreanLogo_white.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="changeJoinBtn" layoutX="281.0" layoutY="516.0" mnemonicParsing="false" onAction="#changeJoin" prefHeight="76.0" prefWidth="229.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="changeLoginBtn" layoutX="281.0" layoutY="651.0" mnemonicParsing="false" onAction="#changeLogin" prefHeight="76.0" prefWidth="229.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

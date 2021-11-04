@@ -13,7 +13,7 @@ public class Main extends Application {
 		try {			
 			 		
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/view/Join_Layout.fxml"));
+			loader.setLocation(getClass().getResource("/view/Start_Layout.fxml"));
 
 			AnchorPane mainLayout = (AnchorPane) loader.load();
 			Scene scene = new Scene(mainLayout);
@@ -21,10 +21,10 @@ public class Main extends Application {
 
 			primaryStage.setTitle("Villim");
 			primaryStage.setScene(scene);
-			primaryStage.setMaxHeight(700);
-			primaryStage.setMaxWidth(1200);
-			primaryStage.setMinHeight(700);
-			primaryStage.setMinWidth(1200);
+			primaryStage.setMaxHeight(900);
+			primaryStage.setMaxWidth(1600);
+			primaryStage.setMinHeight(900);
+			primaryStage.setMinWidth(1600);
 			primaryStage.show();
 			
 		} catch (Exception e) {

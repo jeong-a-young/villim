@@ -14,8 +14,31 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import util.MethodUtil;
 
 public class Main_Controller {
+	
+	MethodUtil methodUtil = new MethodUtil();
+	
+	// 0.
+	@FXML
+	private Button changeStartBtn;
+	
+	public void changeStart() {
+		methodUtil.changeScene("/view/Start_Layout.fxml", changeStartBtn);
+	}
+	
+	// 1. Join
+	
+	// 회원가입 화면 전환
+	@FXML
+	private Button changeJoinBtn;
+	
+	public void changeJoin() {
+		methodUtil.changeScene("/view/Join_Layout.fxml", changeJoinBtn);
+	}
+	
+	// 회원가입
 	@FXML
 	private TextField join_id;
 	@FXML
@@ -121,5 +144,16 @@ public class Main_Controller {
 		
 //		sql = "Select " 
 	}
+	
+	// 2. Login
+	
+	// 로그인 화면 전환
+	@FXML
+	private Button changeLoginBtn;
+	
+	public void changeLogin() {
+		methodUtil.changeScene("/view/Login_Layout.fxml", changeLoginBtn);
+	}
+	
 }
 

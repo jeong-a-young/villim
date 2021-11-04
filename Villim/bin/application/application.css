@@ -1,16 +1,14 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
-.whtiePane {
-	-fx-background-color: #fafafa;
-}
-
-.blackPane {
-	-fx-background-color: #303030;
-}
-
 .transparencyBtn {
 	-fx-background-color: rgba(255.0, 255.0, 255.0, 0.0);
+	-fx-background-radius: 15.0px;
 	-fx-border-color: rgba(255.0, 255.0, 255.0, 0.0);
+	-fx-border-radius: 15.0px;
+}
+
+.transparencyBtn:hover {
+	-fx-background-color: rgba(0.0, 0.0, 0.0, 0.15);
 }
 
 .grayBtn {
@@ -27,8 +25,8 @@
 }
 
 .transparencyTextfield {
-   -fx-border-color: rgba(190.0, 190.0, 190.0, 1.0);
-   -fx-border-width: 0 0 1 0;
+   /* -fx-border-color: rgba(190.0, 190.0, 190.0, 1.0);
+   -fx-border-width: 0 0 1 0; */
    -fx-background-color: transparent;
 }
 
