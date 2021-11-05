@@ -10,51 +10,59 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" styleClass="whtiePane" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #ffffff;" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="37.0" layoutY="33.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="120.0" styleClass="grayBtn" text="이전">
+      <Button layoutX="33.0" layoutY="33.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="155.0" styleClass="grayBtn" text="이전">
          <font>
-            <Font size="17.0" />
+            <Font size="20.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="467.0" layoutY="83.0" text="게시글 작성">
+      <Label layoutX="641.0" layoutY="87.0" text="게시물 작성">
          <font>
-            <Font size="50.0" />
+            <Font size="70.0" />
          </font>
       </Label>
-      <TextField layoutX="176.0" layoutY="180.0" prefHeight="50.0" prefWidth="691.0" promptText="제목을 입력해 주세요.">
+      <TextField layoutX="310.0" layoutY="226.0" prefHeight="62.0" prefWidth="772.0" promptText="제목을 입력해 주세요.">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <MenuButton layoutX="892.0" layoutY="181.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="180.0" styleClass="grayMenuBtn" text="카테고리">
-        <items>
-          <MenuItem mnemonicParsing="false" text="의상 / 소품" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
+      <MenuButton layoutX="1108.0" layoutY="226.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="199.0" styleClass="grayMenuBtn" text="카테고리">
+         <items>
+            <MenuItem mnemonicParsing="false" text="의상 / 소품" />
+            <MenuItem mnemonicParsing="false" text="음반 / 악기" />
+            <MenuItem mnemonicParsing="false" text="전자기기" />
+            <MenuItem mnemonicParsing="false" text="헬스 / 요가" />
+            <MenuItem mnemonicParsing="false" text="스포츠 / 레저" />
+            <MenuItem mnemonicParsing="false" text="등산 / 낚시 / 캠핑" />
+            <MenuItem mnemonicParsing="false" text="도서 / 문구" />
+            <MenuItem mnemonicParsing="false" text="유아 용품" />
+            <MenuItem mnemonicParsing="false" text="반려동물 용품" />
+            <MenuItem mnemonicParsing="false" text="기타" />
+         </items>
          <font>
             <Font size="20.0" />
          </font>
       </MenuButton>
-      <TextArea layoutX="176.0" layoutY="254.0" prefHeight="326.0" prefWidth="896.0" promptText="대여하실 물건의 특징, 대여 기간, 대여 가격 등을 적어주세요.">
+      <TextArea layoutX="310.0" layoutY="310.0" prefHeight="447.0" prefWidth="997.0" promptText="내용을 입력해 주세요.">
          <font>
             <Font size="20.0" />
          </font>
       </TextArea>
-      <Button layoutX="794.0" layoutY="613.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="126.0" styleClass="grayBtn" text="사진 추가">
+      <Button layoutX="1186.0" layoutY="803.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="155.0" styleClass="grayBtn" text="사진 추가">
          <font>
-            <Font size="17.0" />
+            <Font size="20.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="blueBtn" layoutX="946.0" layoutY="613.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="126.0" text="올리기" textFill="WHITE">
+      <Button id="blueBtn" layoutX="1372.0" layoutY="803.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="155.0" text="작성" textFill="WHITE">
          <font>
-            <Font size="17.0" />
+            <Font size="20.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />

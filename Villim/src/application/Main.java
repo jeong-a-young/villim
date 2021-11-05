@@ -5,13 +5,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
 
 public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
 		try {			
-			 		
+			
+			Font.loadFont(getClass().getResourceAsStream("Roboto-Regular.ttf"), 14);
+			
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/view/Start_Layout.fxml"));
 			AnchorPane mainLayout = (AnchorPane) loader.load();

@@ -13,7 +13,7 @@
             <Image url="@../resources/startPage.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="113.0" fitWidth="165.0" layoutX="312.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="113.0" fitWidth="165.0" layoutX="309.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/koreanLogo_white.png" />
          </image>

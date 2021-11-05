@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #ffffff;" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="33.0" layoutY="33.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="155.0" styleClass="grayBtn" text="이전">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="466.0" layoutY="73.0" text="'OOO'의 검색 결과입니다.">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Label>
+      <Pagination layoutX="-1.0" layoutY="188.0" prefHeight="669.0" prefWidth="1602.0" />
+   </children>
+</AnchorPane>

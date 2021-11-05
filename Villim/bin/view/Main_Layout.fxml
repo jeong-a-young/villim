@@ -54,11 +54,11 @@
             <Image url="@../resources/koreanLogo_black.png" />
          </image>
       </ImageView>
-      <Label layoutX="700.0" layoutY="349.0" text="추천 목록">
+      <Label layoutX="700.0" layoutY="351.0" text="추천 목록">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <Pagination layoutX="274.0" layoutY="427.0" prefHeight="449.0" prefWidth="1058.0" />
+      <Pagination layoutX="-2.0" layoutY="430.0" prefHeight="430.0" prefWidth="1603.0" />
    </children>
 </AnchorPane>
