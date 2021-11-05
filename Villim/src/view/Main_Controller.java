@@ -2,6 +2,8 @@ package view;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import database.JDBCUtill;
@@ -55,27 +57,21 @@ public class Main_Controller {
 	Statement stmt = null;
     PreparedStatement pstmt = null;
     String sql = "";
-	Connection con = JDBCUtill.getConnection();
+	Connection conn = JDBCUtill.getConnection();
 	Alert alert = new Alert(AlertType.WARNING);
 	
 	public void join() {
 		try {
-			
+
 			String joinId = join_id.getText();
 			String joinPass = join_pass.getText();
+			String joinName = join_name.getText();
 			String joinEmail = join_email.getText();
 			int tree = 0;
 			
 			sql = "INSERT INTO users VALUES(?, ?, ?, ?, ?)";
 			
-			pstmt = con.prepareStatement(sql);
-//			if(joinId != null && joinPass != null && joinName != null && joinEmail != null) {
-//				pstmt.setString(1, joinId);
-//				pstmt.setString(2, joinPass);
-//				pstmt.setString(3, joinName);
-//				pstmt.setString(4, joinEmail);
-//				pstmt.setInt(5, tree);
-//			}
+			pstmt = conn.prepareStatement(sql);
 			
 
 			if(joinId != null) {
@@ -92,36 +88,35 @@ public class Main_Controller {
 //			alert.setContentText("이름을 다시 지어주세요.");
 //			alert.showAndWait();
 //			}
-//			while(true) {
-//				작명 기준에 적합한지 확인할 때 사용하는 변수
-//				int name_cnt = 0;
-			
-//				(조인 네임 입력 다시 받아야함)
-			
-//				작명 기준에 적합한지 확인
-//				String joinName = join_name.getText();
-//				for(byte i = 0; i < joinName.length(); i++) {
-//					if((int)(joinName.charAt(i)) >= 12593 && (int)(joinName.charAt(i)) <= 12643) {
-//					} else {
-//						name_cnt += 1;
-//					}
-//				}
-//				if(joinName != null && name_cnt == joinName.length() && joinName.length() <= 8) {
-//					pstmt.setString(3, joinName);
-//					break;
-//				} else {
-//					alert.setTitle("메세지");
-//					alert.setHeaderText(null);
-//					alert.setContentText("이름을 다시 지어주세요.");
-//					alert.showAndWait();
-//					continue;
-//				}
-//			}
-			if(joinEmail != null) {
-				pstmt.setString(4, joinEmail);
+			while(true) {
+				//작명 기준에 적합한지 확인할 때 사용하는 변수
+				int name_cnt = 0;
+				
+				//(조인 네임 입력 다시 받아야함)
+				
+				//작명 기준에 적합한지 확인
+				for(byte i = 0; i < joinName.length(); i++) {
+					if((int)(joinName.charAt(i)) >= 12593 && (int)(joinName.charAt(i)) <= 12643) {
+					} else {
+						name_cnt += 1;
+					}
+				}
+				if(joinName != null && name_cnt == joinName.length() && joinName.length() <= 8) {
+					pstmt.setString(3, joinName);
+					break;
+				} else {
+					alert.setTitle("메세지");
+					alert.setHeaderText(null);
+					alert.setContentText("이름을 다시 지어주세요.");
+					alert.showAndWait();
+					continue;
+				}
 			}
 			if(tree == 0) {
-				pstmt.setInt(5, tree);
+				pstmt.setInt(4, tree);
+			}
+			if(joinEmail != null) {
+				pstmt.setString(5, joinEmail);
 			}
 
 			int rs = pstmt.executeUpdate();
@@ -141,8 +136,26 @@ public class Main_Controller {
 	
 	public void join_id_check() {
 		String joinId = join_id.getText();
-		
-//		sql = "Select " 
+		sql = "select * from users where id=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, joinId);
+			ResultSet rs = pstmt.executeQuery();
+			while(true) {
+				if(rs.next()) {
+					System.out.println(rs.next());
+					alert.setTitle("메세지");
+					alert.setHeaderText(null);
+					alert.setContentText("아이디 중복");
+					alert.showAndWait();
+				} else {
+					break;
+				}
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
 	// 2. Login
