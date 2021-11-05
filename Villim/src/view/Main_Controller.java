@@ -1,5 +1,6 @@
 package view;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +13,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import util.MethodUtil;
 
 public class Main_Controller {
@@ -38,6 +41,9 @@ public class Main_Controller {
 	
 	// 회원가입
 	@FXML
+	private ImageView checkPWImage;
+	
+	@FXML
 	private TextField join_id;
 	@FXML
 	private TextField join_pass;
@@ -55,6 +61,32 @@ public class Main_Controller {
     String sql = "";
 	Connection conn = JDBCUtill.getConnection();
 	Alert alert = new Alert(AlertType.WARNING);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public void join() {
 		try {
@@ -148,10 +180,12 @@ public class Main_Controller {
 	public void join_pass_check() {
 		String joinPass = join_pass.getText();
 		String joinPassOk = join_pass_ok.getText();
-		
 		if(joinPass.equals(joinPassOk)) {
+			checkPWImage.setImage(new Image("/resources/checkMark.png"));
+			
 			System.out.println("확인 성공");
 		} else {
+			checkPWImage.setImage(new Image("/resources/xMark.png"));
 			System.out.println("확인 실패");
 		}
 	}
