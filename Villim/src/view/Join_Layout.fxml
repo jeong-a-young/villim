@@ -32,7 +32,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="join_button" layoutX="712.0" layoutY="771.0" mnemonicParsing="false" onAction="#join" prefHeight="56.0" prefWidth="176.0" styleClass="transparencyBtn">
+      <Button fx:id="join_button" layoutX="712.0" layoutY="771.0" mnemonicParsing="false" onAction="#signUp" prefHeight="56.0" prefWidth="176.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

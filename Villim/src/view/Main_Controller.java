@@ -1,6 +1,5 @@
 package view;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -63,31 +62,66 @@ public class Main_Controller {
 	Alert alert = new Alert(AlertType.WARNING);
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+//이 메소드는 완성이 안됨 건들지 마셈	
+	@FXML
+	private void signUp() {
+		// button event
+		System.out.println(join_pass.getText() + " and " + join_pass_ok.getText());
+		if (join_email.getText().matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*") || join_email.getText().isEmpty()
+				|| !join_email.getText().contains("@")) {
+			//errorScreen.setVisible(true);
+			//startScreen.setDisable(true);
+			//errorScreenMsg.setText("이메일이 잘못되었습니다 확인을 다시 해주세요");
+			System.out.println("이메일이 잘못되었습니다 확인을 다시 해주세요");
+			//errorTitle.setText("[ ERROR ]");
+		}
+		else if (!join_pass.getText().equals(join_pass_ok.getText()) || join_pass.getText().isEmpty()) {
+//			errorScreen.setVisible(true);
+//			startScreen.setDisable(true);
+//			errorScreenMsg.setText("비밀번호 확인을 다시 해주세요");
+			System.out.println("비밀번호 확인을 다시 해주세요");
+//			errorTitle.setText("[ ERROR ]");
+		} else if (join_pass.getText().length() < 8) {
+//			errorScreen.setVisible(true);
+//			startScreen.setDisable(true);
+//			errorScreenMsg.setText("비밀번호는 8자가 넘어야 합니다");
+			System.out.println("비밀번호는 8자가 넘어야 합니다");
+//			errorTitle.setText("[ ERROR ]");
+		} else if (join_pass.getText().matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*") || join_pass.getText().contains(" ")) {
+//			errorScreen.setVisible(true);
+//			startScreen.setDisable(true);
+//			errorScreenMsg.setText("비밀번호에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
+			System.out.println("비밀번호에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
+//			errorTitle.setText("[ ERROR ]");
+		} else if (join_pass.getText().matches("^[a-zA-Z0-9]*$")) {
+//			errorScreen.setVisible(true);
+//			startScreen.setDisable(true);
+//			errorScreenMsg.setText("비밀번호는 특수문자를 포함해야합니다");
+			System.out.println("비밀번호는 특수문자를 포함해야합니다");
+//			errorTitle.setText("[ ERROR ]");
+		} 
+//		else  if (checkId(email_signUp.getText())) {
+//            System.out.println("회원가입 실패");
+//            }
+//		else {
+//			sql = "insert into UserLoginData values('" + email_signUp.getText() + "','" + pw_signUp.getText() + "','','','#ff9200')";
+//			try {
+//				pstmt = con.prepareStatement(sql);
+//				pstmt.executeUpdate();
+//				System.out.println("성공");
+//				errorScreen.setVisible(true);
+//				startScreen.setDisable(true);
+//				errorScreenMsg.setText("회원가입이 완료되었습니다");
+//				errorTitle.setText("[ ALERT ]");
+//
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//				System.out.println("실패");
+//			}
+//		}
+	}
+
 	public void join() {
 		try {
 
