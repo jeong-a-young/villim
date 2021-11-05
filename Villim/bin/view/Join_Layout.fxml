@@ -42,12 +42,12 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="join_pass" layoutX="590.0" layoutY="372.0" prefHeight="57.0" prefWidth="420.0">
+      <PasswordField fx:id="join_pass" layoutX="590.0" layoutY="372.0" onKeyReleased="#join_pass_check" prefHeight="57.0" prefWidth="420.0">
          <font>
             <Font size="17.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="join_pass_ok" layoutX="591.0" layoutY="450.0" prefHeight="57.0" prefWidth="420.0">
+      <PasswordField fx:id="join_pass_ok" layoutX="591.0" layoutY="450.0" onKeyReleased="#join_pass_check" prefHeight="57.0" prefWidth="420.0">
          <font>
             <Font size="17.0" />
          </font>
@@ -64,7 +64,7 @@
       </TextField>
       <Pane layoutX="1028.0" layoutY="455.0" prefHeight="50.0" prefWidth="50.0">
          <children>
-            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="checkPWImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/xMark.png" />
                </image>
