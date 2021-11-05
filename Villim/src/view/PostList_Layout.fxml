@@ -5,38 +5,44 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" styleClass="whtiePane" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" styleClass="whtiePane" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="37.0" layoutY="33.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="120.0" styleClass="grayBtn" text="이전">
+      <Button layoutX="37.0" layoutY="33.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="155.0" styleClass="grayBtn" text="이전">
          <font>
-            <Font size="17.0" />
+            <Font size="20.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="467.0" layoutY="79.0" text="게시물 목록">
+      <Label layoutX="636.0" layoutY="69.0" text="게시물 목록">
          <font>
-            <Font size="50.0" />
+            <Font size="70.0" />
          </font>
       </Label>
-      <ScrollPane layoutX="-3.0" layoutY="216.0" prefHeight="484.0" prefWidth="1200.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="524.0" prefWidth="1202.0" styleClass="whtiePane" />
-        </content>
-      </ScrollPane>
-      <MenuButton layoutX="31.0" layoutY="150.0" mnemonicParsing="false" styleClass="grayMenuBtn" text="목록 선택">
+      <MenuButton layoutX="1398.0" layoutY="118.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="175.0" styleClass="grayMenuBtn" text="카테고리">
         <items>
-          <MenuItem mnemonicParsing="false" text="게시글" />
-          <MenuItem mnemonicParsing="false" text="찜" />
+          <MenuItem mnemonicParsing="false" text="내가 작성한 글" />
+          <MenuItem mnemonicParsing="false" text="찜 목록" />
+            <MenuItem mnemonicParsing="false" text="의상 / 소품" />
+            <MenuItem mnemonicParsing="false" text="음반 / 악기" />
+            <MenuItem mnemonicParsing="false" text="전자기기" />
+            <MenuItem mnemonicParsing="false" text="헬스 / 요가" />
+            <MenuItem mnemonicParsing="false" text="스포츠 / 레저" />
+            <MenuItem mnemonicParsing="false" text="등산 / 낚시 / 캠핑" />
+            <MenuItem mnemonicParsing="false" text="도서 / 문구" />
+            <MenuItem mnemonicParsing="false" text="유아 용품" />
+            <MenuItem mnemonicParsing="false" text="반려동물 용품" />
+            <MenuItem mnemonicParsing="false" text="기타" />
         </items>
          <font>
-            <Font size="17.0" />
+            <Font size="20.0" />
          </font>
       </MenuButton>
+      <Pagination layoutX="-1.0" layoutY="188.0" prefHeight="669.0" prefWidth="1602.0" />
    </children>
 </AnchorPane>
