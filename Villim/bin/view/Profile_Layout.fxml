@@ -9,123 +9,65 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" styleClass="whtiePane" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Main_Controller">
    <children>
-      <Button layoutX="37.0" layoutY="33.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="120.0" styleClass="grayBtn" text="이전">
-         <font>
-            <Font size="17.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Label layoutX="374.0" layoutY="77.0" text="테스트 (test***)">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
-      <Button layoutX="378.0" layoutY="137.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="184.0" styleClass="grayBtn" text="프로필 사진 변경">
-         <font>
-            <Font size="17.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <ImageView fitHeight="60.0" fitWidth="1162.0" layoutX="19.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="924.0" fitWidth="1600.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resources/grayLine.png" />
+            <Image url="@../resources/profilePage.png" />
          </image>
       </ImageView>
-      <Button layoutX="456.0" layoutY="609.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="120.0" styleClass="grayBtn" text="로그아웃">
-         <font>
-            <Font size="17.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="638.0" layoutY="609.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="120.0" styleClass="grayBtn" text="회원탈퇴">
-         <font>
-            <Font size="17.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Label layoutX="484.0" layoutY="430.0" text="ID">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
-      <Label layoutX="397.0" layoutY="368.0" text="E-mail">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
-      <Label layoutX="410.0" layoutY="304.0" text="닉네임">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
-      <Label layoutX="365.0" layoutY="492.0" text="비밀번호">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
-      <Label layoutX="555.0" layoutY="428.0" text="test123" textFill="#9f9f9f">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
-      <Label layoutX="555.0" layoutY="368.0" text="test123@test.com" textFill="#9f9f9f">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
-      <Label layoutX="555.0" layoutY="304.0" text="테스트" textFill="#9f9f9f">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
-      <Button layoutX="701.0" layoutY="308.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="201.0" styleClass="grayBtn" text="    닉네임 변경   " textAlignment="RIGHT">
-         <font>
-            <Font size="17.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <graphic>
-            <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/grayArrow.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="701.0" layoutY="492.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="201.0" styleClass="grayBtn" text="   비밀번호 변경">
-         <font>
-            <Font size="17.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <graphic>
-            <ImageView fitHeight="22.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/grayArrow.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Pane layoutX="192.0" layoutY="48.0" prefHeight="150.0" prefWidth="150.0">
+      <Pane layoutX="97.0" layoutY="222.0" prefHeight="400.0" prefWidth="400.0">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/basicProfile.png" />
                </image>
             </ImageView>
-         </children>
-      </Pane>
+         </children></Pane>
+      <Button fx:id="changeStartBtn" layoutX="39.0" layoutY="34.0" mnemonicParsing="false" onAction="#changeStart" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="614.0" layoutY="798.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="823.0" layoutY="798.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="146.0" layoutY="659.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="301.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="859.0" layoutY="494.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="276.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="1241.0" layoutY="320.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="276.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="797.0" layoutY="322.0" text="일이삼사오육칠팔" textFill="#666666">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
+      <Label layoutX="800.0" layoutY="406.0" text="test123" textFill="#666666">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
+      <Label layoutX="800.0" layoutY="585.0" text="test123@test.com" textFill="#666666">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
