@@ -8,14 +8,10 @@ import java.sql.Statement;
 
 import database.JDBCUtill;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import util.MethodUtil;
 
 public class Main_Controller {
@@ -65,7 +61,6 @@ public class Main_Controller {
 
 			String joinId = join_id.getText();
 			String joinPass = join_pass.getText();
-			String joinName = join_name.getText();
 			String joinEmail = join_email.getText();
 			int tree = 0;
 			
@@ -80,19 +75,13 @@ public class Main_Controller {
 			if(joinPass != null) {
 				pstmt.setString(2, joinPass);
 			}
-//			if(joinName != null && name_cnt == joinName.length() && joinName.length() <= 8) {
-//				pstmt.setString(3, joinName);
-//			} else {
-//			alert.setTitle("메세지");
-//			alert.setHeaderText(null);
-//			alert.setContentText("이름을 다시 지어주세요.");
-//			alert.showAndWait();
-//			}
-			while(true) {
+
+			
+			try {
+				String joinName = join_name.getText();
+				
 				//작명 기준에 적합한지 확인할 때 사용하는 변수
 				int name_cnt = 0;
-				
-				//(조인 네임 입력 다시 받아야함)
 				
 				//작명 기준에 적합한지 확인
 				for(byte i = 0; i < joinName.length(); i++) {
@@ -103,15 +92,17 @@ public class Main_Controller {
 				}
 				if(joinName != null && name_cnt == joinName.length() && joinName.length() <= 8) {
 					pstmt.setString(3, joinName);
-					break;
 				} else {
 					alert.setTitle("메세지");
 					alert.setHeaderText(null);
 					alert.setContentText("이름을 다시 지어주세요.");
 					alert.showAndWait();
-					continue;
 				}
+			} catch (Exception e) {
+				// TODO: handle exception
 			}
+			
+				
 			if(tree == 0) {
 				pstmt.setInt(4, tree);
 			}
@@ -122,10 +113,6 @@ public class Main_Controller {
 			int rs = pstmt.executeUpdate();
 			
 		    if(rs <= 1) {
-//				Parent c = FXMLLoader.load(getClass().getResource("Login_layout.fxml"));
-//				Scene scene = new Scene(c);
-//				Stage primaryStage = (Stage) join_button.getScene().getWindow();
-//				primaryStage.setScene(scene);
 				System.out.println("회원가입 성공");
 		    }
 		    
@@ -158,6 +145,16 @@ public class Main_Controller {
 		}
 	}
 	
+	public void join_pass_check() {
+		String joinPass = join_pass.getText();
+		String joinPassOk = join_pass_ok.getText();
+		
+		if(joinPass.equals(joinPassOk)) {
+			System.out.println("확인 성공");
+		} else {
+			System.out.println("확인 실패");
+		}
+	}
 	// 2. Login
 	
 	// 로그인 화면 전환

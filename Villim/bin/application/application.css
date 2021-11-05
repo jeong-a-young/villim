@@ -96,15 +96,3 @@
 	-fx-background-color: #0b74b6;
 	-fx-border-color: #0b74b6;
 }
-
-.fontBold {
--fx-font: "KoPubWorld_Dotum_Bold";
-}
-
-.fontLight {
--fx-font: "KoPubWorld_Dotum_Light";
-}
-
-.fontMedium {
--fx-font: "KoPubWorld_Dotum_Medium";
-}
