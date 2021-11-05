@@ -2,27 +2,24 @@ package database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class JDBCUtill {
 //	private Connection conn = null;
 //	private PreparedStatement pstmt;
 //	private ResultSet rs;
 //	int rs2;
-	
+
 	public static Connection getConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-			
+
 		String connectionString = "jdbc:mysql://localhost/villim";
 		String userId = "root";
 		String password = "";
-		
+
 		Connection con = null;
 		try {
 			System.out.println("연결하는중  .....");
@@ -31,7 +28,7 @@ public class JDBCUtill {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-				
+
 		return con;
 	}
 
@@ -118,5 +115,5 @@ public class JDBCUtill {
 //			}
 //		}
 //	}
-	
+
 }
