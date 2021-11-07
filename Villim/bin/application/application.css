@@ -11,6 +11,13 @@
 	-fx-background-color: rgba(0.0, 0.0, 0.0, 0.15);
 }
 
+.nonHovertransparencyBtn{
+	-fx-background-color: rgba(255.0, 255.0, 255.0, 0.0);
+	-fx-background-radius: 15.0px;
+	-fx-border-color: rgba(255.0, 255.0, 255.0, 0.0);
+	-fx-border-radius: 15.0px;
+}
+
 .grayBtn {
 	-fx-background-color: #E2E2E2;
 	-fx-background-radius: 5.0px;

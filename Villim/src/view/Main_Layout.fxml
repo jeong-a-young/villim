@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
@@ -18,7 +19,7 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <Button layoutX="1125.0" layoutY="68.0" mnemonicParsing="false" styleClass="transparencyBtn">
+      <Button layoutX="1125.0" layoutY="68.0" mnemonicParsing="false" styleClass="nonHovertransparencyBtn">
          <graphic>
             <ImageView fitHeight="68.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -26,6 +27,9 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Pane layoutY="200.0" prefHeight="125.0" prefWidth="1602.0">
          <children>
@@ -34,13 +38,25 @@
                   <Image url="@../resources/menu.png" />
                </image>
             </ImageView>
-            <Button layoutX="160.0" layoutY="16.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="90.0" styleClass="transparencyBtn" />
-            <Button layoutX="540.0" layoutY="16.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="91.0" styleClass="transparencyBtn" />
-            <Button layoutX="953.0" layoutY="17.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="91.0" styleClass="transparencyBtn" />
-            <Button layoutX="1343.0" layoutY="16.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="88.0" styleClass="transparencyBtn" />
+            <Button layoutX="160.0" layoutY="16.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="90.0" styleClass="nonHovertransparencyBtn">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button layoutX="540.0" layoutY="16.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="91.0" styleClass="nonHovertransparencyBtn">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button layoutX="953.0" layoutY="17.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="91.0" styleClass="nonHovertransparencyBtn">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button layoutX="1343.0" layoutY="16.0" mnemonicParsing="false" prefHeight="93.0" prefWidth="88.0" styleClass="nonHovertransparencyBtn">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </Pane>
-      <Button layoutX="1436.0" layoutY="81.0" mnemonicParsing="false" styleClass="transparencyBtn">
+      <Button layoutX="1436.0" layoutY="81.0" mnemonicParsing="false" styleClass="nonHovertransparencyBtn">
          <graphic>
             <ImageView fitHeight="53.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -48,6 +64,9 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <ImageView fitHeight="82.0" fitWidth="145.0" layoutX="154.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>

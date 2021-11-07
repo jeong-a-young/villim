@@ -28,6 +28,13 @@ public class Main_Controller {
 		methodUtil.changeScene("/view/Start_Layout.fxml", changeStartBtn);
 	}
 	
+	@FXML
+	private Button changeMainBtn;
+	
+	public void changeMain() {
+		methodUtil.changeScene("/view/Main_Layout.fxml", changeMainBtn);
+	}
+	
 	// 1. Join
 	
 	// 회원가입 화면 전환
@@ -223,6 +230,7 @@ public class Main_Controller {
 			System.out.println("확인 실패");
 		}
 	}
+	
 	// 2. Login
 	
 	// 로그인 화면 전환
