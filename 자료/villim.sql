@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-11-03 01:58
+-- 생성 시간: 21-11-09 04:26
 -- 서버 버전: 10.4.20-MariaDB
--- PHP 버전: 7.4.21
+-- PHP 버전: 7.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,7 +48,7 @@ CREATE TABLE `users` (
   `password` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `tree` int(100) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `theme` varchar(100) NOT NULL DEFAULT 'white'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
