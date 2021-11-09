@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Main_Controller">
    <children>
@@ -38,12 +37,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="join_id" layoutX="591.0" layoutY="296.0" prefHeight="57.0" prefWidth="420.0" promptText="한글 또는 띄어쓰기를 쓸 수 없습니다">
+      <TextField fx:id="join_id" layoutX="591.0" layoutY="296.0" prefHeight="57.0" prefWidth="420.0" promptText="한글 또는 띄어쓰기를 사용할 수 없습니다.">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="join_pass" layoutX="590.0" layoutY="372.0" onKeyReleased="#join_pass_check" prefHeight="57.0" prefWidth="420.0" promptText="8자를 넘고 특수문자를 포함해야합니다 한글 사용 불가능">
+      <PasswordField fx:id="join_pass" layoutX="590.0" layoutY="372.0" onKeyReleased="#join_pass_check" prefHeight="57.0" prefWidth="420.0" promptText="8자를 넘고 특수문자를 포함해야합니다.">
          <font>
             <Font size="15.0" />
          </font>
@@ -53,7 +52,7 @@
             <Font size="17.0" />
          </font>
       </PasswordField>
-      <TextField fx:id="join_name" layoutX="591.0" layoutY="546.0" prefHeight="57.0" prefWidth="420.0" promptText="최대 8자까지 입력 가능합니다.">
+      <TextField fx:id="join_name" layoutX="591.0" layoutY="546.0" prefHeight="57.0" prefWidth="420.0" promptText="8자를 넘을 수 없습니다.">
          <font>
             <Font size="17.0" />
          </font>
@@ -72,6 +71,5 @@
             </ImageView>
          </children>
       </Pane>
-      <Text fill="#949494" layoutX="590.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="한글 및 띄어쓰기를 사용할 수 없고 8자를 넘으며 특수문자를 포함해야합니다" textAlignment="CENTER" wrappingWidth="419.9999809265137" />
    </children>
 </AnchorPane>
