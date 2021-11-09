@@ -173,7 +173,6 @@ public class Main_Controller {
 		String joinPassOk = join_pass_ok.getText();
 		if(joinPass.equals(joinPassOk) && !joinPass.isEmpty()) {
 			checkPWImage.setImage(new Image("/resources/checkMark.png"));
-			
 			System.out.println("확인 성공");
 		}else if (joinPass.equals(joinPassOk) && joinPass.isEmpty()){
 			checkPWImage.setImage(new Image("/resources/xMark.png"));
