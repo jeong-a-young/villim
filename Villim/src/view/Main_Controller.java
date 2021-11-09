@@ -82,7 +82,7 @@ public class Main_Controller {
 		System.out.println("아이디에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
 //		errorTitle.setText("[ ERROR ]")
 	    }
-	    else if (join_pass.getText().length() > 8) {
+	    else if (join_name.getText().length() > 8) {
 //			errorScreen.setVisible(true);
 //			startScreen.setDisable(true);
 //			errorScreenMsg.setText("비밀번호는 8자가 넘어야 합니다");
