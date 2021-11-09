@@ -75,7 +75,21 @@ public class Main_Controller {
 	private void signUp() {
 		// button event
 		System.out.println(join_pass.getText() + " and " + join_pass_ok.getText());
-		if (!join_pass.getText().equals(join_pass_ok.getText()) || join_pass.getText().isEmpty()) {
+	    if (join_id.getText().matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*") || join_id.getText().contains(" ")) {
+//		errorScreen.setVisible(true);
+//		startScreen.setDisable(true);
+//		errorScreenMsg.setText("비밀번호에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
+		System.out.println("아이디에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
+//		errorTitle.setText("[ ERROR ]")
+	    }
+	    else if (join_name.getText().length() > 8) {
+//			errorScreen.setVisible(true);
+//			startScreen.setDisable(true);
+//			errorScreenMsg.setText("비밀번호는 8자가 넘어야 합니다");
+			System.out.println("닉네임은 8자를 넘을 수 없습니다");
+//			errorTitle.setText("[ ERROR ]");
+	    }
+		else if (!join_pass.getText().equals(join_pass_ok.getText()) || join_pass.getText().isEmpty()) {
 //			errorScreen.setVisible(true);
 //			startScreen.setDisable(true);
 //			errorScreenMsg.setText("비밀번호 확인을 다시 해주세요");
