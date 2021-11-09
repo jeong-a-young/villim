@@ -195,6 +195,10 @@ public class Main_Controller {
 	
 	// 3. Main
 	
+	// 게시물 작성
+	
+	// 채팅
+	
 	// 게시물 목록
 	@FXML
 	private Button changePostListBtn;
@@ -204,6 +208,14 @@ public class Main_Controller {
 	public void changePostList() {
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changePostListBtn);
 		postListCount++;
+	}
+	
+	// 카테고리
+	@FXML
+	private Button changeCategoryBtn;
+	
+	public void changeCategory() {
+		methodUtil.changeScene("/view/Category_Layout.fxml", changeCategoryBtn);
 	}
 	
 	// Category
