@@ -75,15 +75,7 @@ public class Main_Controller {
 	private void signUp() {
 		// button event
 		System.out.println(join_pass.getText() + " and " + join_pass_ok.getText());
-		if (join_email.getText().matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*") || join_email.getText().isEmpty()
-				|| !join_email.getText().contains("@")) {
-			//errorScreen.setVisible(true);
-			//startScreen.setDisable(true);
-			//errorScreenMsg.setText("이메일이 잘못되었습니다 확인을 다시 해주세요");
-			System.out.println("이메일이 잘못되었습니다 확인을 다시 해주세요");
-			//errorTitle.setText("[ ERROR ]");
-		}
-		else if (!join_pass.getText().equals(join_pass_ok.getText()) || join_pass.getText().isEmpty()) {
+		if (!join_pass.getText().equals(join_pass_ok.getText()) || join_pass.getText().isEmpty()) {
 //			errorScreen.setVisible(true);
 //			startScreen.setDisable(true);
 //			errorScreenMsg.setText("비밀번호 확인을 다시 해주세요");
@@ -108,6 +100,14 @@ public class Main_Controller {
 			System.out.println("비밀번호는 특수문자를 포함해야합니다");
 //			errorTitle.setText("[ ERROR ]");
 		} 
+		else if (join_email.getText().matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*") || join_email.getText().isEmpty()
+				|| !join_email.getText().contains("@")) {
+			//errorScreen.setVisible(true);
+			//startScreen.setDisable(true);
+			//errorScreenMsg.setText("이메일이 잘못되었습니다 확인을 다시 해주세요");
+			System.out.println("이메일이 잘못되었습니다 확인을 다시 해주세요");
+			//errorTitle.setText("[ ERROR ]");
+		}
 //		else  if (checkId(email_signUp.getText())) {
 //            System.out.println("회원가입 실패");
 //            }
@@ -129,70 +129,6 @@ public class Main_Controller {
 //		}
 	}
 
-	public void join() {
-		try {
-
-			String joinId = join_id.getText();
-			String joinPass = join_pass.getText();
-			String joinEmail = join_email.getText();
-			int tree = 0;
-			
-			sql = "INSERT INTO users VALUES(?, ?, ?, ?, ?)";
-			
-			pstmt = conn.prepareStatement(sql);
-			
-
-			if(joinId != null) {
-				pstmt.setString(1, joinId);
-			}
-			if(joinPass != null) {
-				pstmt.setString(2, joinPass);
-			}
-
-			
-			try {
-				String joinName = join_name.getText();
-				
-				//작명 기준에 적합한지 확인할 때 사용하는 변수
-				int name_cnt = 0;
-				
-				//작명 기준에 적합한지 확인
-				for(byte i = 0; i < joinName.length(); i++) {
-					if((int)(joinName.charAt(i)) >= 12593 && (int)(joinName.charAt(i)) <= 12643) {
-					} else {
-						name_cnt += 1;
-					}
-				}
-				if(joinName != null && name_cnt == joinName.length() && joinName.length() <= 8) {
-					pstmt.setString(3, joinName);
-				} else {
-					alert.setTitle("메세지");
-					alert.setHeaderText(null);
-					alert.setContentText("이름을 다시 지어주세요.");
-					alert.showAndWait();
-				}
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-			
-				
-			if(tree == 0) {
-				pstmt.setInt(4, tree);
-			}
-			if(joinEmail != null) {
-				pstmt.setString(5, joinEmail);
-			}
-
-			int rs = pstmt.executeUpdate();
-			
-		    if(rs <= 1) {
-				System.out.println("회원가입 성공");
-		    }
-		    
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
 	public void join_id_check() {
 		String joinId = join_id.getText();
@@ -221,10 +157,13 @@ public class Main_Controller {
 	public void join_pass_check() {
 		String joinPass = join_pass.getText();
 		String joinPassOk = join_pass_ok.getText();
-		if(joinPass.equals(joinPassOk)) {
+		if(joinPass.equals(joinPassOk) && !joinPass.isEmpty()) {
 			checkPWImage.setImage(new Image("/resources/checkMark.png"));
 			
 			System.out.println("확인 성공");
+		}else if (joinPass.equals(joinPassOk) && joinPass.isEmpty()){
+			checkPWImage.setImage(new Image("/resources/xMark.png"));
+			System.out.println("확인 실패");
 		} else {
 			checkPWImage.setImage(new Image("/resources/xMark.png"));
 			System.out.println("확인 실패");
