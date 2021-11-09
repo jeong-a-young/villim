@@ -193,6 +193,19 @@ public class Main_Controller {
 		methodUtil.changeScene("/view/Login_Layout.fxml", changeLoginBtn);
 	}
 	
+	// 3. Main
+	
+	// 게시물 목록
+	@FXML
+	private Button changePostListBtn;
+	
+	int postListCount = 0;
+	
+	public void changePostList() {
+		methodUtil.changeScene("/view/PostList_Layout.fxml", changePostListBtn);
+		postListCount++;
+	}
+	
 	// Category
 	
 	// 의상, 소품
