@@ -185,10 +185,6 @@ public class Main_Controller {
 
 	// 3. Main
 	
-	// 게시물 작성
-	
-	// 채팅
-	
 	// 게시물 목록
 	@FXML
 	private Button changePostListBtn;

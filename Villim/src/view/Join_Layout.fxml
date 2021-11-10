@@ -27,27 +27,27 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="join_button" layoutX="712.0" layoutY="771.0" mnemonicParsing="false" onAction="#signUp" prefHeight="56.0" prefWidth="176.0" styleClass="transparencyBtn">
+      <Button fx:id="join_button" layoutX="712.0" layoutY="758.0" mnemonicParsing="false" onAction="#signUp" prefHeight="56.0" prefWidth="176.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="join_id" layoutX="591.0" layoutY="296.0" prefHeight="57.0" prefWidth="420.0" promptText="한글 또는 띄어쓰기를 사용할 수 없습니다.">
+      <TextField fx:id="join_id" layoutX="591.0" layoutY="294.0" prefHeight="57.0" prefWidth="420.0" promptText="한글 또는 띄어쓰기를 사용할 수 없습니다.">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="join_pass" layoutX="590.0" layoutY="372.0" onKeyReleased="#join_pass_check" prefHeight="57.0" prefWidth="420.0" promptText="8자를 넘고 특수문자를 포함해야합니다.">
+      <PasswordField fx:id="join_pass" layoutX="590.0" layoutY="373.0" onKeyReleased="#join_pass_check" prefHeight="57.0" prefWidth="420.0" promptText="특수문자를 포함해 8자 이상이여야 합니다.">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="join_pass_ok" layoutX="591.0" layoutY="450.0" onKeyReleased="#join_pass_check" prefHeight="57.0" prefWidth="420.0">
+      <PasswordField fx:id="join_pass_ok" layoutX="591.0" layoutY="452.0" onKeyReleased="#join_pass_check" prefHeight="57.0" prefWidth="420.0">
          <font>
             <Font size="17.0" />
          </font>
       </PasswordField>
-      <TextField fx:id="join_name" layoutX="591.0" layoutY="546.0" prefHeight="57.0" prefWidth="420.0" promptText="8자를 넘을 수 없습니다.">
+      <TextField fx:id="join_name" layoutX="591.0" layoutY="544.0" prefHeight="57.0" prefWidth="420.0" promptText="8자를 넘지 않아야 합니다.">
          <font>
             <Font size="17.0" />
          </font>
@@ -61,5 +61,19 @@
             </ImageView>
          </children>
       </Pane>
+      <Pane layoutX="584.0" layoutY="508.0" prefHeight="35.0" prefWidth="161.0">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/passwordCheckLabel.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TextField fx:id="join_email" layoutX="590.0" layoutY="627.0" prefHeight="57.0" prefWidth="420.0" promptText="8자를 넘지 않아야 합니다.">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
