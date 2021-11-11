@@ -5,19 +5,25 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import database.JDBCUtill;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import util.MethodUtil;
 
 public class Main_Controller {
-
+	//시작 화면
+	@FXML
+	public Pane alertPane_Start;
+	@FXML
+	public Text alertText_Start;
 	MethodUtil methodUtil = new MethodUtil();
 
 	// 0.
@@ -35,15 +41,6 @@ public class Main_Controller {
 		methodUtil.changeScene("/view/Main_Layout.fxml", changeMainBtn);
 	}
 
-	// 1. Join
-
-	// 회원가입 화면 전환
-	@FXML
-	private Button changeJoinBtn;
-
-	public void changeJoin() {
-		methodUtil.changeScene("/view/Join_Layout.fxml", changeJoinBtn);
-	}
 
 	// 회원가입
 	@FXML
@@ -66,7 +63,6 @@ public class Main_Controller {
 	PreparedStatement pstmt = null;
 	String sql = "";
 	Connection conn = JDBCUtill.getConnection();
-	Alert alert = new Alert(AlertType.WARNING);
 
 //이 메소드는 완성이 안됨 건들지 마셈	
 	@FXML
@@ -109,15 +105,25 @@ public class Main_Controller {
 //			errorScreenMsg.setText("비밀번호는 특수문자를 포함해야합니다");
 			System.out.println("비밀번호는 특수문자를 포함해야합니다");
 //			errorTitle.setText("[ ERROR ]");
-		} else if (join_id_check()) {
+		} else if (false/* join_id_check() */) {
 //			errorScreen.setVisible(true);
 //			startScreen.setDisable(true);
 //			errorScreenMsg.setText("비밀번호에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
 			System.out.println("아이디에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
 //			errorTitle.setText("[ ERROR ]")
+		} else if (!join_email.getText().contains("@")) {
+//			errorScreen.setVisible(true);
+//			startScreen.setDisable(true);
+//			errorScreenMsg.setText("비밀번호에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
+			System.out.println("이메일이 잘못되었습니다");
+//			errorTitle.setText("[ ERROR ]")
 		} else {
-
+			changeLoginAfterJoin(join_button, "회원가입을 완료하였습니다");
 		}
+	}
+
+	public void successLogin() {
+
 	}
 
 	public boolean join_id_check() {
@@ -161,159 +167,169 @@ public class Main_Controller {
 	// 2. Login
 
 	// 로그인 화면 전환
-	@FXML
-	private Button changeLoginBtn;
 
-	public void changeLogin() {
-	//	sql = "insert into UserLoginData values('" + email_signUp.getText() + "','" + pw_signUp.getText()
-		//		+ "','','','#ff9200')";
+
+	// 회원가입 완료 후 로그인 화면 넘어가기
+	@FXML
+	public Pane alertPane_Login;
+	@FXML
+	public Text alertText_Login;
+
+	public void changeLoginAfterJoin(Button button, String text) {
+		// sql = "insert into UserLoginData values('" + email_signUp.getText() + "','" +
+		// pw_signUp.getText()
+		// + "','','','#ff9200')";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
 			System.out.println("성공");
-//			errorScreen.setVisible(true);
-//			startScreen.setDisable(true);
-//			errorScreenMsg.setText("회원가입이 완료되었습니다");
-//			errorTitle.setText("[ ALERT ]");
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("실패");
 		}
-		methodUtil.changeScene("/view/Login_Layout.fxml", changeLoginBtn);
+		methodUtil.changeScene("/view/Login_Layout.fxml", button);
+		alertText_Login.setText(text);
+		new Timer().schedule(new TimerTask() {
+			@Override
+			public void run() {
+				for (int i = -50; i <= 0; i++) {
+					alertPane_Login.setLayoutY(i * 2);
+				}
+			}
+		}, 0, 50);
 	}
 
-	// 3. Main
 	
+	// 3. Main
 	// 게시물 목록
 	@FXML
 	private Button changePostListBtn;
-	
+
 	int postListCount = 0;
-	
+
 	public void changePostList() {
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changePostListBtn);
 		postListCount++;
 	}
-	
+
 	// 카테고리
 	@FXML
 	private Button changeCategoryBtn;
-	
+
 	public void changeCategory() {
 		methodUtil.changeScene("/view/Category_Layout.fxml", changeCategoryBtn);
 	}
-	
+
 	// Category
-	
+
 	// 의상, 소품
 	@FXML
 	private Button changeClothesBtn;
-	
+
 	int clothesCount = 0;
-	
+
 	public void changeClothes() {
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeClothesBtn);
 		clothesCount++;
 	}
-	
+
 	// 음반, 악기
 	@FXML
 	private Button changeInstrumentBtn;
-	
+
 	int instrumentCount = 0;
-	
+
 	public void changeInstrument() {
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeInstrumentBtn);
 		instrumentCount++;
 	}
-	
+
 	// 전자기기
 	@FXML
 	private Button changeElectronicsBtn;
-	
+
 	int electronicsCount = 0;
-	
+
 	public void changeElectronics() {
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeElectronicsBtn);
 		electronicsCount++;
 	}
-	
+
 	// 헬스, 요가
 	@FXML
 	private Button changeHealthBtn;
-	
+
 	int healthCount = 0;
-	
+
 	public void changeHealth() {
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeHealthBtn);
 		healthCount++;
 	}
-	
+
 	// 스포츠, 레저
 	@FXML
 	private Button changeSportsBtn;
-	
+
 	int sportsCount = 0;
-	
+
 	public void changeSports() {
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeSportsBtn);
 		sportsCount++;
 	}
-	
+
 	// 등산, 낚시, 캠핑
 	@FXML
 	private Button changeCampingBtn;
-	
+
 	int campingCount = 0;
-	
+
 	public void changeCamping() {
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeCampingBtn);
 		campingCount++;
 	}
-	
+
 	// 도서, 문구
 	@FXML
 	private Button changeBookBtn;
-	
+
 	int bookCount = 0;
-	
+
 	public void changeBook() {
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeBookBtn);
 		bookCount++;
 	}
-	
+
 	// 유아 용품
 	@FXML
 	private Button changeKidsBtn;
-	
+
 	int kidsCount = 0;
-	
+
 	public void changeKids() {
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeKidsBtn);
 		kidsCount++;
 	}
-	
+
 	// 반려동물 용품
 	@FXML
 	private Button changeAnimalBtn;
-	
+
 	int animalCount = 0;
-	
+
 	public void changeAnimal() {
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeAnimalBtn);
 		animalCount++;
 	}
-	
+
 	// 기타
 	@FXML
 	private Button changeEtcBtn;
-	
+
 	int etcCount = 0;
-	
+
 	public void changeEtc() {
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeEtcBtn);
 		etcCount++;
 	}
-	
+
 }
