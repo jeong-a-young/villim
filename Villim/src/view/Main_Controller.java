@@ -59,12 +59,6 @@ public class Main_Controller {
 	private TextField join_email;
 	@FXML
 	private Button join_button;
-	@FXML
-	private TextField write_title;
-	@FXML
-	private TextArea write_content;
-	@FXML
-	private Button write_success;
 
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
