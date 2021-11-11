@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #ffffff;" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #ffffff;" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Main_Controller">
    <children>
       <Button layoutX="33.0" layoutY="33.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="155.0" styleClass="grayBtn" text="이전">
          <font>
@@ -25,7 +25,7 @@
             <Font size="70.0" />
          </font>
       </Label>
-      <TextField layoutX="310.0" layoutY="226.0" prefHeight="62.0" prefWidth="772.0" promptText="제목을 입력해 주세요.">
+      <TextField fx:id="write_title" layoutX="310.0" layoutY="226.0" prefHeight="62.0" prefWidth="772.0" promptText="제목을 입력해 주세요.">
          <font>
             <Font size="20.0" />
          </font>
@@ -47,7 +47,7 @@
             <Font size="20.0" />
          </font>
       </MenuButton>
-      <TextArea layoutX="310.0" layoutY="310.0" prefHeight="447.0" prefWidth="997.0" promptText="내용을 입력해 주세요.">
+      <TextArea fx:id="write_content" layoutX="310.0" layoutY="310.0" prefHeight="447.0" prefWidth="997.0" promptText="내용을 입력해 주세요.">
          <font>
             <Font size="20.0" />
          </font>
@@ -60,7 +60,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button id="blueBtn" layoutX="1372.0" layoutY="803.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="155.0" text="작성" textFill="WHITE">
+      <Button id="blueBtn" fx:id="write_success" layoutX="1372.0" layoutY="803.0" mnemonicParsing="false" onAction="#writePost" prefHeight="52.0" prefWidth="155.0" text="작성" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
