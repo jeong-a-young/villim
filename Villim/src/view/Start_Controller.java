@@ -24,6 +24,8 @@ public class Start_Controller implements Initializable {
 //		Thread thread = new myThread();
 //        thread.start();
 	}
+	//https://stackoverflow.com/questions/6409262/when-wil-the-new-thread-without-reference-be-garbage-collected
+	//https://www.google.com/search?q=new+Thread+no+class&oq=new+Thread+no+class&aqs=chrome..69i57.6174j0j1&sourceid=chrome&ie=UTF-8
 //	public class myThread extends Thread {
 //		@Override
 //		public void run() {
