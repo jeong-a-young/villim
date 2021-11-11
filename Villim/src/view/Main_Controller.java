@@ -11,6 +11,7 @@ import java.util.TimerTask;
 import database.JDBCUtill;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -58,6 +59,12 @@ public class Main_Controller {
 	private TextField join_email;
 	@FXML
 	private Button join_button;
+	@FXML
+	private TextField write_title;
+	@FXML
+	private TextArea write_content;
+	@FXML
+	private Button write_success;
 
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
