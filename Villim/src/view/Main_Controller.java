@@ -20,7 +20,7 @@ import javafx.scene.text.Text;
 import util.MethodUtil;
 
 public class Main_Controller {
-	//시작 화면
+	// 시작 화면
 	@FXML
 	public Pane alertPane_Start;
 	@FXML
@@ -41,7 +41,6 @@ public class Main_Controller {
 	public void changeMain() {
 		methodUtil.changeScene("/view/Main_Layout.fxml", changeMainBtn);
 	}
-
 
 	// 회원가입
 	@FXML
@@ -169,7 +168,6 @@ public class Main_Controller {
 
 	// 로그인 화면 전환
 
-
 	// 회원가입 완료 후 로그인 화면 넘어가기
 	@FXML
 	public Pane alertPane_Login;
@@ -200,137 +198,60 @@ public class Main_Controller {
 		}, 0, 50);
 	}
 
-	
 	// 3. Main
+
+	// 검색
+	@FXML
+	private TextField searchTextField;
+	@FXML
+	private Button searchBtn;
+
+	public void search() {
+		String searchContent = searchTextField.getText();
+
+		// 검색 버튼 누르면 화면 전환하기
+		methodUtil.changeScene("/view/Search_Layout.fxml", searchBtn);
+	}
+
+	// 버튼 화면 전환
+	// 게시물 작성
+	@FXML
+	private Button changeWritePostBtn;
+
+	public void changeWritePost() {
+		methodUtil.changeScene("/view/WritePost_Layout.fxml", changeWritePostBtn);
+	}
+
+	// 채팅
+	@FXML
+	private Button changeChattingBtn;
+
+	public void changeChatting() {
+		methodUtil.changeScene("/view/Chatting_Layout.fxml", changeChattingBtn);
+	}
+
 	// 게시물 목록
 	@FXML
 	private Button changePostListBtn;
 
-	int postListCount = 0;
+	public static int postListCount = 0;
+	public static int postListChangeCount = 0;
 
 	public void changePostList() {
-		methodUtil.changeScene("/view/PostList_Layout.fxml", changePostListBtn);
 		postListCount++;
+		postListChangeCount++;
+		methodUtil.changeScene("/view/PostList_Layout.fxml", changePostListBtn);
 	}
 
 	// 카테고리
 	@FXML
 	private Button changeCategoryBtn;
 
+	public static int categoryChangeCount = 0;
+
 	public void changeCategory() {
+		categoryChangeCount++;
 		methodUtil.changeScene("/view/Category_Layout.fxml", changeCategoryBtn);
-	}
-
-	// Category
-
-	// 의상, 소품
-	@FXML
-	private Button changeClothesBtn;
-
-	int clothesCount = 0;
-
-	public void changeClothes() {
-		methodUtil.changeScene("/view/PostList_Layout.fxml", changeClothesBtn);
-		clothesCount++;
-	}
-
-	// 음반, 악기
-	@FXML
-	private Button changeInstrumentBtn;
-
-	int instrumentCount = 0;
-
-	public void changeInstrument() {
-		methodUtil.changeScene("/view/PostList_Layout.fxml", changeInstrumentBtn);
-		instrumentCount++;
-	}
-
-	// 전자기기
-	@FXML
-	private Button changeElectronicsBtn;
-
-	int electronicsCount = 0;
-
-	public void changeElectronics() {
-		methodUtil.changeScene("/view/PostList_Layout.fxml", changeElectronicsBtn);
-		electronicsCount++;
-	}
-
-	// 헬스, 요가
-	@FXML
-	private Button changeHealthBtn;
-
-	int healthCount = 0;
-
-	public void changeHealth() {
-		methodUtil.changeScene("/view/PostList_Layout.fxml", changeHealthBtn);
-		healthCount++;
-	}
-
-	// 스포츠, 레저
-	@FXML
-	private Button changeSportsBtn;
-
-	int sportsCount = 0;
-
-	public void changeSports() {
-		methodUtil.changeScene("/view/PostList_Layout.fxml", changeSportsBtn);
-		sportsCount++;
-	}
-
-	// 등산, 낚시, 캠핑
-	@FXML
-	private Button changeCampingBtn;
-
-	int campingCount = 0;
-
-	public void changeCamping() {
-		methodUtil.changeScene("/view/PostList_Layout.fxml", changeCampingBtn);
-		campingCount++;
-	}
-
-	// 도서, 문구
-	@FXML
-	private Button changeBookBtn;
-
-	int bookCount = 0;
-
-	public void changeBook() {
-		methodUtil.changeScene("/view/PostList_Layout.fxml", changeBookBtn);
-		bookCount++;
-	}
-
-	// 유아 용품
-	@FXML
-	private Button changeKidsBtn;
-
-	int kidsCount = 0;
-
-	public void changeKids() {
-		methodUtil.changeScene("/view/PostList_Layout.fxml", changeKidsBtn);
-		kidsCount++;
-	}
-
-	// 반려동물 용품
-	@FXML
-	private Button changeAnimalBtn;
-
-	int animalCount = 0;
-
-	public void changeAnimal() {
-		methodUtil.changeScene("/view/PostList_Layout.fxml", changeAnimalBtn);
-		animalCount++;
-	}
-
-	// 기타
-	@FXML
-	private Button changeEtcBtn;
-
-	int etcCount = 0;
-
-	public void changeEtc() {
-		methodUtil.changeScene("/view/PostList_Layout.fxml", changeEtcBtn);
-		etcCount++;
 	}
 
 }

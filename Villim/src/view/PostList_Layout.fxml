@@ -2,8 +2,7 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,7 +11,7 @@
 
 <AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #ffffff;" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PostList_Controller">
    <children>
-      <Button fx:id="changeCategoryBtn" layoutX="33.0" layoutY="33.0" mnemonicParsing="false" onAction="#changeCategory" prefHeight="52.0" prefWidth="155.0" styleClass="grayBtn" text="이전">
+      <Button fx:id="changeBackBtn" layoutX="33.0" layoutY="33.0" mnemonicParsing="false" onAction="#changeBack" prefHeight="52.0" prefWidth="155.0" styleClass="grayBtn" text="이전">
          <font>
             <Font size="20.0" />
          </font>
@@ -20,31 +19,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <MenuButton layoutX="1398.0" layoutY="118.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="175.0" styleClass="grayMenuBtn" text="카테고리">
-        <items>
-            <MenuItem mnemonicParsing="false" text="전체" />
-          <MenuItem mnemonicParsing="false" text="내가 작성한 글" />
-          <MenuItem mnemonicParsing="false" text="찜 목록" />
-            <MenuItem mnemonicParsing="false" text="의상 / 소품" />
-            <MenuItem mnemonicParsing="false" text="음반 / 악기" />
-            <MenuItem mnemonicParsing="false" text="전자기기" />
-            <MenuItem mnemonicParsing="false" text="헬스 / 요가" />
-            <MenuItem mnemonicParsing="false" text="스포츠 / 레저" />
-            <MenuItem mnemonicParsing="false" text="등산 / 낚시 / 캠핑" />
-            <MenuItem mnemonicParsing="false" text="도서 / 문구" />
-            <MenuItem mnemonicParsing="false" text="유아 용품" />
-            <MenuItem mnemonicParsing="false" text="반려동물 용품" />
-            <MenuItem mnemonicParsing="false" text="기타" />
-        </items>
-         <font>
-            <Font size="20.0" />
-         </font>
-      </MenuButton>
       <Pagination layoutX="-1.0" layoutY="188.0" prefHeight="669.0" prefWidth="1602.0" />
-      <ImageView fx:id="labelImageView" fitHeight="108.0" fitWidth="203.0" layoutX="750.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="titleImageView" fitHeight="108.0" fitWidth="203.0" layoutX="737.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/allLabel.png" />
          </image>
       </ImageView>
+      <ComboBox fx:id="category" layoutX="1362.0" layoutY="116.0" onAction="#setComboLabel" prefHeight="44.0" prefWidth="202.0" styleClass="grayComboBox" />
    </children>
 </AnchorPane>
