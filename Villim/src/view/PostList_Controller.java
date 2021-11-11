@@ -38,8 +38,7 @@ public class PostList_Controller implements Initializable {
 	private ImageView labelImageView;
 
 	public void setLabel() {
-
-		System.out.println(instrumentCount);
+		
 		// 의상, 소품
 		if (clothesCount == 1) {
 			labelImageView.setImage(new Image("/resources/clothesLabel.png"));
@@ -99,7 +98,6 @@ public class PostList_Controller implements Initializable {
 			labelImageView.setImage(new Image("/resources/etcLabel.png"));
 			etcCount = 0;
 		}
-		
 	}
 
 	// 의상, 소품
