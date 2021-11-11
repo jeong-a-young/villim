@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-11-09 04:26
--- 서버 버전: 10.4.20-MariaDB
--- PHP 버전: 7.4.22
+-- 생성 시간: 21-11-11 07:06
+-- 서버 버전: 10.3.16-MariaDB
+-- PHP 버전: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,10 +31,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `post` (
   `title` varchar(30) NOT NULL,
   `content` varchar(300) NOT NULL,
-  `price` int(100) NOT NULL,
   `category` varchar(100) NOT NULL,
   `recommend` int(100) NOT NULL DEFAULT 0,
-  `registration` date NOT NULL,
+  `registration` varchar(100) NOT NULL,
   `writer_id` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

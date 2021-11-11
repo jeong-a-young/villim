@@ -5,12 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import database.JDBCUtill;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -61,6 +64,12 @@ public class Main_Controller {
 	private TextField join_email;
 	@FXML
 	private Button join_button;
+	@FXML
+	private TextField write_title;
+	@FXML
+	private TextArea write_content;
+	@FXML
+	private Button write_success;
 
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
@@ -181,6 +190,42 @@ public class Main_Controller {
 			System.out.println("실패");
 		}
 		methodUtil.changeScene("/view/Login_Layout.fxml", changeLoginBtn);
+	}
+
+	public void writePost() {
+		
+		try {
+			String title = write_title.getText();
+			String content = write_content.getText();
+			int recommend = 0;
+			String category = "";
+			String writer_id = "정은교";
+			System.out.println(title + content);
+			Date date_now = new Date(System.currentTimeMillis());
+			SimpleDateFormat fourteen_format = new SimpleDateFormat("yyyy년 MM월 dd일");
+			String now = fourteen_format.format(date_now);
+			
+			sql = "INSERT INTO post VALUES(?, ?, ?, ?, ?, ?)";
+			
+			pstmt = conn.prepareStatement(sql);
+			if(title == "") {
+				pstmt.setString(1, title);
+			}
+			if(content == "") {
+				pstmt.setString(2, content);
+			}
+			pstmt.setString(3, category);
+			pstmt.setInt(4, recommend);
+			pstmt.setString(5, now);
+			pstmt.setString(6, writer_id);
+			
+			int r = pstmt.executeUpdate();
+			System.out.println("작성 성공 " + r);
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("작성 실패");
+		}
+		
 	}
 
 	// 3. Main
