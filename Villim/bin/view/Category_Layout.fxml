@@ -18,52 +18,52 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="67.0" layoutY="251.0" mnemonicParsing="false" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+      <Button fx:id="changeClothesBtn" layoutX="67.0" layoutY="251.0" mnemonicParsing="false" onAction="#changeClothes" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="374.0" layoutY="251.0" mnemonicParsing="false" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+      <Button fx:id="changeInstrumentBtn" layoutX="374.0" layoutY="251.0" mnemonicParsing="false" onAction="#changeInstrument" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="680.0" layoutY="251.0" mnemonicParsing="false" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+      <Button fx:id="changeElectronicsBtn" layoutX="680.0" layoutY="251.0" mnemonicParsing="false" onAction="#changeElectronics" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="991.0" layoutY="251.0" mnemonicParsing="false" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+      <Button fx:id="changeHealthBtn" layoutX="991.0" layoutY="251.0" mnemonicParsing="false" onAction="#changeHealth" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1296.0" layoutY="251.0" mnemonicParsing="false" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+      <Button fx:id="changeSportsBtn" layoutX="1296.0" layoutY="251.0" mnemonicParsing="false" onAction="#changeSports" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="67.0" layoutY="553.0" mnemonicParsing="false" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+      <Button fx:id="changeCampingBtn" layoutX="67.0" layoutY="553.0" mnemonicParsing="false" onAction="#changeCamping" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="373.0" layoutY="553.0" mnemonicParsing="false" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+      <Button fx:id="changeBookBtn" layoutX="373.0" layoutY="553.0" mnemonicParsing="false" onAction="#changeBook" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="681.0" layoutY="553.0" mnemonicParsing="false" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+      <Button fx:id="changeKidsBtn" layoutX="681.0" layoutY="553.0" mnemonicParsing="false" onAction="#changeKids" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="991.0" layoutY="553.0" mnemonicParsing="false" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+      <Button fx:id="changeAnimalBtn" layoutX="991.0" layoutY="553.0" mnemonicParsing="false" onAction="#changeAnimal" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1296.0" layoutY="553.0" mnemonicParsing="false" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+      <Button fx:id="changeEtcBtn" layoutX="1296.0" layoutY="553.0" mnemonicParsing="false" onAction="#changeEtc" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
