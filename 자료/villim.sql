@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-11-11 07:06
+-- 생성 시간: 21-11-11 08:00
 -- 서버 버전: 10.3.16-MariaDB
 -- PHP 버전: 7.3.7
 
@@ -37,6 +37,14 @@ CREATE TABLE `post` (
   `writer_id` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 테이블의 덤프 데이터 `post`
+--
+
+INSERT INTO `post` (`title`, `content`, `category`, `recommend`, `registration`, `writer_id`) VALUES
+('', '', '글씨', 0, '2021년 11월 11일', '정은교'),
+('', '', '글씨', 0, '2021년 11월 11일', '정은교');
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +56,7 @@ CREATE TABLE `users` (
   `password` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `tree` int(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `theme` varchar(100) NOT NULL DEFAULT 'white'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
