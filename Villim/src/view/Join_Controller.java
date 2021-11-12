@@ -20,32 +20,40 @@ import util.MethodUtil;
 
 public class Join_Controller {
 	//알림창
-		@FXML
-		public Pane alertPane;
-		@FXML
-		public Text alertText;
-		public void alert(String text) {
-			alertText.setText(text);
-			Thread t = new Thread()
-			{
-			    public void run() {
-					try {
-						Thread.sleep(500);
-			    	for (int i = -60; i <= 0; i++) {
-						alertPane.setLayoutY(i);
-						Thread.sleep(10);
-					}
-					} catch (Exception e) {
-						System.out.println("alert_Join 쓰레드 오류: " + e);
-					}
-			    	
-			    }
-			};
-			if (t.isAlive()) {
-				return;
-			}
-			t.start();
+	@FXML
+	public Pane alertPane;
+	@FXML
+	public Text alertText;
+	public boolean isAliveThread;
+	public void alert(String text) {
+		Thread t = new Thread(){
+		    public void run() {
+				try {
+					isAliveThread = true;
+					Thread.sleep(500);
+		    	for (int i = -15; i <= 0; i++) {
+					alertPane.setLayoutY(i*4);
+					Thread.sleep(20);
+				}
+		    	Thread.sleep(2000);
+		    	for (int i = 0; i >= -15; i--) {
+					alertPane.setLayoutY(i*4);
+					Thread.sleep(20);
+				}
+		    	isAliveThread = false;
+				} catch (Exception e) {
+					System.out.println(getClass().getName()+" 쓰레드 오류: " + e);
+				}
+		    	
+		    }
+		};
+		alertText.setText(text);
+		if (isAliveThread) {
+			return;
 		}
+		t.start();
+	}
+	
 		// 시작 화면
 		@FXML
 		public Pane alertPane_Start;

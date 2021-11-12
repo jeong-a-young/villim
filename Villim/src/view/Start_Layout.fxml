@@ -31,10 +31,10 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Pane fx:id="alertPane_Start" layoutY="-60.0" prefHeight="60.0" prefWidth="1600.0">
+      <Pane fx:id="alertPane" layoutY="-60.0" prefHeight="60.0" prefWidth="1600.0">
          <children>
             <Pane opacity="0.8" prefHeight="60.0" prefWidth="1600.0" style="-fx-background-color: #1187CF;" />
-            <Text fx:id="alertText_Start" fill="#fafafa" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="반갑습니다" textAlignment="CENTER" wrappingWidth="1600.0">
+            <Text fx:id="alertText" fill="#fafafa" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="반갑습니다" textAlignment="CENTER" wrappingWidth="1600.0">
                <font>
                   <Font size="40.0" />
                </font>
