@@ -56,7 +56,7 @@ public class WritePost_Controller implements Initializable {
 			String title = write_title.getText();
 			String content = write_content.getText();
 			int recommend = 0;
-			String category = "";
+			String category = selectCategory;
 			String writer_id = "정은교";
 			System.out.println(title + content);
 			Date date_now = new Date(System.currentTimeMillis());

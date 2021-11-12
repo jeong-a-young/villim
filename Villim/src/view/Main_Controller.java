@@ -67,6 +67,9 @@ public class Main_Controller {
 //이 메소드는 완성이 안됨 건들지 마셈	
 	@FXML
 	private void signUp() {
+		sql = "INSERT INTO post VALUES(?, ?, ?, ?, ?, ?)";
+		int tree = 0;
+		String theme = "white";
 		// button event
 		System.out.println(join_pass.getText() + " and " + join_pass_ok.getText());
 		if (join_id.getText().matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*") || join_id.getText().contains(" ")) {
@@ -75,6 +78,7 @@ public class Main_Controller {
 //		errorScreenMsg.setText("비밀번호에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
 			System.out.println("아이디에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
 //		errorTitle.setText("[ ERROR ]")
+			
 		} else if (join_name.getText().length() > 8) {
 //			errorScreen.setVisible(true);
 //			startScreen.setDisable(true);
@@ -119,6 +123,24 @@ public class Main_Controller {
 //			errorTitle.setText("[ ERROR ]")
 		} else {
 			changeLoginAfterJoin(join_button, "회원가입을 완료하였습니다");
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, join_id.getText());
+				pstmt.setString(2, join_pass.getText());
+				pstmt.setString(3, join_name.getText());
+				pstmt.setInt(4, tree);
+				pstmt.setString(5, join_email.getText());
+				pstmt.setString(6, theme);
+
+				int r = pstmt.executeUpdate();
+				System.out.println("회원가입 성공 " + r);
+				
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
