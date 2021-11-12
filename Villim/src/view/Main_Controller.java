@@ -206,11 +206,13 @@ public class Main_Controller {
 	@FXML
 	private Button searchBtn;
 
+	public static String searchContent = "";
+	
 	public void search() {
-		String searchContent = searchTextField.getText();
+		searchContent = searchTextField.getText();
 
 		// 검색 버튼 누르면 화면 전환하기
-		methodUtil.changeScene("/view/Search_Layout.fxml", searchBtn);
+		methodUtil.changeScene("/view/SearchList_Layout.fxml", searchBtn);
 	}
 
 	// 버튼 화면 전환

@@ -39,7 +39,7 @@
       </TextField>
       <PasswordField fx:id="join_pass" layoutX="590.0" layoutY="373.0" onKeyReleased="#join_pass_check" prefHeight="57.0" prefWidth="420.0" promptText="특수문자를 포함해 8자 이상이여야 합니다.">
          <font>
-            <Font size="15.0" />
+            <Font size="17.0" />
          </font>
       </PasswordField>
       <PasswordField fx:id="join_pass_ok" layoutX="591.0" layoutY="452.0" onKeyReleased="#join_pass_check" prefHeight="57.0" prefWidth="420.0">
