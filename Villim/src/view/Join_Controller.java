@@ -124,6 +124,7 @@ public class Join_Controller {
 			alert("이메일이 잘못되었습니다");
 		} else {
 			changeLoginAfterJoin();
+			
 		}
 	}
 
@@ -176,17 +177,28 @@ public class Join_Controller {
 
 	// 회원가입 완료 후 로그인 화면 넘어가기
 	public void changeLoginAfterJoin() {
-		// sql = "insert into UserLoginData values('" + email_signUp.getText() + "','" +
-		// pw_signUp.getText()
-		// + "','','','#ff9200')";
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.executeUpdate();
-			System.out.println("성공");
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("실패");
-		}
+//		sql = "INSERT INTO users0 VALUES(?, ?, ?, ?, ?, ?)";
+//		try {
+//			String joinId = join_id.getText();
+//			String joinPass = join_pass.getText();
+//			String joinName = join_name.getText();
+//			int tree = 0;
+//			String joinEmail = join_email.getText();
+//			String theme = "white";
+//
+//			pstmt.setString(1, joinId);
+//			pstmt.setString(2, joinPass);
+//			pstmt.setString(3, joinName);
+//			pstmt.setInt(4, tree);
+//			pstmt.setString(5, joinEmail);
+//			pstmt.setString(6, theme);
+//			pstmt = conn.prepareStatement(sql);
+//			pstmt.executeUpdate();
+//			System.out.println("성공");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			System.out.println("실패");
+//		}
 		//new Login_Controller().alert("회원가입이 완료되었습니다");
 		methodUtil.changeScene("/view/Login_Layout.fxml", join_button);
 	}
