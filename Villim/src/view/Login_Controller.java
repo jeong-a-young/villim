@@ -14,7 +14,7 @@ public class Login_Controller implements Initializable {
 	//이 클래스가 실행되면 호출되는 메소드                   ^ 이거 있어야함 ^
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		if (Main_Controller.getInstance().getCLC().equals("Login_Controller")) {
+		if (Main_Controller.getInstance().getCLC().equals("Join_Controller")) {
 			alert("회원가입을 완료하였습니다");
 		}
 		//현재 화면을 나타내는 이 프로그램 내부의 정적 변수
