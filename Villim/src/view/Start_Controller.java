@@ -20,6 +20,7 @@ public class Start_Controller implements Initializable {
 	int ii = -50;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		alert();
 //		alertText_Start.setText("반갑습니다");
 //		Thread thread = new myThread();
 //        thread.start();
@@ -35,24 +36,36 @@ public class Start_Controller implements Initializable {
 //				
 //		}
 //	}
-
-	@FXML
-	public Pane alertPane_Start;
 	MethodUtil methodUtil = new MethodUtil();
-	@FXML
-	public Text alertText_Start;
-
-	public void alert_Start() {
-		alertText_Start.setText("반갑습니다");
-		new Timer().schedule(new TimerTask() {
-			@Override
-			public void run() {
-				for (int i = -50; i <= 0; i++) {
-					alertPane_Start.setLayoutY(i * 2);
-				}
+	
+	//알림창
+			@FXML
+			public Pane alertPane;
+			@FXML
+			public Text alertText;
+			public void alert() {
+				alertText.setText("반갑습니다");
+				Thread t = new Thread()
+				{
+				    public void run() {
+						try {
+							Thread.sleep(500);
+				    	for (int i = -60; i <= 0; i++) {
+							alertPane.setLayoutY(i);
+							Thread.sleep(10);
+						}
+						} catch (Exception e) {
+							System.out.println("alert_Start 쓰레드 오류: " + e);
+						}
+				    	
+				    }
+				};
+				t.start();
 			}
-		}, 0, 50);
-	}
+	
+	
+	
+	
 	// 1. Join
 
 	// 회원가입 화면 전환
