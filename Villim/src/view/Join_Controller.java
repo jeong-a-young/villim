@@ -1,13 +1,16 @@
 package view;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 
 import database.JDBCUtill;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -16,7 +19,15 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import util.MethodUtil;
 
-public class Join_Controller {
+public class Join_Controller  implements Initializable {
+	//이 클래스가 실행되면 호출되는 메소드                   ^ 이거 있어야함 ^
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		//현재 화면을 나타내는 이 프로그램 내부의 정적 변수
+		Main_Controller.getInstance().setCLC(getClass().getSimpleName());
+		//알림 메소드
+		
+	}
 	// 알림창
 	@FXML
 	public Pane alertPane;
