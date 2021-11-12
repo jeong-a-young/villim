@@ -17,42 +17,52 @@ import javafx.scene.text.Text;
 import util.MethodUtil;
 
 public class Start_Controller implements Initializable {
-	int ii = -50;
+	//이 클래스가 실행되면 호출되는 메소드                   ^ 이거 있어야함 ^
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-//		alertText_Start.setText("반갑습니다");
-//		Thread thread = new myThread();
-//        thread.start();
+		//현재 화면을 나타내는 이 프로그램 내부의 정적 변수
+		Main_Controller.getInstance().setCLC(getClass().getSimpleName());
+		//알림 메소드
+		alert("반갑습니다!");
+		
 	}
-	//https://stackoverflow.com/questions/6409262/when-wil-the-new-thread-without-reference-be-garbage-collected
-	//https://www.google.com/search?q=new+Thread+no+class&oq=new+Thread+no+class&aqs=chrome..69i57.6174j0j1&sourceid=chrome&ie=UTF-8
-//	public class myThread extends Thread {
-//		@Override
-//		public void run() {
-//				alertPane_Start.setLayoutY(ii * 2);
-//				ii++;
-//				Thread.sleep(20);
-//				
-//		}
-//	}
 
-	@FXML
-	public Pane alertPane_Start;
 	MethodUtil methodUtil = new MethodUtil();
+	//알림창
 	@FXML
-	public Text alertText_Start;
-
-	public void alert_Start() {
-		alertText_Start.setText("반갑습니다");
-		new Timer().schedule(new TimerTask() {
-			@Override
-			public void run() {
-				for (int i = -50; i <= 0; i++) {
-					alertPane_Start.setLayoutY(i * 2);
-				}
+	public Pane alertPane;
+	@FXML
+	public Text alertText;
+	public Thread t = new Thread(){
+	    public void run() {
+			try {
+				Thread.sleep(500);
+	    	for (int i = -15; i <= 0; i++) {
+				alertPane.setLayoutY(i*4);
+				Thread.sleep(20);
 			}
-		}, 0, 50);
+	    	Thread.sleep(2000);
+	    	for (int i = 0; i >= -15; i--) {
+				alertPane.setLayoutY(i*4);
+				Thread.sleep(20);
+			}
+			} catch (Exception e) {
+				System.out.println(getClass().getName()+" 쓰레드 오류: " + e);
+			}
+	    	
+	    }
+	};
+	public void alert(String text) {
+		alertText.setText(text);
+		if (t.isAlive()) {
+			return;
+		}
+		t.start();
 	}
+	
+	
+	
+	
 	// 1. Join
 
 	// 회원가입 화면 전환
