@@ -39,6 +39,7 @@
 
 .grayComboBox {
 	-fx-background-color: #E2E2E2;
+	-fx-font-size: 15;
 	-fx-padding: 5px 5px;
 }
 
