@@ -103,6 +103,8 @@ public class Join_Controller {
 		private void signUp() {
 			// button event
 			System.out.println(join_pass.getText() + " and " + join_pass_ok.getText());
+			
+			sql = "INSERT INTO users0 VALUES(?, ?, ?, ?, ?, ?)";
 			if (join_id.getText().matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*") || join_id.getText().contains(" ")) {
 //			errorScreen.setVisible(true);
 //			startScreen.setDisable(true);
@@ -152,7 +154,33 @@ public class Join_Controller {
 				alert("이메일이 잘못되었습니다");
 //				errorTitle.setText("[ ERROR ]")
 			} else {
-				changeLoginAfterJoin(join_button, "회원가입을 완료하였습니다");
+				try {
+					String joinId = join_id.getText();
+					String joinPass = join_pass.getText();
+					String joinName = join_name.getText();
+					int tree = 0;
+					String joinEmail = join_email.getText();
+					String theme = "white";
+
+					pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, joinId);
+					pstmt.setString(2, joinPass);
+					pstmt.setString(3, joinName);
+					pstmt.setInt(4, tree);
+					pstmt.setString(5, joinEmail);
+					pstmt.setString(6, theme);
+
+					int r = pstmt.executeUpdate();
+					System.out.println("회원가입 성공 " + r);
+					
+					
+					
+				} catch (SQLException e) {
+					System.out.println("회원가입 실패");
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+//				changeLoginAfterJoin(join_button, "회원가입을 완료하였습니다");
 			}
 		}
 
@@ -208,27 +236,27 @@ public class Join_Controller {
 		@FXML
 		public Text alertText_Login;
 
-		public void changeLoginAfterJoin(Button button, String text) {
-			// sql = "insert into UserLoginData values('" + email_signUp.getText() + "','" +
-			// pw_signUp.getText()
-			// + "','','','#ff9200')";
-			try {
-				pstmt = conn.prepareStatement(sql);
-				pstmt.executeUpdate();
-				System.out.println("성공");
-			} catch (Exception e) {
-				e.printStackTrace();
-				System.out.println("실패");
-			}
-			methodUtil.changeScene("/view/Login_Layout.fxml", button);
-			alertText_Login.setText(text);
-			new Timer().schedule(new TimerTask() {
-				@Override
-				public void run() {
-					for (int i = -50; i <= 0; i++) {
-						alertPane_Login.setLayoutY(i * 2);
-					}
-				}
-			}, 0, 50);
-		}
+//		public void changeLoginAfterJoin(Button button, String text) {
+//			// sql = "insert into UserLoginData values('" + email_signUp.getText() + "','" +
+//			// pw_signUp.getText()
+//			// + "','','','#ff9200')";
+//			try {
+//				pstmt = conn.prepareStatement(sql);
+//				pstmt.executeUpdate();
+//				System.out.println("성공");
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//				System.out.println("실패");
+//			}
+//			methodUtil.changeScene("/view/Login_Layout.fxml", button);
+//			alertText_Login.setText(text);
+//			new Timer().schedule(new TimerTask() {
+//				@Override
+//				public void run() {
+//					for (int i = -50; i <= 0; i++) {
+//						alertPane_Login.setLayoutY(i * 2);
+//					}
+//				}
+//			}, 0, 50);
+//		}
 }
