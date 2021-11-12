@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Main_Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Login_Controller">
    <children>
       <ImageView fitHeight="900.0" fitWidth="1600.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -42,11 +42,12 @@
          <font>
             <Font size="17.0" />
          </font></PasswordField>
-      <Pane fx:id="alertPane" layoutY="-100.0" prefHeight="100.0" prefWidth="1600.0" style="-fx-background-color: #1187CF;">
+      <Pane fx:id="alertPane" layoutY="-60.0" prefHeight="60.0" prefWidth="1600.0">
          <children>
-            <Text fill="#fafafa" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="알림" textAlignment="CENTER" wrappingWidth="1600.0">
+            <Pane opacity="0.8" prefHeight="60.0" prefWidth="1600.0" style="-fx-background-color: #1187CF;" />
+            <Text fx:id="alertText" fill="#fafafa" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="반갑습니다" textAlignment="CENTER" wrappingWidth="1600.0">
                <font>
-                  <Font name="System Bold" size="50.0" />
+                  <Font size="40.0" />
                </font>
             </Text>
          </children>

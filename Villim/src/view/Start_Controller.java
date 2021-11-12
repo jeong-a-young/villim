@@ -17,8 +17,12 @@ import javafx.scene.text.Text;
 import util.MethodUtil;
 
 public class Start_Controller implements Initializable {
+	//이 클래스가 실행되면 호출되는 메소드                   ^ 이거 있어야함 ^
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		//현재 화면을 나타내는 이 프로그램 내부의 정적 변수
+		Main_Controller.getInstance().setCLC(getClass().getSimpleName());
+		//알림 메소드
 		alert("반갑습니다!");
 		
 	}
