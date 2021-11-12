@@ -70,7 +70,6 @@ public class Join_Controller {
 	}
 
 
-<<<<<<< Updated upstream
 	// 회원가입
 	@FXML
 	private ImageView checkPWImage;
@@ -87,23 +86,6 @@ public class Join_Controller {
 	private TextField join_email;
 	@FXML
 	private Button join_button;
-=======
-		// 회원가입
-		@FXML
-		private ImageView checkPWImage;
-		@FXML
-		private TextField join_id;
-		@FXML
-		private TextField join_pass;
-		@FXML
-		private TextField join_pass_ok;
-		@FXML
-		private TextField join_name;
-		@FXML
-		private TextField join_email;
-		@FXML
-		private Button join_button;
->>>>>>> Stashed changes
 
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
