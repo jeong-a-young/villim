@@ -44,7 +44,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="859.0" layoutY="494.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="276.0" styleClass="transparencyBtn">
+      <Button fx:id="popUpPasswordChangeBtn" layoutX="859.0" layoutY="494.0" mnemonicParsing="false" onAction="#popUpPasswordChange" prefHeight="66.0" prefWidth="276.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

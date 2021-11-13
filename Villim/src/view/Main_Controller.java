@@ -7,6 +7,8 @@ import util.MethodUtil;
 
 public class Main_Controller {
 	
+	MethodUtil methodUtil = new MethodUtil();
+
 	//싱글톤 
 	private String currentLayoutClass;
 
@@ -27,8 +29,7 @@ public class Main_Controller {
 		return currentLayoutClass;
 	}
 
-	MethodUtil methodUtil = new MethodUtil();
-	// 3. Main
+	// Main
 
 	// 검색
 	@FXML
@@ -38,14 +39,11 @@ public class Main_Controller {
 
 	public static String searchContent = "";
 	
-	public void search() {
+	public void changeSearch() {
 		searchContent = searchTextField.getText();
-
-		// 검색 버튼 누르면 화면 전환하기
 		methodUtil.changeScene("/view/SearchList_Layout.fxml", searchBtn);
 	}
 
-	// 버튼 화면 전환
 	// 게시물 작성
 	@FXML
 	private Button changeWritePostBtn;

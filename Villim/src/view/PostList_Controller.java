@@ -42,10 +42,10 @@ public class PostList_Controller implements Initializable {
 	private ImageView titleImageView;
 	@FXML
 	private ComboBox<String> category = new ComboBox<String>();
-	
+
 	private ObservableList<String> categoryItems = FXCollections.observableArrayList("전체", "내가 작성한 글", "찜 목록",
 			"의상 / 소품", "음반 / 악기", "전자기기", "헬스 / 요가", "스포츠 / 레저", "등산 / 낚시 / 캠핑", "도서 / 문구", "유아 용품", "반려동물 용품", "기타");
-	
+
 	// 콤보 박스로 판단
 	public void setComboLabel() {
 
@@ -54,6 +54,16 @@ public class PostList_Controller implements Initializable {
 			titleImageView.setImage(new Image("/resources/allLabel.png"));
 		}
 
+		// 내가 작성한 글
+		if (category.getValue().equals("내가 작성한 글")) {
+			titleImageView.setImage(new Image("/resources/writeLabel.png"));
+		}
+		
+		// 찜 목록
+		if (category.getValue().equals("찜 목록")) {
+			titleImageView.setImage(new Image("/resources/likeLabel.png"));
+		}
+		
 		// 의상, 소품
 		if (category.getValue().equals("의상 / 소품")) {
 			titleImageView.setImage(new Image("/resources/clothesLabel.png"));
@@ -189,14 +199,14 @@ public class PostList_Controller implements Initializable {
 	// 이전 화면 전환
 	@FXML
 	private Button changeBackBtn;
-	
-	public void changeBack() {	
-		if(postListChangeCount == 1) {
+
+	public void changeBack() {
+		if (postListChangeCount == 1) {
 			methodUtil.changeScene("/view/Main_Layout.fxml", changeBackBtn);
 			postListChangeCount = 0;
 		} else if (categoryChangeCount == 1) {
 			methodUtil.changeScene("/view/Category_Layout.fxml", changeBackBtn);
 		}
 	}
-	
+
 }

@@ -9,6 +9,8 @@
 
 .transparencyBtn:hover {
 	-fx-background-color: rgba(0.0, 0.0, 0.0, 0.15);
+	-fx-background-radius: 15.0px;
+	-fx-border-radius: 15.0px;
 }
 
 .nonHovertransparencyBtn{
@@ -79,17 +81,4 @@
     -fx-background-insets: 0;
     -fx-background-color: #1187CF;
     -fx-text-fill: white;
-}
-
-#blueBtn {
-	-fx-background-color: #1187CF;
-	-fx-background-radius: 5.0px;
-	-fx-border-color: #1187CF;
-	-fx-border-radius: 5.0px;
-	-fx-padding: 8.0px 25.0px;
-}
-
-#blueBtn:hover {
-	-fx-background-color: #0b74b6;
-	-fx-border-color: #0b74b6;
 }

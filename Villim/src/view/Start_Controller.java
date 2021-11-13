@@ -54,9 +54,6 @@ public class Start_Controller implements Initializable {
 		t.start();
 	}
 	
-	
-	
-	
 	// 1. Join
 
 	// 회원가입 화면 전환
@@ -67,6 +64,9 @@ public class Start_Controller implements Initializable {
 		methodUtil.changeScene("/view/Join_Layout.fxml", changeJoinBtn);
 	}
 
+	// 2. Login
+	
+	// 로그인 화면 전환
 	@FXML
 	private Button changeLoginBtn;
 

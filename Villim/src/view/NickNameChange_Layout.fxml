@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="251.0" prefWidth="496.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Profile_Controller">
+<AnchorPane prefHeight="250.0" prefWidth="500.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Profile_Controller">
    <children>
       <ImageView fitHeight="250.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,7 +20,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField layoutX="74.0" layoutY="135.0" prefHeight="39.0" prefWidth="353.0" promptText="8자를 넘지 않아야 합니다.">
+      <TextField fx:id="nickName" layoutX="74.0" layoutY="137.0" prefHeight="39.0" prefWidth="353.0" promptText="8자를 넘지 않아야 합니다.">
          <font>
             <Font size="20.0" />
          </font>
