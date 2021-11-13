@@ -1,14 +1,21 @@
 package view;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+import database.JDBCUtill;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import util.MethodUtil;
+
+import static view.Login_Controller.userId;
 
 public class Profile_Controller implements Initializable {
 
@@ -19,9 +26,34 @@ public class Profile_Controller implements Initializable {
 
 	MethodUtil methodUtil = new MethodUtil();
 
+	ResultSet rs = null;
+	PreparedStatement pstmt = null;
+	String sql = "";
+	Connection conn = JDBCUtill.getConnection();
+	
 	// 1. Information
 
-	public void getInformation() {
+	// 회원정보 가져오기
+	@FXML
+	private Label memberName;
+	@FXML
+	private Label memberId;
+	@FXML
+	private Label memberEmail;
+	
+	public void getInformation() {	
+		sql = "select id, name, email from users where id='" + userId + "'";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				memberId.setText(rs.getString("id"));
+				memberName.setText(rs.getString("name"));
+				memberEmail.setText(rs.getString("email"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// 2. NickName Change

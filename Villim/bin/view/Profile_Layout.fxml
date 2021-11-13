@@ -54,17 +54,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="797.0" layoutY="322.0" text="일이삼사오육칠팔" textFill="#666666">
+      <Label fx:id="memberName" layoutX="797.0" layoutY="322.0" text="일이삼사오육칠팔" textFill="#666666">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <Label layoutX="800.0" layoutY="406.0" text="test123" textFill="#666666">
+      <Label fx:id="memberId" layoutX="800.0" layoutY="406.0" text="test123" textFill="#666666">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <Label layoutX="800.0" layoutY="585.0" text="test123@test.com" textFill="#666666">
+      <Label fx:id="memberEmail" layoutX="800.0" layoutY="585.0" text="test123@test.com" textFill="#666666">
          <font>
             <Font size="50.0" />
          </font>

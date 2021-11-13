@@ -7,15 +7,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 
 public class Main extends Application {
-
-	public static String userId = "";
 	
 	@Override
 	public void start(Stage primaryStage) {
 		try {			
 			
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/view/Start_Layout.fxml"));
+			loader.setLocation(getClass().getResource("/view/Profile_Layout.fxml"));
 			AnchorPane mainLayout = (AnchorPane) loader.load();
 			Scene scene = new Scene(mainLayout);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

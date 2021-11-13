@@ -28,7 +28,7 @@
             <Font size="25.0" />
          </font>
       </TextArea>
-      <ComboBox fx:id="category" layoutX="1109.0" layoutY="226.0" prefHeight="62.0" prefWidth="197.0" promptText="카테고리" styleClass="grayComboBox" />
+      <ComboBox fx:id="categoryComboBox" layoutX="1109.0" layoutY="226.0" prefHeight="62.0" prefWidth="197.0" promptText="카테고리" styleClass="grayComboBox" />
       <ListView layoutX="310.0" layoutY="637.0" prefHeight="140.0" prefWidth="997.0" />
       <Button layoutX="1160.0" layoutY="800.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="173.0" styleClass="transparencyBtn">
          <cursor>

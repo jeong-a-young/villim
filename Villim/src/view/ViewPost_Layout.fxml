@@ -38,7 +38,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Label layoutX="895.0" layoutY="292.0" text="2021년 11월 5일" textFill="#cacaca">
+      <Label layoutX="895.0" layoutY="292.0" text="2021년 11월 13일" textFill="#cacaca">
          <font>
             <Font size="23.0" />
          </font>
@@ -54,5 +54,15 @@
          </cursor>
       </Button>
       <BorderPane fx:id="btnPane" layoutX="1202.0" layoutY="735.0" prefHeight="100.0" prefWidth="300.0" />
+      <ImageView fitHeight="60.0" fitWidth="30.0" layoutX="1102.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/heart.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="recommendLabel" layoutX="1136.0" layoutY="292.0" text="0" textFill="#cacaca">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

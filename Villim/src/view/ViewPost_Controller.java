@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import util.MethodUtil;
 
@@ -32,14 +33,46 @@ public class ViewPost_Controller implements Initializable {
 		// meWrite++;
 		// 다른 사람이 쓴 게시글이면
 		// otherWrite++;
-
+		/*
 		if (meWrite == 1) {
 			methodUtil.changePartScene("/view/MeWrite_Layout.fxml", btnPane);
-		} else if (otherWrite == 1) {
-			methodUtil.changePartScene("/view/otherWrite_Layout.fxml", btnPane);
-		}
+		} else if (otherWrite == 0) {
+			methodUtil.changePartScene("/viewotherWrite_Layout.fxml", btnPane);
+		}		
+		*/
 	}
 
+	// 게시글 불러오기
+	
+	// 수정
+	// 디자인 구상
+	
+	// 삭제
+	public void delete() {
+		// DB 이용해서 삭제 구현
+	}
+	
+	// 찜하기
+	
+	// 찜
+	@FXML
+	private Label recommendLabel;
+	
+	public static int recommend = 0;
+	
+	public void recommendCount() {
+		recommend ++;
+		recommendLabel.setText(Integer.toString(recommend));
+	}
+	
+	// 채팅하기
+	@FXML
+	private Button changeChattingBtn;
+	
+	public void changeChatting() {
+		methodUtil.changeScene("/view/Chatting_Layout.fxml", changeChattingBtn);
+	}
+	
 	// 메인 화면 전환
 	@FXML
 	private Button changeMainBtn;
