@@ -23,7 +23,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="857.0" layoutY="664.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="177.0" styleClass="transparencyBtn">
+      <Button fx:id="loginButton" layoutX="857.0" layoutY="664.0" mnemonicParsing="false" onAction="#login" prefHeight="56.0" prefWidth="177.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -33,12 +33,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField layoutX="614.0" layoutY="392.0" prefHeight="57.0" prefWidth="450.0">
+      <TextField fx:id="id" layoutX="614.0" layoutY="392.0" prefHeight="57.0" prefWidth="450.0">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="614.0" layoutY="475.0" prefHeight="57.0" prefWidth="450.0">
+      <PasswordField fx:id="pass" layoutX="614.0" layoutY="475.0" prefHeight="57.0" prefWidth="450.0">
          <font>
             <Font size="17.0" />
          </font></PasswordField>

@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 
 public class Main extends Application {
+
+	public static String userId = "";
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -34,4 +36,5 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	
 }

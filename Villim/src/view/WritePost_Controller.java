@@ -7,8 +7,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import com.mysql.cj.xdevapi.Statement;
-
 import database.JDBCUtill;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,7 +27,6 @@ public class WritePost_Controller implements Initializable {
 
 	MethodUtil methodUtil = new MethodUtil();
 
-	Statement stmt = null;
 	PreparedStatement pstmt = null;
 	String sql = "";
 	Connection conn = JDBCUtill.getConnection();
