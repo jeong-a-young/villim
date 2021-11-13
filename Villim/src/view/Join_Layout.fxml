@@ -23,7 +23,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1028.0" layoutY="299.0" mnemonicParsing="false" onAction="#join_id_check" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
+      <Button layoutX="1028.0" layoutY="299.0" mnemonicParsing="false" onAction="#checkId" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

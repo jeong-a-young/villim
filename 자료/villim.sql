@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-11-11 08:00
--- 서버 버전: 10.3.16-MariaDB
--- PHP 버전: 7.3.7
+-- 생성 시간: 21-11-13 05:55
+-- 서버 버전: 10.4.20-MariaDB
+-- PHP 버전: 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -29,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `post` (
-  `title` varchar(30) NOT NULL,
-  `content` varchar(300) NOT NULL,
-  `category` varchar(100) NOT NULL,
+  `title` varchar(30) CHARACTER SET utf8mb4 NOT NULL,
+  `content` varchar(300) CHARACTER SET utf8mb4 NOT NULL,
+  `category` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `recommend` int(100) NOT NULL DEFAULT 0,
-  `registration` varchar(100) NOT NULL,
-  `writer_id` varchar(100) NOT NULL
+  `registration` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+  `writer_id` varchar(100) CHARACTER SET utf8mb4 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -52,12 +51,12 @@ INSERT INTO `post` (`title`, `content`, `category`, `recommend`, `registration`,
 --
 
 CREATE TABLE `users` (
-  `id` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `id` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+  `password` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `tree` int(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `theme` varchar(100) NOT NULL DEFAULT 'white'
+  `email` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+  `theme` varchar(100) CHARACTER SET utf8mb4 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

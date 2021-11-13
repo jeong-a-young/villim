@@ -57,7 +57,7 @@ public class WritePost_Controller implements Initializable {
 			String content = write_content.getText();
 			int recommend = 0;
 			String category = selectCategory;
-			String writer_id = "정은교";
+			String writer_id = "";
 			System.out.println(title + content);
 			Date date_now = new Date(System.currentTimeMillis());
 			SimpleDateFormat fourteen_format = new SimpleDateFormat("yyyy년 MM월 dd일");
