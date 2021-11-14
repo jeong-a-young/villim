@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-import application.Main;
 import database.JDBCUtill;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -70,6 +69,8 @@ public class Login_Controller implements Initializable {
 	String sql = "";
 	Connection conn = JDBCUtill.getConnection();
 	
+	public static String userId = "";
+	
 	@FXML
 	private TextField id;
 	@FXML
@@ -107,14 +108,14 @@ public class Login_Controller implements Initializable {
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
 				System.out.println("로그인 성공");
-				Main.userId = loginId;
+				userId = loginId;
 //				methodUtil.changeScene("/view/Main_Layout.fxml", loginButton);
 				
 			} else {
 				System.out.println("로그인 실패");
-				Main.userId = "";
+				userId = "";
 			}
-			System.out.println(Main.userId);
+			System.out.println(userId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

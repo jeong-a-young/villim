@@ -29,12 +29,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="614.0" layoutY="798.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
+      <Button fx:id="logoutBtn" layoutX="614.0" layoutY="798.0" mnemonicParsing="false" onAction="#Logout" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="823.0" layoutY="798.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
+      <Button fx:id="deleteAccountBtn" layoutX="823.0" layoutY="798.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -44,7 +44,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="859.0" layoutY="494.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="276.0" styleClass="transparencyBtn">
+      <Button fx:id="popUpPasswordChangeBtn" layoutX="859.0" layoutY="494.0" mnemonicParsing="false" onAction="#popUpPasswordChange" prefHeight="66.0" prefWidth="276.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -54,17 +54,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="797.0" layoutY="322.0" text="일이삼사오육칠팔" textFill="#666666">
+      <Label fx:id="memberName" layoutX="797.0" layoutY="322.0" text="일이삼사오육칠팔" textFill="#666666">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <Label layoutX="800.0" layoutY="406.0" text="test123" textFill="#666666">
+      <Label fx:id="memberId" layoutX="800.0" layoutY="406.0" text="test123" textFill="#666666">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <Label layoutX="800.0" layoutY="585.0" text="test123@test.com" textFill="#666666">
+      <Label fx:id="memberEmail" layoutX="800.0" layoutY="585.0" text="test123@test.com" textFill="#666666">
          <font>
             <Font size="50.0" />
          </font>

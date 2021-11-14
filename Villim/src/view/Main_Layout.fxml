@@ -18,7 +18,7 @@
             <Font size="25.0" />
          </font>
       </TextField>
-      <Button fx:id="searchBtn" layoutX="1125.0" layoutY="68.0" mnemonicParsing="false" onAction="#search" styleClass="nonHovertransparencyBtn">
+      <Button fx:id="searchBtn" layoutX="1125.0" layoutY="68.0" mnemonicParsing="false" onAction="#changeSearch" styleClass="nonHovertransparencyBtn">
          <graphic>
             <ImageView fitHeight="68.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
                <image>

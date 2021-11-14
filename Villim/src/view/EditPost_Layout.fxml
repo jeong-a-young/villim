@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #ffffff;" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.WritePost_Controller">
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #ffffff;" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditPost_Controller">
    <children>
       <ImageView fitHeight="899.0" fitWidth="1599.0" layoutX="3.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resources/writePostPage.png" />
+            <Image url="@../resources/editPostPage.png" />
          </image>
       </ImageView>
       <TextField fx:id="write_title" layoutX="310.0" layoutY="226.0" prefHeight="62.0" prefWidth="772.0" promptText="제목을 입력해 주세요.">
@@ -35,7 +35,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="write_success" layoutX="1365.0" layoutY="802.0" mnemonicParsing="false" onAction="#writePost" prefHeight="53.0" prefWidth="173.0" styleClass="transparencyBtn">
+      <Button layoutX="1365.0" layoutY="802.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="173.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

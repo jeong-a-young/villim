@@ -3,8 +3,7 @@ package view;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 import database.JDBCUtill;
@@ -19,21 +18,23 @@ import javafx.scene.control.TextField;
 import util.MethodUtil;
 
 import static view.Login_Controller.userId;
-import static view.ViewPost_Controller.recommend;
 
-public class WritePost_Controller implements Initializable {
+public class EditPost_Controller implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		getPost();
 		categoryComboBox.setItems(categoryItems);
 	}
 
 	MethodUtil methodUtil = new MethodUtil();
 
+	ResultSet rs = null;
 	PreparedStatement pstmt = null;
 	String sql = "";
 	Connection conn = JDBCUtill.getConnection();
 
+	// 원래 게시물 내용 가져오기
 	@FXML
 	private TextField write_title;
 	@FXML
@@ -46,31 +47,18 @@ public class WritePost_Controller implements Initializable {
 	private ObservableList<String> categoryItems = FXCollections.observableArrayList("의상 / 소품", "음반 / 악기", "전자기기",
 			"헬스 / 요가", "스포츠 / 레저", "등산 / 낚시 / 캠핑", "도서 / 문구", "유아 용품", "반려동물 용품", "기타");
 
-	public void writePost() {	
+	public void getPost() {
+		sql = "select * from post where writer_id='" + userId + "'"; // 해당 게시글을 찾아오는 sql문을 어떻게 짤까
 		try {
-			String title = write_title.getText();
-			String content = write_content.getText();
-			String category = categoryComboBox.getValue();
-			String writer_id = userId;
-			Date date_now = new Date(System.currentTimeMillis());
-			SimpleDateFormat fourteen_format = new SimpleDateFormat("yyyy년 MM월 dd일");
-			String now = fourteen_format.format(date_now);
-
-			sql = "INSERT INTO post VALUES(?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, title);
-			pstmt.setString(2, content);
-			pstmt.setString(3, category);
-			pstmt.setInt(4, recommend);
-			pstmt.setString(5, now);
-			pstmt.setString(6, writer_id);
-
-			int r = pstmt.executeUpdate();
-			System.out.println("작성 성공 " + r);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				write_title.setText(rs.getString("title"));
+				write_content.setText(rs.getString("content"));
+				categoryComboBox.setValue(rs.getString("category"));
+			}
 		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("작성 실패");
+			e.printStackTrace();
 		}
 	}
 
