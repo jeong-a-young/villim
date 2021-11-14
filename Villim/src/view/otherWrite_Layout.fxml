@@ -13,12 +13,12 @@
             <Image url="@../resources/otherWritePage.png" />
          </image>
       </ImageView>
-      <Button layoutX="1.0" layoutY="28.0" mnemonicParsing="false" onAction="#recommendCount" prefHeight="44.0" prefWidth="141.0" styleClass="transparencyBtn">
+      <Button layoutX="1.0" layoutY="28.0" mnemonicParsing="false" onAction="#updateRecommend" prefHeight="44.0" prefWidth="141.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="159.0" layoutY="28.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="141.0" styleClass="transparencyBtn">
+      <Button fx:id="changeChattingBtn" layoutX="159.0" layoutY="28.0" mnemonicParsing="false" onAction="#changeChatting" prefHeight="44.0" prefWidth="141.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

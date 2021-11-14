@@ -7,8 +7,6 @@ import util.MethodUtil;
 
 public class Main_Controller {
 	
-	MethodUtil methodUtil = new MethodUtil();
-
 	//싱글톤 
 	private String currentLayoutClass;
 
@@ -29,6 +27,8 @@ public class Main_Controller {
 		return currentLayoutClass;
 	}
 
+	MethodUtil methodUtil = new MethodUtil();
+	
 	// Main
 
 	// 검색
