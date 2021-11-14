@@ -20,7 +20,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="nickName" layoutX="74.0" layoutY="137.0" prefHeight="39.0" prefWidth="353.0" promptText="8자를 넘지 않아야 합니다.">
+      <TextField fx:id="memberNickName" layoutX="74.0" layoutY="137.0" prefHeight="39.0" prefWidth="353.0" promptText="8자를 넘지 않아야 합니다.">
          <font>
             <Font size="20.0" />
          </font>

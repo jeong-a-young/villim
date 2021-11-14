@@ -13,7 +13,7 @@ public class Main extends Application {
 		try {			
 			
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/view/Profile_Layout.fxml"));
+			loader.setLocation(getClass().getResource("/view/Start_Layout.fxml"));
 			AnchorPane mainLayout = (AnchorPane) loader.load();
 			Scene scene = new Scene(mainLayout);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
