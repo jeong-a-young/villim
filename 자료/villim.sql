@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-11-14 10:58
+-- 생성 시간: 21-11-14 13:35
 -- 서버 버전: 10.4.21-MariaDB
 -- PHP 버전: 8.0.12
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `my_pick` (
-  `post_id` varchar(100) NOT NULL,
+  `post_id` int(100) NOT NULL,
   `user_id` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -53,7 +53,6 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`id`, `title`, `content`, `category`, `recommend`, `registration`, `writer_id`) VALUES
-(1, '', '', '글씨', 0, '2021년 11월 11일', '정은교'),
 (2, '', '', '글씨', 0, '2021년 11월 11일', '정은교');
 
 -- --------------------------------------------------------
@@ -79,7 +78,7 @@ CREATE TABLE `users` (
 -- 테이블의 인덱스 `my_pick`
 --
 ALTER TABLE `my_pick`
-  ADD PRIMARY KEY (`post_id`);
+  ADD KEY `post_id` (`post_id`);
 
 --
 -- 테이블의 인덱스 `post`
@@ -102,6 +101,16 @@ ALTER TABLE `users`
 --
 ALTER TABLE `post`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- 덤프된 테이블의 제약사항
+--
+
+--
+-- 테이블의 제약사항 `my_pick`
+--
+ALTER TABLE `my_pick`
+  ADD CONSTRAINT `foreign_id` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
