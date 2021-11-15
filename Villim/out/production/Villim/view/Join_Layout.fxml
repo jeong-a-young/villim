@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Join_Controller">
+   <children>
+      <ImageView fitHeight="900.0" fitWidth="1600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/joinPage.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="changeStartBtn" layoutX="40.0" layoutY="35.0" mnemonicParsing="false" onAction="#changeStart" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="1028.0" layoutY="299.0" mnemonicParsing="false" onAction="#checkId" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="join_button" layoutX="712.0" layoutY="758.0" mnemonicParsing="false" onAction="#signUp" prefHeight="56.0" prefWidth="176.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField fx:id="join_id" layoutX="591.0" layoutY="294.0" prefHeight="57.0" prefWidth="420.0" promptText="한글 또는 띄어쓰기를 사용할 수 없습니다.">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="join_pass" layoutX="590.0" layoutY="373.0" onKeyReleased="#join_pass_check" prefHeight="57.0" prefWidth="420.0" promptText="특수문자를 포함해 8자 이상이여야 합니다.">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="join_pass_ok" layoutX="591.0" layoutY="452.0" onKeyReleased="#join_pass_check" prefHeight="57.0" prefWidth="420.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </PasswordField>
+      <TextField fx:id="join_name" layoutX="591.0" layoutY="544.0" prefHeight="57.0" prefWidth="420.0" promptText="8자를 넘지 않아야 합니다.">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Pane layoutX="1028.0" layoutY="455.0" prefHeight="50.0" prefWidth="50.0">
+         <children>
+            <ImageView fx:id="checkPWImage" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/xMark.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="584.0" layoutY="508.0" prefHeight="35.0" prefWidth="161.0">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/passwordCheckLabel.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TextField fx:id="join_email" layoutX="590.0" layoutY="627.0" prefHeight="57.0" prefWidth="420.0" promptText="8자를 넘지 않아야 합니다.">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Pane fx:id="alertPane" layoutY="-60.0" prefHeight="60.0" prefWidth="1600.0">
+         <children>
+            <Pane opacity="0.8" prefHeight="60.0" prefWidth="1600.0" style="-fx-background-color: #1187CF;" />
+            <Text fx:id="alertText" fill="#fafafa" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="반갑습니다" textAlignment="CENTER" wrappingWidth="1600.0">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

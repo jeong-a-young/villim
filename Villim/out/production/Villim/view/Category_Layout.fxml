@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Category_Controller">
+   <children>
+      <ImageView fitHeight="984.0" fitWidth="1600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/categoryPage.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="changeHomeBtn" layoutX="40.0" layoutY="35.0" mnemonicParsing="false" onAction="#changeHome" prefHeight="49.0" prefWidth="162.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="changeClothesBtn" layoutX="67.0" layoutY="251.0" mnemonicParsing="false" onAction="#changeClothes" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="changeInstrumentBtn" layoutX="374.0" layoutY="251.0" mnemonicParsing="false" onAction="#changeInstrument" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="changeElectronicsBtn" layoutX="680.0" layoutY="251.0" mnemonicParsing="false" onAction="#changeElectronics" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="changeHealthBtn" layoutX="991.0" layoutY="251.0" mnemonicParsing="false" onAction="#changeHealth" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="changeSportsBtn" layoutX="1296.0" layoutY="251.0" mnemonicParsing="false" onAction="#changeSports" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="changeCampingBtn" layoutX="67.0" layoutY="553.0" mnemonicParsing="false" onAction="#changeCamping" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="changeBookBtn" layoutX="373.0" layoutY="553.0" mnemonicParsing="false" onAction="#changeBook" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="changeKidsBtn" layoutX="681.0" layoutY="553.0" mnemonicParsing="false" onAction="#changeKids" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="changeAnimalBtn" layoutX="991.0" layoutY="553.0" mnemonicParsing="false" onAction="#changeAnimal" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="changeEtcBtn" layoutX="1296.0" layoutY="553.0" mnemonicParsing="false" onAction="#changeEtc" prefHeight="239.0" prefWidth="238.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>
