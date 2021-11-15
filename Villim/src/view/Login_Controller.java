@@ -71,7 +71,7 @@ public class Login_Controller implements Initializable {
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
 	String sql = "";
-	Connection conn = JDBCUtill.getConnection();
+	Connection conn = JDBCUtill.getInstance().getConnection();
 	
 	public static String userId = "";
 	

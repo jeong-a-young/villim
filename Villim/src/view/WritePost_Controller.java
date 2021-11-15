@@ -31,7 +31,7 @@ public class WritePost_Controller implements Initializable {
 
 	PreparedStatement pstmt = null;
 	String sql = "";
-	Connection conn = JDBCUtill.getConnection();
+	Connection conn = JDBCUtill.getInstance().getConnection();
 
 	@FXML
 	private TextField write_title;

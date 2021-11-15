@@ -64,7 +64,7 @@ public class ProfileEdit_Controller implements Initializable {
         ResultSet rs = null;
         PreparedStatement pstmt = null;
         String sql = "";
-        Connection conn = JDBCUtill.getConnection();
+        Connection conn = JDBCUtill.getInstance().getConnection();
 
         // 닉네임 변경
         @FXML

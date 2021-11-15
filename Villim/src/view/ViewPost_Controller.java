@@ -34,7 +34,7 @@ public class ViewPost_Controller implements Initializable {
 	ResultSet rs = null;
 	PreparedStatement pstmt = null;
 	String sql = "";
-	Connection conn = JDBCUtill.getConnection();
+	Connection conn = JDBCUtill.getInstance().getConnection();
 
 	// 내가 쓴 게시글인지 다른 사람이 쓴 게시글인지 판단
 	@FXML
