@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class MethodUtil {
-
+	
 	public void changeScene(String url, Button btn) {
 		try {
 			Parent main = FXMLLoader.load(getClass().getResource(url));

@@ -15,7 +15,9 @@ public class Home_Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// 현재 화면의 이전 화면을 변수
-		Singleton.getInstance().setPreviousLayoutClass(Singleton.getInstance().getCLC());
+		//(테스트용)시작이 홈일때는 아래
+		Singleton.getInstance().setPreviousLayoutClass(getClass().getSimpleName());
+		//평소에는 이것 Singleton.getInstance().setPreviousLayoutClass(Singleton.getInstance().getCLC());
 		// 현재 화면을 나타내는 변수
 		Singleton.getInstance().setCLC(getClass().getSimpleName());
 
