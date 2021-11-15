@@ -35,21 +35,22 @@ public class ViewPost_Controller implements Initializable {
 	@FXML
 	private BorderPane btnPane;
 
-	int meWrite = 0;
-	int otherWrite = 0;
+	int meWriteCount = 0;
+	int otherWriteCount = 0;
 
 	public void changeBtn() {
 		// DB를 이용해서 내가 쓴 게시글인지 다른 사람이 쓴 게시글인지 판단
 
 		// 만약 내가 쓴 게시글이면
-		// meWrite++;
+		// meWriteCount++;
 		// 다른 사람이 쓴 게시글이면
-		// otherWrite++;
-		/*
-		 * if (meWrite == 1) { methodUtil.changePartScene("/view/MeWrite_Layout.fxml",
-		 * btnPane); } else if (otherWrite == 0) {
-		 * methodUtil.changePartScene("/viewotherWrite_Layout.fxml", btnPane); }
-		 */
+		// otherWriteCount++;
+
+		if (meWriteCount == 1) {
+			methodUtil.changePartScene("/view/MeWrite_Layout.fxml", btnPane);
+		} else if (otherWriteCount == 1) {
+			methodUtil.changePartScene("/viewotherWrite_Layout.fxml", btnPane);
+		}
 	}
 
 	// 게시글 불러오기
@@ -82,8 +83,6 @@ public class ViewPost_Controller implements Initializable {
 
 	// 내가 쓴 게시물이라면
 
-	// Edit
-
 	// 수정 화면 전환
 	@FXML
 	private Button changeEditPostBtn;
@@ -92,8 +91,7 @@ public class ViewPost_Controller implements Initializable {
 		methodUtil.changeScene("/view/EditPost_Layout.fxml", changeEditPostBtn);
 	}
 
-	// Delete
-
+	// 삭제
 	public void delete() {
 		// DB 이용해서 삭제 구현
 	}
@@ -128,8 +126,10 @@ public class ViewPost_Controller implements Initializable {
 		int numRecommend = getRecommend() + 1;
 		String countRecommend = Integer.toString(numRecommend);
 
-		sql = "update post set recommend='" + countRecommend + "' WHERE writer_id='" + userId + "'"; // recommend 수를 받아 post id를 이용해 업데이트
-		
+		sql = "update post set recommend='" + countRecommend + "' WHERE writer_id='" + userId + "'"; // recommend 수를 받아
+																										// post id를 이용해
+																										// 업데이트
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
