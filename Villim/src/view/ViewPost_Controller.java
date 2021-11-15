@@ -103,7 +103,7 @@ public class ViewPost_Controller implements Initializable {
 	// Recommend
 
 	// 찜 개수 가져오기
-	public static int recommend = 0;
+	int recommend = 0;
 
 	public int getRecommend() {
 

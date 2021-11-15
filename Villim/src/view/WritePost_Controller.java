@@ -19,7 +19,6 @@ import javafx.scene.control.TextField;
 import util.MethodUtil;
 
 import static view.Login_Controller.userId;
-import static view.ViewPost_Controller.recommend;
 
 public class WritePost_Controller implements Initializable {
 
@@ -52,6 +51,7 @@ public class WritePost_Controller implements Initializable {
 			String content = write_content.getText();
 			String category = categoryComboBox.getValue();
 			String writer_id = userId;
+			int recommend = 0;
 			Date date_now = new Date(System.currentTimeMillis());
 			SimpleDateFormat fourteen_format = new SimpleDateFormat("yyyy년 MM월 dd일");
 			String now = fourteen_format.format(date_now);
