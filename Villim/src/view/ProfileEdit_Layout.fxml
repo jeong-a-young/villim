@@ -19,12 +19,12 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <TextField fx:id="MemberPassword" layoutX="581.0" layoutY="511.0" prefHeight="63.0" prefWidth="439.0">
+      <TextField fx:id="memberPassword" layoutX="581.0" layoutY="511.0" prefHeight="63.0" prefWidth="439.0">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <TextField fx:id="MemberPasswordCheck" layoutX="581.0" layoutY="682.0" prefHeight="63.0" prefWidth="439.0">
+      <TextField fx:id="memberPasswordCheck" layoutX="581.0" layoutY="682.0" prefHeight="63.0" prefWidth="439.0">
          <font>
             <Font size="20.0" />
          </font>

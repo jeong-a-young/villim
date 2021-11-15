@@ -10,12 +10,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Category_Controller implements Initializable {
-	//이 클래스가 실행되면 호출되는 메소드                   ^ 이거 있어야함 ^
+	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//현재 화면의 이전 화면을 변수
+		// 현재 화면의 이전 화면을 변수
 		Singleton.getInstance().setPreviousLayoutClass(Singleton.getInstance().getCLC());
-		//현재 화면을 나타내는 변수
+		// 현재 화면을 나타내는 변수
 		Singleton.getInstance().setCLC(getClass().getSimpleName());
 
 	}
@@ -102,21 +102,21 @@ public class Category_Controller implements Initializable {
 	public void changeEtc() {
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeEtcBtn);
 	}
-	
+
 	// 홈 화면 전환
 	@FXML
 	private Button changeBackBtn;
 
 	public void changeBack() {
-		//이전 화면에 따라서 실행
+		// 이전 화면에 따라서 실행
 		switch (Singleton.getInstance().getPreviousLayoutClass()) {
-			//이전 화면이 "Home_Controller의 레이아웃이었다면"
-			case "Home_Controller":
-				//그곳으로
-				methodUtil.changeScene("/view/Home_Layout.fxml", changeBackBtn);
-			case "PostList_Controller":
-				//그곳으로
-				methodUtil.changeScene("/view/PostList_Layout.fxml", changeBackBtn);
+		// 이전 화면이 "Home_Controller의 레이아웃이었다면"
+		case "Home_Controller":
+			// 그곳으로
+			methodUtil.changeScene("/view/Home_Layout.fxml", changeBackBtn);
+		case "PostList_Controller":
+			// 그곳으로
+			methodUtil.changeScene("/view/PostList_Layout.fxml", changeBackBtn);
 		}
 	}
 
@@ -127,5 +127,5 @@ public class Category_Controller implements Initializable {
 	public void changeCategory() {
 		methodUtil.changeScene("/view/Category_Layout.fxml", changeCategoryBtn);
 	}
-	
+
 }

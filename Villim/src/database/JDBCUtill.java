@@ -5,16 +5,19 @@ import util.Singleton;
 import java.sql.*;
 
 public class JDBCUtill {
-	//싱글톤
+	// 싱글톤
 	private static JDBCUtill instance;
-	private JDBCUtill(){
+
+	private JDBCUtill() {
 	}
-	public static JDBCUtill getInstance(){
-		if(instance == null){
+
+	public static JDBCUtill getInstance() {
+		if (instance == null) {
 			instance = new JDBCUtill();
 		}
 		return instance;
 	}
+
 	private Connection conn = null;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
@@ -65,6 +68,7 @@ public class JDBCUtill {
 			}
 		}
 	}
+
 	public void CreateTable(String DbName, String tName) {
 		try {
 			CreateOrChangeDatabase(DbName);
@@ -75,7 +79,8 @@ public class JDBCUtill {
 			rs = pstmt.executeQuery();
 			if (!rs.next()) {
 				Statement stmt = conn.createStatement();
-				String sql = "create table " + tName + "(id text not null, password text not null, nick text, lore text, theme text)";
+				String sql = "create table " + tName
+						+ "(id text not null, password text not null, nick text, lore text, theme text)";
 				rs2 = stmt.executeUpdate(sql);
 				stmt.close();
 			}

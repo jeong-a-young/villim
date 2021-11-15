@@ -32,13 +32,13 @@ public class SearchList_Controller implements Initializable {
 
 	@FXML
 	private Label titleLabel;
-	
+
 	public void search() {
-		
+
 		// 제목 변환
 		titleLabel.setText("'" + searchContent + "'의 검색 결과입니다.");
 		titleLabel.setAlignment(Pos.CENTER);
-		
+
 		// 검색한 게시글 가져오기
 		sql = "select title from post where title like '" + searchContent + "%'";
 		try {
@@ -62,5 +62,5 @@ public class SearchList_Controller implements Initializable {
 	public void changeHome() {
 		methodUtil.changeScene("/view/Home_Layout.fxml", changeHomeBtn);
 	}
-	
+
 }

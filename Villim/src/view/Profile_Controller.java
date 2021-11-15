@@ -24,6 +24,7 @@ public class Profile_Controller implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		getInformation();
 	}
+
 	// 알림창
 	@FXML
 	public Pane alertPane;
@@ -59,6 +60,7 @@ public class Profile_Controller implements Initializable {
 		}
 		t.start();
 	}
+
 	MethodUtil methodUtil = new MethodUtil();
 
 	ResultSet rs = null;
@@ -96,7 +98,7 @@ public class Profile_Controller implements Initializable {
 	public void changeProfileEdit() {
 		methodUtil.changeScene("/view/ProfileEdit_Layout.fxml", changeProfileEditBtn);
 	}
-	
+
 	// 로그아웃
 	@FXML
 	private Button logoutBtn;

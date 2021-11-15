@@ -30,7 +30,7 @@ public class MethodUtil {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void popUpScene(Button btn, Stage stage, String url, String title) {
 
 		Stage mainStage = (Stage) btn.getScene().getWindow();
@@ -51,5 +51,5 @@ public class MethodUtil {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

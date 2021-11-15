@@ -18,10 +18,10 @@ import util.MethodUtil;
 import util.Singleton;
 
 public class Login_Controller implements Initializable {
-	//이 클래스가 실행되면 호출되는 메소드                   ^ 이거 있어야함 ^
+	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//현재 화면의 이전 화면을 변수
+		// 현재 화면의 이전 화면을 변수
 		Singleton.getInstance().setPreviousLayoutClass(Singleton.getInstance().getCLC());
 
 		if (Singleton.getInstance().getCLC().equals("Join_Controller")) {
@@ -67,34 +67,32 @@ public class Login_Controller implements Initializable {
 		t.start();
 	}
 
-
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
 	String sql = "";
 	Connection conn = JDBCUtill.getInstance().getConnection();
-	
+
 	public static String userId = "";
-	
+
 	@FXML
 	private TextField id;
 	@FXML
 	private TextField pass;
 	@FXML
 	private Button loginButton;
-	
-	
+
 	public void login() {
-		if(id.getText().isEmpty() && pass.getText().isEmpty()) {
+		if (id.getText().isEmpty() && pass.getText().isEmpty()) {
 			alert("아이디와 비밀번호를 입력해주세요");
-		} else if(id.getText().isEmpty()) {
+		} else if (id.getText().isEmpty()) {
 			alert("아이디를 입력해주세요");
-		} else if(pass.getText().isEmpty()) {
+		} else if (pass.getText().isEmpty()) {
 			alert("비밀번호를 입력해주세요");
 		} else {
 			changeMainAfterLogin();
 		}
 	}
-	
+
 	@FXML
 	private Button changeStartBtn;
 	MethodUtil methodUtil = new MethodUtil();
@@ -112,7 +110,7 @@ public class Login_Controller implements Initializable {
 				System.out.println("로그인 성공");
 				Singleton.getInstance().setAccountId(id.getText());
 //				methodUtil.changeScene("/view/Home_Layout.fxml", loginButton);
-				
+
 			} else {
 				System.out.println("로그인 실패");
 				userId = "";

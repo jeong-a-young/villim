@@ -7,11 +7,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	
+
 	@Override
 	public void start(Stage primaryStage) {
-		try {			
-			
+		try {
+
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/view/Home_Layout.fxml"));
 			AnchorPane mainLayout = (AnchorPane) loader.load();
@@ -25,14 +25,14 @@ public class Main extends Application {
 			primaryStage.setMinHeight(900);
 			primaryStage.setMinWidth(1600);
 			primaryStage.show();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
-		}	
+		}
 	}
 
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
+
 }

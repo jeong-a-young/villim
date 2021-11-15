@@ -45,7 +45,7 @@ public class WritePost_Controller implements Initializable {
 	private ObservableList<String> categoryItems = FXCollections.observableArrayList("의상 / 소품", "음반 / 악기", "전자기기",
 			"헬스 / 요가", "스포츠 / 레저", "등산 / 낚시 / 캠핑", "도서 / 문구", "유아 용품", "반려동물 용품", "기타");
 
-	public void writePost() {	
+	public void writePost() {
 		try {
 			String title = write_title.getText();
 			String content = write_content.getText();
@@ -58,7 +58,7 @@ public class WritePost_Controller implements Initializable {
 
 			sql = "INSERT INTO post VALUES(?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
-			
+
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
 			pstmt.setString(3, category);

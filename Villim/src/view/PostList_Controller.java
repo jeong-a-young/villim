@@ -44,12 +44,12 @@ public class PostList_Controller implements Initializable {
 		if (category.getValue().equals("내가 작성한 글")) {
 			titleImageView.setImage(new Image("/resources/writeLabel.png"));
 		}
-		
+
 		// 찜 목록
 		if (category.getValue().equals("찜 목록")) {
 			titleImageView.setImage(new Image("/resources/likeLabel.png"));
 		}
-		
+
 		// 의상, 소품
 		if (category.getValue().equals("의상 / 소품")) {
 			titleImageView.setImage(new Image("/resources/clothesLabel.png"));
@@ -101,99 +101,61 @@ public class PostList_Controller implements Initializable {
 		}
 	}
 	/*
-	// 화면 전환으로 판단
-	public void setSceneLabel() {
-		
-		// 전체
-		if (postListCount == 1) {
-			titleImageView.setImage(new Image("/resources/allLabel.png"));
-			category.setValue("전체");
-			postListCount = 0;
-		}
-
-		// 의상, 소품
-		
-		if (clothesCount == 1) {
-			titleImageView.setImage(new Image("/resources/clothesLabel.png"));
-			category.setValue("의상 / 소품");
-			clothesCount = 0;
-		}
-
-		// 음반, 악기
-		if (instrumentCount == 1) {
-			titleImageView.setImage(new Image("/resources/instrumentLabel.png"));
-			category.setValue("음반 / 악기");
-			instrumentCount = 0;
-		}
-
-		// 전자기기
-		if (electronicsCount == 1) {
-			titleImageView.setImage(new Image("/resources/electronicsLabel.png"));
-			category.setValue("전자기기");
-			electronicsCount = 0;
-		}
-
-		// 헬스, 요가
-		if (healthCount == 1) {
-			titleImageView.setImage(new Image("/resources/healthLabel.png"));
-			category.setValue("헬스 / 요가");
-			healthCount = 0;
-		}
-
-		// 스포츠, 레저
-		if (sportsCount == 1) {
-			titleImageView.setImage(new Image("/resources/sportsLabel.png"));
-			category.setValue("스포츠 / 레저");
-			sportsCount = 0;
-		}
-
-		// 등산, 낚시, 캠핑
-		if (campingCount == 1) {
-			titleImageView.setImage(new Image("/resources/campingLabel.png"));
-			category.setValue("등산 / 낚시 / 캠핑");
-			campingCount = 0;
-		}
-
-		// 도서, 문구
-		if (bookCount == 1) {
-			titleImageView.setImage(new Image("/resources/bookLabel.png"));
-			category.setValue("도서 / 문구");
-			bookCount = 0;
-		}
-
-		// 유아 용품
-		if (kidsCount == 1) {
-			titleImageView.setImage(new Image("/resources/kidsLabel.png"));
-			category.setValue("유아 용품");
-			kidsCount = 0;
-		}
-
-		// 반려동물 용품
-		if (animalCount == 1) {
-			titleImageView.setImage(new Image("/resources/animalLabel.png"));
-			category.setValue("반려동물 용품");
-			animalCount = 0;
-		}
-
-		// 기타
-		if (etcCount == 1) {
-			titleImageView.setImage(new Image("/resources/etcLabel.png"));
-			category.setValue("기타");
-			etcCount = 0;
-		}
-	} */
+	 * // 화면 전환으로 판단 public void setSceneLabel() {
+	 * 
+	 * // 전체 if (postListCount == 1) { titleImageView.setImage(new
+	 * Image("/resources/allLabel.png")); category.setValue("전체"); postListCount =
+	 * 0; }
+	 * 
+	 * // 의상, 소품
+	 * 
+	 * if (clothesCount == 1) { titleImageView.setImage(new
+	 * Image("/resources/clothesLabel.png")); category.setValue("의상 / 소품");
+	 * clothesCount = 0; }
+	 * 
+	 * // 음반, 악기 if (instrumentCount == 1) { titleImageView.setImage(new
+	 * Image("/resources/instrumentLabel.png")); category.setValue("음반 / 악기");
+	 * instrumentCount = 0; }
+	 * 
+	 * // 전자기기 if (electronicsCount == 1) { titleImageView.setImage(new
+	 * Image("/resources/electronicsLabel.png")); category.setValue("전자기기");
+	 * electronicsCount = 0; }
+	 * 
+	 * // 헬스, 요가 if (healthCount == 1) { titleImageView.setImage(new
+	 * Image("/resources/healthLabel.png")); category.setValue("헬스 / 요가");
+	 * healthCount = 0; }
+	 * 
+	 * // 스포츠, 레저 if (sportsCount == 1) { titleImageView.setImage(new
+	 * Image("/resources/sportsLabel.png")); category.setValue("스포츠 / 레저");
+	 * sportsCount = 0; }
+	 * 
+	 * // 등산, 낚시, 캠핑 if (campingCount == 1) { titleImageView.setImage(new
+	 * Image("/resources/campingLabel.png")); category.setValue("등산 / 낚시 / 캠핑");
+	 * campingCount = 0; }
+	 * 
+	 * // 도서, 문구 if (bookCount == 1) { titleImageView.setImage(new
+	 * Image("/resources/bookLabel.png")); category.setValue("도서 / 문구"); bookCount =
+	 * 0; }
+	 * 
+	 * // 유아 용품 if (kidsCount == 1) { titleImageView.setImage(new
+	 * Image("/resources/kidsLabel.png")); category.setValue("유아 용품"); kidsCount =
+	 * 0; }
+	 * 
+	 * // 반려동물 용품 if (animalCount == 1) { titleImageView.setImage(new
+	 * Image("/resources/animalLabel.png")); category.setValue("반려동물 용품");
+	 * animalCount = 0; }
+	 * 
+	 * // 기타 if (etcCount == 1) { titleImageView.setImage(new
+	 * Image("/resources/etcLabel.png")); category.setValue("기타"); etcCount = 0; } }
+	 */
 
 	// 이전 화면 전환
 	@FXML
 	private Button changeBackBtn;
-/*
-	public void changeBack() {
-		if (postListChangeCount == 1) {
-			methodUtil.changeScene("/view/Home_Layout.fxml", changeBackBtn);
-			postListChangeCount = 0;
-		} else if (categoryChangeCount == 1) {
-			methodUtil.changeScene("/view/Category_Layout.fxml", changeBackBtn);
-		}
-	}
-*/
+	/*
+	 * public void changeBack() { if (postListChangeCount == 1) {
+	 * methodUtil.changeScene("/view/Home_Layout.fxml", changeBackBtn);
+	 * postListChangeCount = 0; } else if (categoryChangeCount == 1) {
+	 * methodUtil.changeScene("/view/Category_Layout.fxml", changeBackBtn); } }
+	 */
 }

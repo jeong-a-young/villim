@@ -21,14 +21,15 @@ import util.MethodUtil;
 import util.Singleton;
 
 public class Join_Controller implements Initializable {
-	//이 클래스가 실행되면 호출되는 메소드                   ^ 이거 있어야함 ^
+	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//현재 화면의 이전 화면을 변수
+		// 현재 화면의 이전 화면을 변수
 		Singleton.getInstance().setPreviousLayoutClass(Singleton.getInstance().getCLC());
-		//현재 화면을 나타내는 변수
+		// 현재 화면을 나타내는 변수
 		Singleton.getInstance().setCLC(getClass().getSimpleName());
 	}
+
 	// 알림창
 	@FXML
 	public Pane alertPane;
@@ -70,9 +71,8 @@ public class Join_Controller implements Initializable {
 	public Pane alertPane_Start;
 	@FXML
 	public Text alertText_Start;
-	
-	MethodUtil methodUtil = new MethodUtil();
 
+	MethodUtil methodUtil = new MethodUtil();
 
 	@FXML
 	private Button changeStartBtn;
@@ -80,7 +80,6 @@ public class Join_Controller implements Initializable {
 	public void changeStart() {
 		methodUtil.changeScene("/view/Start_Layout.fxml", changeStartBtn);
 	}
-
 
 	// 회원가입
 	@FXML
@@ -103,7 +102,6 @@ public class Join_Controller implements Initializable {
 	PreparedStatement pstmt = null;
 	String sql = "";
 	Connection conn = JDBCUtill.getInstance().getConnection();
-	
 
 	@FXML
 	private void signUp() {
@@ -131,22 +129,21 @@ public class Join_Controller implements Initializable {
 			alert("이메일을 입력해주세요");
 		} else if (!join_email.getText().contains("@")) {
 			alert("이메일이 잘못되었습니다");
-		} else if(!isIdChecked){
+		} else if (!isIdChecked) {
 			alert("아이디 중복체크를 해주세요");
 		} else {
 			changeLoginAfterJoin();
-			
+
 		}
 	}
 
 //	아이디 중복 체크를 체크한다
 	boolean isIdChecked = false;
-	
+
 	public void checkId() {
 		if (join_id_check()) {
 			alert("이 아이디는 사용하실 수 없습니다");
-		}
-		else {
+		} else {
 			alert("사용 가능한 아이디입니다");
 			isIdChecked = true;
 		}
@@ -158,12 +155,12 @@ public class Join_Controller implements Initializable {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, join_id.getText());
 			ResultSet rs = pstmt.executeQuery();
-			while(true) {
+			while (true) {
 				if (rs.next()) {
 					int cnt = rs.getInt("cnt");
 					if (cnt > 0) {
 						return true;
-					}else {
+					} else {
 						break;
 					}
 				}
@@ -193,8 +190,7 @@ public class Join_Controller implements Initializable {
 
 	// 회원가입 완료 후 로그인 화면 넘어가기
 	public void changeLoginAfterJoin() {
-		sql = "INSERT INTO `users`(`id`, `password`, `name`, `tree`, `email`, `theme`) "
-				+ "VALUES (?,?,?,?,?,?)";
+		sql = "INSERT INTO `users`(`id`, `password`, `name`, `tree`, `email`, `theme`) " + "VALUES (?,?,?,?,?,?)";
 		try {
 			String joinId = join_id.getText();
 			String joinPass = join_pass.getText();
@@ -202,10 +198,9 @@ public class Join_Controller implements Initializable {
 			int tree = 0;
 			String joinEmail = join_email.getText();
 			String theme = "white";
-			
 
 			pstmt = conn.prepareStatement(sql);
-					
+
 			pstmt.setString(1, joinId);
 			pstmt.setString(2, joinPass);
 			pstmt.setString(3, joinName);
@@ -213,13 +208,13 @@ public class Join_Controller implements Initializable {
 			pstmt.setString(5, joinEmail);
 			pstmt.setString(6, theme);
 			pstmt.executeUpdate();
-			
+
 			System.out.println("성공");
 		} catch (Exception e) {
 			System.out.println("실패");
 			e.printStackTrace();
 		}
-		
+
 //		얘 안됨
 //		|
 //		V

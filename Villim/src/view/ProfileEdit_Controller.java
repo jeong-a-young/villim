@@ -1,3 +1,9 @@
+//
+//
+//아직 미완성 클래스
+//
+//
+
 package view;
 
 import database.JDBCUtill;
@@ -66,55 +72,65 @@ public class ProfileEdit_Controller implements Initializable {
 	}
 
 	MethodUtil methodUtil = new MethodUtil();
-	
+
 	ResultSet rs = null;
 	PreparedStatement pstmt = null;
-	String sql = "";
+	String sql, sql2 = "";
 	Connection conn = JDBCUtill.getInstance().getConnection();
 
-	// 닉네임 변경
+	// 변경
 	@FXML
 	private TextField memberNickName;
-
-	public void nickNameChange() {
-
-		String NickName = memberNickName.getText();
-		sql = "update users set name='" + NickName + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
-
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.executeUpdate();
-			// 변경된 회원정보를 새로고침 하려면?
-			alert("변경에 성공했습니다");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	// 비밀번호 변경
 	@FXML
-	private TextField MemberPassword;
+	private TextField memberPassword;
 	@FXML
-	private TextField MemberPasswordCheck;
+	private TextField memberPasswordCheck;
 
 	public void passwordChange() {
+		if (memberPassword.getText().isEmpty() && !memberNickName.getText().isEmpty()) {
+			String NickName = memberNickName.getText();
+			sql = "update users set name='" + NickName + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
 
-		String password = MemberPassword.getText();
-		String passwordCheck = MemberPasswordCheck.getText();
-		sql = "update users set password='" + password + "' WHERE id='" + userId + "'";
-
-		try {
-			if (passwordCheck.equals(password)) {
+			try {
 				pstmt = conn.prepareStatement(sql);
 				pstmt.executeUpdate();
 				// 변경된 회원정보를 새로고침 하려면?
 				alert("변경에 성공했습니다");
-			} else {
-				alert("비밀번호가 일치하지 않습니다");
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		} else if (!memberPassword.getText().isEmpty() && memberNickName.getText().isEmpty()) {
+			String password = memberPassword.getText();
+			String passwordCheck = memberPasswordCheck.getText();
+			sql = "update users set password='" + password + "' WHERE id='" + userId + "'";
+
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.executeUpdate();
+				// 변경된 회원정보를 새로고침 하려면?
+				alert("변경에 성공했습니다");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (!memberPassword.getText().isEmpty() && !memberNickName.getText().isEmpty()) {
+			String NickName = memberNickName.getText();
+			String password = memberPassword.getText();
+			String passwordCheck = memberPasswordCheck.getText();
+			sql = "update users set password='" + password + "' WHERE id='" + userId + "'";
+			sql2 = "update users set name='" + NickName + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
+
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.executeUpdate();
+				pstmt = conn.prepareStatement(sql2);
+				pstmt.executeUpdate();
+				// 변경된 회원정보를 새로고침 하려면?
+				alert("변경에 성공했습니다");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+
 	}
 
 	// 프로필 화면 전환
@@ -124,5 +140,5 @@ public class ProfileEdit_Controller implements Initializable {
 	public void changeProfile() {
 		methodUtil.changeScene("/view/Profile_Layout.fxml", changeProfileBtn);
 	}
-	
+
 }
