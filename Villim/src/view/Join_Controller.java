@@ -102,7 +102,7 @@ public class Join_Controller implements Initializable {
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
 	String sql = "";
-	Connection conn = JDBCUtill.getConnection();
+	Connection conn = JDBCUtill.getInstance().getConnection();
 	
 
 	@FXML
