@@ -13,26 +13,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import util.MethodUtil;
 
-import static view.Category_Controller.clothesCount;
-import static view.Category_Controller.instrumentCount;
-import static view.Category_Controller.electronicsCount;
-import static view.Category_Controller.healthCount;
-import static view.Category_Controller.sportsCount;
-import static view.Category_Controller.campingCount;
-import static view.Category_Controller.bookCount;
-import static view.Category_Controller.kidsCount;
-import static view.Category_Controller.animalCount;
-import static view.Category_Controller.etcCount;
-import static view.Home_Controller.postListCount;
-import static view.Home_Controller.postListChangeCount;
-import static view.Home_Controller.categoryChangeCount;
-
 public class PostList_Controller implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		category.setItems(categoryItems);
-		setSceneLabel();
+		// setSceneLabel();
 	}
 
 	MethodUtil methodUtil = new MethodUtil();
@@ -114,10 +100,10 @@ public class PostList_Controller implements Initializable {
 			titleImageView.setImage(new Image("/resources/etcLabel.png"));
 		}
 	}
-
+	/*
 	// 화면 전환으로 판단
 	public void setSceneLabel() {
-
+		
 		// 전체
 		if (postListCount == 1) {
 			titleImageView.setImage(new Image("/resources/allLabel.png"));
@@ -126,6 +112,7 @@ public class PostList_Controller implements Initializable {
 		}
 
 		// 의상, 소품
+		
 		if (clothesCount == 1) {
 			titleImageView.setImage(new Image("/resources/clothesLabel.png"));
 			category.setValue("의상 / 소품");
@@ -194,12 +181,12 @@ public class PostList_Controller implements Initializable {
 			category.setValue("기타");
 			etcCount = 0;
 		}
-	}
+	} */
 
 	// 이전 화면 전환
 	@FXML
 	private Button changeBackBtn;
-
+/*
 	public void changeBack() {
 		if (postListChangeCount == 1) {
 			methodUtil.changeScene("/view/Home_Layout.fxml", changeBackBtn);
@@ -208,5 +195,5 @@ public class PostList_Controller implements Initializable {
 			methodUtil.changeScene("/view/Category_Layout.fxml", changeBackBtn);
 		}
 	}
-
+*/
 }

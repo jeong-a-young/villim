@@ -50,12 +50,9 @@ public class Home_Controller implements Initializable {
 	@FXML
 	private Button changePostListBtn;
 
-	public static int postListCount = 0;
-	public static int postListChangeCount = 0;
+	public static String ChangeCheck;
 
 	public void changePostList() {
-		postListCount++;
-		postListChangeCount++;
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changePostListBtn);
 	}
 
@@ -63,10 +60,7 @@ public class Home_Controller implements Initializable {
 	@FXML
 	private Button changeCategoryBtn;
 
-	public static int categoryChangeCount = 0;
-
 	public void changeCategory() {
-		categoryChangeCount++;
 		methodUtil.changeScene("/view/Category_Layout.fxml", changeCategoryBtn);
 	}
 

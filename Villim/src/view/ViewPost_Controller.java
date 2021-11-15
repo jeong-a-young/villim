@@ -126,9 +126,7 @@ public class ViewPost_Controller implements Initializable {
 		int numRecommend = getRecommend() + 1;
 		String countRecommend = Integer.toString(numRecommend);
 
-		sql = "update post set recommend='" + countRecommend + "' WHERE writer_id='" + userId + "'"; // recommend 수를 받아
-																										// post id를 이용해
-																										// 업데이트
+		sql = "update post set recommend='" + countRecommend + "' WHERE writer_id='" + userId + "'";
 
 		try {
 			pstmt = conn.prepareStatement(sql);

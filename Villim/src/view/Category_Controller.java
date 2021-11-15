@@ -12,10 +12,9 @@ public class Category_Controller {
 	@FXML
 	private Button changeClothesBtn;
 
-	public static int clothesCount = 0;
+	public static String checkCategory;
 
 	public void changeClothes() {
-		clothesCount++;
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeClothesBtn);
 	}
 
@@ -23,10 +22,7 @@ public class Category_Controller {
 	@FXML
 	private Button changeInstrumentBtn;
 
-	public static int instrumentCount = 0;
-
 	public void changeInstrument() {
-		instrumentCount++;
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeInstrumentBtn);
 	}
 
@@ -34,10 +30,7 @@ public class Category_Controller {
 	@FXML
 	private Button changeElectronicsBtn;
 
-	public static int electronicsCount = 0;
-
 	public void changeElectronics() {
-		electronicsCount++;
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeElectronicsBtn);
 	}
 
@@ -45,10 +38,7 @@ public class Category_Controller {
 	@FXML
 	private Button changeHealthBtn;
 
-	public static int healthCount = 0;
-
 	public void changeHealth() {
-		healthCount++;
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeHealthBtn);
 	}
 
@@ -56,10 +46,7 @@ public class Category_Controller {
 	@FXML
 	private Button changeSportsBtn;
 
-	public static int sportsCount = 0;
-
 	public void changeSports() {
-		sportsCount++;
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeSportsBtn);
 	}
 
@@ -67,10 +54,7 @@ public class Category_Controller {
 	@FXML
 	private Button changeCampingBtn;
 
-	public static int campingCount = 0;
-
 	public void changeCamping() {
-		campingCount++;
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeCampingBtn);
 	}
 
@@ -78,10 +62,7 @@ public class Category_Controller {
 	@FXML
 	private Button changeBookBtn;
 
-	public static int bookCount = 0;
-
 	public void changeBook() {
-		bookCount++;
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeBookBtn);
 	}
 
@@ -89,10 +70,7 @@ public class Category_Controller {
 	@FXML
 	private Button changeKidsBtn;
 
-	public static int kidsCount = 0;
-
 	public void changeKids() {
-		kidsCount++;
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeKidsBtn);
 	}
 
@@ -100,10 +78,7 @@ public class Category_Controller {
 	@FXML
 	private Button changeAnimalBtn;
 
-	public static int animalCount = 0;
-
 	public void changeAnimal() {
-		animalCount++;
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeAnimalBtn);
 	}
 
@@ -111,10 +86,7 @@ public class Category_Controller {
 	@FXML
 	private Button changeEtcBtn;
 
-	public static int etcCount = 0;
-
 	public void changeEtc() {
-		etcCount++;
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeEtcBtn);
 	}
 	
