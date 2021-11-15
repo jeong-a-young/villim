@@ -21,7 +21,6 @@ public class Category_Controller implements Initializable {
 	}
 
 	MethodUtil methodUtil = new MethodUtil();
-
 	// 의상, 소품
 	@FXML
 	private Button changeClothesBtn;
@@ -106,10 +105,19 @@ public class Category_Controller implements Initializable {
 	
 	// 홈 화면 전환
 	@FXML
-	private Button changeHomeBtn;
+	private Button changeBackBtn;
 
-	public void changeHome() {
-		methodUtil.changeScene("/view/Home_Layout.fxml", changeHomeBtn);
+	public void changeBack() {
+		//이전 화면에 따라서 실행
+		switch (Singleton.getInstance().getPreviousLayoutClass()) {
+			//이전 화면이 "Home_Controller의 레이아웃이었다면"
+			case "Home_Controller":
+				//그곳으로
+				methodUtil.changeScene("/view/Home_Layout.fxml", changeBackBtn);
+			case "PostList_Controller":
+				//그곳으로
+				methodUtil.changeScene("/view/PostList_Layout.fxml", changeBackBtn);
+		}
 	}
 
 	// 카테고리 화면 전환
