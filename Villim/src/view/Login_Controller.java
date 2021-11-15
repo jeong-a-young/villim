@@ -109,7 +109,7 @@ public class Login_Controller implements Initializable {
 			if (rs.next()) {
 				System.out.println("로그인 성공");
 				userId = loginId;
-//				methodUtil.changeScene("/view/Main_Layout.fxml", loginButton);
+//				methodUtil.changeScene("/view/Home_Layout.fxml", loginButton);
 				
 			} else {
 				System.out.println("로그인 실패");

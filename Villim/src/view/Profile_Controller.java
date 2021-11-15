@@ -32,8 +32,6 @@ public class Profile_Controller implements Initializable {
 	String sql = "";
 	Connection conn = JDBCUtill.getConnection();
 
-	// 1. Information
-
 	// 회원정보 가져오기
 	@FXML
 	private Label memberName;
@@ -56,8 +54,6 @@ public class Profile_Controller implements Initializable {
 			e.printStackTrace();
 		}
 	}
-
-	// 2. NickName Change
 
 	// 닉네임 변경 화면 팝업
 	@FXML
@@ -87,8 +83,6 @@ public class Profile_Controller implements Initializable {
 			e.printStackTrace();
 		}
 	}
-
-	// 3. Password Change
 
 	// 비밀번호 변경 화면 팝업
 	@FXML
@@ -127,10 +121,7 @@ public class Profile_Controller implements Initializable {
 		}
 	}
 
-	// 4. Profile Change
-
-	// 5. Logout
-
+	// 로그아웃
 	@FXML
 	private Button logoutBtn;
 
@@ -140,8 +131,7 @@ public class Profile_Controller implements Initializable {
 		methodUtil.changeScene("/view/Start_Layout.fxml", logoutBtn);
 	}
 
-	// 6. Delete Account
-
+	// 회원탈퇴
 	@FXML
 	private Button deleteAccountBtn;
 
@@ -158,12 +148,12 @@ public class Profile_Controller implements Initializable {
 		}
 	}
 
-	// 메인 화면 전환
+	// 홈 화면 전환
 	@FXML
-	private Button changeMainBtn;
+	private Button changeHomeBtn;
 
-	public void changeMain() {
-		methodUtil.changeScene("/view/Main_Layout.fxml", changeMainBtn);
+	public void changeHome() {
+		methodUtil.changeScene("/view/Home_Layout.fxml", changeHomeBtn);
 	}
 
 }

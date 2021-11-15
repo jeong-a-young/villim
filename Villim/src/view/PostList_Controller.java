@@ -23,9 +23,9 @@ import static view.Category_Controller.bookCount;
 import static view.Category_Controller.kidsCount;
 import static view.Category_Controller.animalCount;
 import static view.Category_Controller.etcCount;
-import static view.Main_Controller.postListCount;
-import static view.Main_Controller.postListChangeCount;
-import static view.Main_Controller.categoryChangeCount;
+import static view.Home_Controller.postListCount;
+import static view.Home_Controller.postListChangeCount;
+import static view.Home_Controller.categoryChangeCount;
 
 public class PostList_Controller implements Initializable {
 
@@ -202,7 +202,7 @@ public class PostList_Controller implements Initializable {
 
 	public void changeBack() {
 		if (postListChangeCount == 1) {
-			methodUtil.changeScene("/view/Main_Layout.fxml", changeBackBtn);
+			methodUtil.changeScene("/view/Home_Layout.fxml", changeBackBtn);
 			postListChangeCount = 0;
 		} else if (categoryChangeCount == 1) {
 			methodUtil.changeScene("/view/Category_Layout.fxml", changeBackBtn);

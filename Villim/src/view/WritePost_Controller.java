@@ -74,12 +74,12 @@ public class WritePost_Controller implements Initializable {
 		}
 	}
 
-	// 메인 화면 전환
+	// 홈 화면 전환
 	@FXML
-	private Button changeMainBtn;
+	private Button changeHomeBtn;
 
-	public void changeMain() {
-		methodUtil.changeScene("/view/Main_Layout.fxml", changeMainBtn);
+	public void changeHome() {
+		methodUtil.changeScene("/view/Home_Layout.fxml", changeHomeBtn);
 	}
 
 }

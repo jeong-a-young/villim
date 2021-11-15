@@ -13,7 +13,7 @@
             <Image url="@../resources/categoryPage.png" />
          </image>
       </ImageView>
-      <Button fx:id="changeMainBtn" layoutX="40.0" layoutY="35.0" mnemonicParsing="false" onAction="#changeMain" prefHeight="49.0" prefWidth="162.0" styleClass="transparencyBtn">
+      <Button fx:id="changeHomeBtn" layoutX="40.0" layoutY="35.0" mnemonicParsing="false" onAction="#changeHome" prefHeight="49.0" prefWidth="162.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

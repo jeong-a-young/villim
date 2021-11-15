@@ -13,10 +13,9 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.text.TextAlignment;
 import util.MethodUtil;
 
-import static view.Main_Controller.searchContent;
+import static view.Home_Controller.searchContent;
 
 public class SearchList_Controller implements Initializable {
 
@@ -41,12 +40,12 @@ public class SearchList_Controller implements Initializable {
 		titleLabel.setAlignment(Pos.CENTER);
 	}
 
-	// 메인 화면 전환
+	// 홈 화면 전환
 	@FXML
-	private Button changeMainBtn;
+	private Button changeHomeBtn;
 
-	public void changeMain() {
-		methodUtil.changeScene("/view/Main_Layout.fxml", changeMainBtn);
+	public void changeHome() {
+		methodUtil.changeScene("/view/Home_Layout.fxml", changeHomeBtn);
 	}
 	
 }
