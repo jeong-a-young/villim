@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import util.AlertUtil;
 import util.MethodUtil;
@@ -65,25 +64,6 @@ public class Profile_Controller implements Initializable {
 		methodUtil.popUpScene(popUpNickNameChangeBtn, popUpNickNameStage, "/view/NickNameChange_Layout.fxml", "닉네임 변경");
 	}
 
-	// 닉네임 변경
-	@FXML
-	private TextField memberNickName;
-
-	public void nickNameChange() {
-
-		String NickName = memberNickName.getText();
-		sql = "update users set name='" + NickName + "' WHERE id='" + userId + "'";
-
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.executeUpdate();
-			// 변경된 회원정보를 새로고침 하려면?
-			AlertUtil.informationAlert("변경에 성공했습니다.", null);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	// 비밀번호 변경 화면 팝업
 	@FXML
 	private Button popUpPasswordChangeBtn;
@@ -93,32 +73,6 @@ public class Profile_Controller implements Initializable {
 	public void popUpPasswordChange() {
 		methodUtil.popUpScene(popUpPasswordChangeBtn, popUpPasswordStage, "/view/PasswordChange_Layout.fxml",
 				"비밀번호 변경");
-	}
-
-	// 비밀번호 변경
-	@FXML
-	private TextField MemberPassword;
-	@FXML
-	private TextField MemberPasswordCheck;
-
-	public void passwordChange() {
-
-		String password = MemberPassword.getText();
-		String passwordCheck = MemberPasswordCheck.getText();
-		sql = "update users set password='" + password + "' WHERE id='" + userId + "'";
-
-		try {
-			if (passwordCheck.equals(password)) {
-				pstmt = conn.prepareStatement(sql);
-				pstmt.executeUpdate();
-				// 변경된 회원정보를 새로고침 하려면?
-				AlertUtil.informationAlert("변경에 성공했습니다.", null);
-			} else {
-				AlertUtil.warningAlert("비밀번호가 일치하지 않습니다.", "비밀번호 변경 실패");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	// 로그아웃
