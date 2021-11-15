@@ -17,7 +17,7 @@
             <Image url="@../resources/profilePage.png" />
          </image>
       </ImageView>
-      <Pane layoutX="97.0" layoutY="222.0" prefHeight="400.0" prefWidth="400.0">
+      <Pane layoutX="214.0" layoutY="222.0" prefHeight="400.0" prefWidth="400.0">
          <children>
             <ImageView fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -40,32 +40,27 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="146.0" layoutY="659.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="301.0" styleClass="transparencyBtn">
+      <Button layoutX="264.0" layoutY="656.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="298.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="popUpPasswordChangeBtn" layoutX="859.0" layoutY="494.0" mnemonicParsing="false" onAction="#popUpPasswordChange" prefHeight="66.0" prefWidth="276.0" styleClass="transparencyBtn">
+      <Button fx:id="changeProfileEditBtn" layoutX="975.0" layoutY="492.0" mnemonicParsing="false" onAction="#changeProfileEdit" prefHeight="63.0" prefWidth="276.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="popUpNickNameChangeBtn" layoutX="1241.0" layoutY="320.0" mnemonicParsing="false" onAction="#popUpNickNameChange" prefHeight="66.0" prefWidth="276.0" styleClass="transparencyBtn">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Label fx:id="memberName" layoutX="797.0" layoutY="322.0" text="일이삼사오육칠팔" textFill="#666666">
+      <Label fx:id="memberName" layoutX="904.0" layoutY="318.0" text="일이삼사오육칠팔" textFill="#666666">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <Label fx:id="memberId" layoutX="800.0" layoutY="406.0" text="test123" textFill="#666666">
+      <Label fx:id="memberId" layoutX="908.0" layoutY="403.0" text="test123" textFill="#666666">
          <font>
             <Font size="50.0" />
          </font>
       </Label>
-      <Label fx:id="memberEmail" layoutX="800.0" layoutY="585.0" text="test123@test.com" textFill="#666666">
+      <Label fx:id="memberEmail" layoutX="908.0" layoutY="580.0" text="test123@test.com" textFill="#666666">
          <font>
             <Font size="50.0" />
          </font>

@@ -89,27 +89,14 @@ public class Profile_Controller implements Initializable {
 		}
 	}
 
-	// 닉네임 변경 화면 팝업
+	// 회원정보 변경 화면 전환
 	@FXML
-	private Button popUpNickNameChangeBtn;
-	@FXML
-	private Stage popUpNickNameStage;
+	private Button changeProfileEditBtn;
 
-	public void popUpNickNameChange() {
-		methodUtil.popUpScene(popUpNickNameChangeBtn, popUpNickNameStage, "/view/NickNameChange_Layout.fxml", "닉네임 변경");
+	public void changeProfileEdit() {
+		methodUtil.changeScene("/view/ProfileEdit_Layout.fxml", changeProfileEditBtn);
 	}
-
-	// 비밀번호 변경 화면 팝업
-	@FXML
-	private Button popUpPasswordChangeBtn;
-	@FXML
-	private Stage popUpPasswordStage;
-
-	public void popUpPasswordChange() {
-		methodUtil.popUpScene(popUpPasswordChangeBtn, popUpPasswordStage, "/view/PasswordChange_Layout.fxml",
-				"비밀번호 변경");
-	}
-
+	
 	// 로그아웃
 	@FXML
 	private Button logoutBtn;
