@@ -12,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import util.AlertUtil;
 import util.MethodUtil;
 
 import static view.Login_Controller.userId;

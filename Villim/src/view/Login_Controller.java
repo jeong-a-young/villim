@@ -15,16 +15,20 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import util.MethodUtil;
+import util.Singleton;
 
 public class Login_Controller implements Initializable {
-	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^
+	//이 클래스가 실행되면 호출되는 메소드                   ^ 이거 있어야함 ^
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		if (Main_Controller.getInstance().getCLC().equals("Join_Controller")) {
+		//현재 화면의 이전 화면을 변수
+		Singleton.getInstance().setPreviousLayoutClass(Singleton.getInstance().getCLC());
+
+		if (Singleton.getInstance().getCLC().equals("Join_Controller")) {
 			alert("회원가입을 완료하였습니다");
 		}
 		// 현재 화면을 나타내는 이 프로그램 내부의 정적 변수
-		Main_Controller.getInstance().setCLC(getClass().getSimpleName());
+		Singleton.getInstance().setCLC(getClass().getSimpleName());
 	}
 
 	// 알림창
@@ -97,18 +101,16 @@ public class Login_Controller implements Initializable {
 
 	public void changeMainAfterLogin() {
 		try {
-			String loginId = id.getText();
-			String loginPass = pass.getText();
 
 			sql = "SELECT * FROM `users` WHERE id = ? and password = ?";
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, loginId);
-			pstmt.setString(2, loginPass);
+			pstmt.setString(1, id.getText());
+			pstmt.setString(2, pass.getText());
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
 				System.out.println("로그인 성공");
-				userId = loginId;
+				Singleton.getInstance().setAccountId(id.getText());
 //				methodUtil.changeScene("/view/Home_Layout.fxml", loginButton);
 				
 			} else {
