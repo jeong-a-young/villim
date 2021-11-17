@@ -21,13 +21,13 @@ public class Category_Controller implements Initializable {
 	}
 
 	MethodUtil methodUtil = new MethodUtil();
+	
 	// 의상, 소품
 	@FXML
 	private Button changeClothesBtn;
 
-	public static String checkCategory;
-
 	public void changeClothes() {
+		Singleton.getInstance().setCurrentCategory("의상 / 소품");
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeClothesBtn);
 	}
 
@@ -36,6 +36,8 @@ public class Category_Controller implements Initializable {
 	private Button changeInstrumentBtn;
 
 	public void changeInstrument() {
+		Singleton.getInstance().setCurrentCategory("음반 / 악기");
+		System.out.println(Singleton.getInstance().getCurrentCategory());
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeInstrumentBtn);
 	}
 
@@ -44,6 +46,7 @@ public class Category_Controller implements Initializable {
 	private Button changeElectronicsBtn;
 
 	public void changeElectronics() {
+		Singleton.getInstance().setCurrentCategory("전자기기");
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeElectronicsBtn);
 	}
 
@@ -52,6 +55,7 @@ public class Category_Controller implements Initializable {
 	private Button changeHealthBtn;
 
 	public void changeHealth() {
+		Singleton.getInstance().setCurrentCategory("헬스 / 요가");
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeHealthBtn);
 	}
 
@@ -60,6 +64,7 @@ public class Category_Controller implements Initializable {
 	private Button changeSportsBtn;
 
 	public void changeSports() {
+		Singleton.getInstance().setCurrentCategory("스포츠 / 레저");
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeSportsBtn);
 	}
 
@@ -68,6 +73,7 @@ public class Category_Controller implements Initializable {
 	private Button changeCampingBtn;
 
 	public void changeCamping() {
+		Singleton.getInstance().setCurrentCategory("등산 / 낚시 / 캠핑");
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeCampingBtn);
 	}
 
@@ -76,6 +82,7 @@ public class Category_Controller implements Initializable {
 	private Button changeBookBtn;
 
 	public void changeBook() {
+		Singleton.getInstance().setCurrentCategory("도서 / 문구");
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeBookBtn);
 	}
 
@@ -84,6 +91,7 @@ public class Category_Controller implements Initializable {
 	private Button changeKidsBtn;
 
 	public void changeKids() {
+		Singleton.getInstance().setCurrentCategory("유아 용품");
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeKidsBtn);
 	}
 
@@ -92,6 +100,7 @@ public class Category_Controller implements Initializable {
 	private Button changeAnimalBtn;
 
 	public void changeAnimal() {
+		Singleton.getInstance().setCurrentCategory("반려동물 용품");
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeAnimalBtn);
 	}
 
@@ -100,32 +109,16 @@ public class Category_Controller implements Initializable {
 	private Button changeEtcBtn;
 
 	public void changeEtc() {
+		Singleton.getInstance().setCurrentCategory("기타");
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeEtcBtn);
 	}
 
 	// 홈 화면 전환
 	@FXML
-	private Button changeBackBtn;
+	private Button changeHomeBtn;
 
-	public void changeBack() {
-		// 이전 화면에 따라서 실행
-		switch (Singleton.getInstance().getPreviousLayoutClass()) {
-		// 이전 화면이 "Home_Controller의 레이아웃이었다면"
-		case "Home_Controller":
-			// 그곳으로
-			methodUtil.changeScene("/view/Home_Layout.fxml", changeBackBtn);
-		case "PostList_Controller":
-			// 그곳으로
-			methodUtil.changeScene("/view/PostList_Layout.fxml", changeBackBtn);
-		}
-	}
-
-	// 카테고리 화면 전환
-	@FXML
-	private Button changeCategoryBtn;
-
-	public void changeCategory() {
-		methodUtil.changeScene("/view/Category_Layout.fxml", changeCategoryBtn);
+	public void changeHome() {
+		methodUtil.changeScene("/view/Home_Layout.fxml", changeHomeBtn);
 	}
 
 }

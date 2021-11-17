@@ -19,7 +19,7 @@ public class PostList_Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		category.setItems(categoryItems);
-		// setSceneLabel();
+		setSceneLabel();
 	}
 
 	MethodUtil methodUtil = new MethodUtil();
@@ -101,69 +101,104 @@ public class PostList_Controller implements Initializable {
 			titleImageView.setImage(new Image("/resources/etcLabel.png"));
 		}
 	}
-	/*
-	 * // 화면 전환으로 판단 public void setSceneLabel() {
-	 * 
-	 * // 전체 if (postListCount == 1) { titleImageView.setImage(new
-	 * Image("/resources/allLabel.png")); category.setValue("전체"); postListCount =
-	 * 0; }
-	 * 
-	 * // 의상, 소품
-	 * 
-	 * if (clothesCount == 1) { titleImageView.setImage(new
-	 * Image("/resources/clothesLabel.png")); category.setValue("의상 / 소품");
-	 * clothesCount = 0; }
-	 * 
-	 * // 음반, 악기 if (instrumentCount == 1) { titleImageView.setImage(new
-	 * Image("/resources/instrumentLabel.png")); category.setValue("음반 / 악기");
-	 * instrumentCount = 0; }
-	 * 
-	 * // 전자기기 if (electronicsCount == 1) { titleImageView.setImage(new
-	 * Image("/resources/electronicsLabel.png")); category.setValue("전자기기");
-	 * electronicsCount = 0; }
-	 * 
-	 * // 헬스, 요가 if (healthCount == 1) { titleImageView.setImage(new
-	 * Image("/resources/healthLabel.png")); category.setValue("헬스 / 요가");
-	 * healthCount = 0; }
-	 * 
-	 * // 스포츠, 레저 if (sportsCount == 1) { titleImageView.setImage(new
-	 * Image("/resources/sportsLabel.png")); category.setValue("스포츠 / 레저");
-	 * sportsCount = 0; }
-	 * 
-	 * // 등산, 낚시, 캠핑 if (campingCount == 1) { titleImageView.setImage(new
-	 * Image("/resources/campingLabel.png")); category.setValue("등산 / 낚시 / 캠핑");
-	 * campingCount = 0; }
-	 * 
-	 * // 도서, 문구 if (bookCount == 1) { titleImageView.setImage(new
-	 * Image("/resources/bookLabel.png")); category.setValue("도서 / 문구"); bookCount =
-	 * 0; }
-	 * 
-	 * // 유아 용품 if (kidsCount == 1) { titleImageView.setImage(new
-	 * Image("/resources/kidsLabel.png")); category.setValue("유아 용품"); kidsCount =
-	 * 0; }
-	 * 
-	 * // 반려동물 용품 if (animalCount == 1) { titleImageView.setImage(new
-	 * Image("/resources/animalLabel.png")); category.setValue("반려동물 용품");
-	 * animalCount = 0; }
-	 * 
-	 * // 기타 if (etcCount == 1) { titleImageView.setImage(new
-	 * Image("/resources/etcLabel.png")); category.setValue("기타"); etcCount = 0; } }
-	 */
+
+	// 화면 전환으로 판단
+	public void setSceneLabel() {
+
+		// 전체
+		if (Singleton.getInstance().getCurrentCategory().equals("전체")) {
+			titleImageView.setImage(new Image("/resources/allLabel.png"));
+			category.setValue("전체");
+			Singleton.getInstance().setCurrentCategory(null);
+		}
+
+		// 의상, 소품
+		else if (Singleton.getInstance().getCurrentCategory().equals("의상 / 소품")) {
+			titleImageView.setImage(new Image("/resources/clothesLabel.png"));
+			category.setValue("의상 / 소품");
+			Singleton.getInstance().setCurrentCategory(null);
+		}
+
+		// 음반, 악기
+		else if (Singleton.getInstance().getCurrentCategory().equals("음반 / 악기")) {
+			System.out.println("test: "+ Singleton.getInstance().getCurrentCategory());
+			titleImageView.setImage(new Image("/resources/instrumentLabel.png"));
+			category.setValue("음반 / 악기");
+			Singleton.getInstance().setCurrentCategory(null);
+		}
+
+		// 전자기기
+		else if (Singleton.getInstance().getCurrentCategory().equals("전자기기")) {
+			titleImageView.setImage(new Image("/resources/electronicsLabel.png"));
+			category.setValue("전자기기");
+			Singleton.getInstance().setCurrentCategory(null);
+		}
+
+		// 헬스, 요가
+		else if (Singleton.getInstance().getCurrentCategory().equals("헬스 / 요가")) {
+			titleImageView.setImage(new Image("/resources/healthLabel.png"));
+			category.setValue("헬스 / 요가");
+			Singleton.getInstance().setCurrentCategory(null);
+		}
+
+		// 스포츠, 레저
+		else if (Singleton.getInstance().getCurrentCategory().equals("스포츠 / 레저")) {
+			titleImageView.setImage(new Image("/resources/sportsLabel.png"));
+			category.setValue("스포츠 / 레저");
+			Singleton.getInstance().setCurrentCategory(null);
+		}
+
+		// 등산, 낚시, 캠핑
+		else if (Singleton.getInstance().getCurrentCategory().equals("등산 / 낚시 / 캠핑")) {
+			titleImageView.setImage(new Image("/resources/campingLabel.png"));
+			category.setValue("등산 / 낚시 / 캠핑");
+			Singleton.getInstance().setCurrentCategory(null);
+		}
+
+		// 도서, 문구
+		else if (Singleton.getInstance().getCurrentCategory().equals("도서 / 문구")) {
+			titleImageView.setImage(new Image("/resources/bookLabel.png"));
+			category.setValue("도서 / 문구");
+			Singleton.getInstance().setCurrentCategory(null);
+		}
+
+		// 유아 용품
+		else if (Singleton.getInstance().getCurrentCategory().equals("유아 용품")) {
+			titleImageView.setImage(new Image("/resources/kidsLabel.png"));
+			category.setValue("유아 용품");
+			Singleton.getInstance().setCurrentCategory(null);
+		}
+
+		// 반려동물 용품
+		else if (Singleton.getInstance().getCurrentCategory().equals("반려동물 용품")) {
+			titleImageView.setImage(new Image("/resources/animalLabel.png"));
+			category.setValue("반려동물 용품");
+			Singleton.getInstance().setCurrentCategory(null);
+		}
+
+		// 기타
+		else if (Singleton.getInstance().getCurrentCategory().equals("기타")) {
+			titleImageView.setImage(new Image("/resources/etcLabel.png"));
+			category.setValue("기타");
+			Singleton.getInstance().setCurrentCategory(null);
+		}
+
+	}
 
 	// 이전 화면 전환
 	@FXML
 	private Button changeBackBtn;
 
+	// 고쳐야 하는 버그
+	// 카테고리로 들어가서 콤보 박스로 선택했을 때 카테고리로 들어왔다는 판단을 하지 못해서 화면 전환이 되지 않음
+	
 	public void changeBack() {
-		// 이전 화면에 따라서 실행
-		switch (Singleton.getInstance().getPreviousLayoutClass()) {
-			// 이전 화면이 "Home_Controller의 레이아웃이었다면"
-			case "Home_Controller":
-				// 그곳으로
-				methodUtil.changeScene("/view/Home_Layout.fxml", changeBackBtn);
-			case "Category_Controller":
-				// 그곳으로
-				methodUtil.changeScene("/view/Category_Layout.fxml", changeBackBtn);
+		if(Singleton.getInstance().getPreviousLayoutClass().equals("게시물 목록")) {
+			methodUtil.changeScene("/view/Home_Layout.fxml", changeBackBtn);
+			Singleton.getInstance().setPreviousLayoutClass(null);
+		} else if (Singleton.getInstance().getPreviousLayoutClass().equals("Home_Controller")) {
+			methodUtil.changeScene("/view/Category_Layout.fxml", changeBackBtn);
+			Singleton.getInstance().setPreviousLayoutClass(null);
 		}
 	}
 

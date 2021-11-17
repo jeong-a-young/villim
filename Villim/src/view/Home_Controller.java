@@ -58,9 +58,9 @@ public class Home_Controller implements Initializable {
 	@FXML
 	private Button changePostListBtn;
 
-	public static String ChangeCheck;
-
 	public void changePostList() {
+		Singleton.getInstance().setCurrentCategory("전체");
+		Singleton.getInstance().setPreviousLayoutClass("게시물 목록");
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changePostListBtn);
 	}
 
@@ -69,6 +69,7 @@ public class Home_Controller implements Initializable {
 	private Button changeCategoryBtn;
 
 	public void changeCategory() {
+		Singleton.getInstance().setPreviousLayoutClass("카테고리"); // 카테고리 라고 set 했는데 왜 Home_Controller 라고 나오지?
 		methodUtil.changeScene("/view/Category_Layout.fxml", changeCategoryBtn);
 	}
 
