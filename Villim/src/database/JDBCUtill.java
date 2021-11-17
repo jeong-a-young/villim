@@ -4,6 +4,8 @@ import util.Singleton;
 
 import java.sql.*;
 
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
+
 public class JDBCUtill {
 	// 싱글톤
 	private static JDBCUtill instance;
@@ -31,7 +33,14 @@ public class JDBCUtill {
 			String password = "";
 			conn = DriverManager.getConnection(connectionString, userId, password);
 			System.out.println("데이터베이스 연결됨");
-			CreateTable("villim", "UserLoginData");
+			
+			//자동 생성
+			String profile = "(nick text not null, id text not null, password text not null, email text not null, image text)";
+			String resource = "(nick text, title text, lore text, category text, image text)";
+			CreateTable("villim", "profile", profile);
+			CreateTable("villim", "resource", resource);
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("데이터베이스 연결 실패");
@@ -69,7 +78,7 @@ public class JDBCUtill {
 		}
 	}
 
-	public void CreateTable(String DbName, String tName) {
+	public void CreateTable(String DbName, String tName, String info) {
 		try {
 			CreateOrChangeDatabase(DbName);
 			String tableSql = "SELECT table_name FROM information_schema.tables where table_schema = ? and table_name = ?";
@@ -80,7 +89,7 @@ public class JDBCUtill {
 			if (!rs.next()) {
 				Statement stmt = conn.createStatement();
 				String sql = "create table " + tName
-						+ "(id text not null, password text not null, nick text, lore text, theme text)";
+						+ info;
 				rs2 = stmt.executeUpdate(sql);
 				stmt.close();
 			}

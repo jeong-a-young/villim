@@ -100,7 +100,7 @@ public class Login_Controller implements Initializable {
 	public void changeMainAfterLogin() {
 		try {
 
-			sql = "SELECT * FROM `users` WHERE id = ? and password = ?";
+			sql = "SELECT * FROM `profile` WHERE id = ? and password = ?";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id.getText());

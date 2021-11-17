@@ -141,16 +141,16 @@ public class Join_Controller implements Initializable {
 	boolean isIdChecked = false;
 
 	public void checkId() {
-		if (join_id_check()) {
+		if (!join_id_check()) {
 			alert("이 아이디는 사용하실 수 없습니다");
 		} else {
 			alert("사용 가능한 아이디입니다");
 			isIdChecked = true;
 		}
 	}
-
+//중복 확인이 안됨
 	public boolean join_id_check() {
-		sql = "SELECT count(*) cnt from users where id=?";
+		sql = "SELECT count(*) cnt from profile where id=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, join_id.getText());
