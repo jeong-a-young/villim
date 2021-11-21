@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 21-11-14 13:35
+-- 생성 시간: 21-11-21 10:23
 -- 서버 버전: 10.4.21-MariaDB
 -- PHP 버전: 8.0.12
 
@@ -30,6 +30,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `my_pick` (
   `post_id` int(100) NOT NULL,
   `user_id` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- 테이블 구조 `photos`
+--
+
+CREATE TABLE `photos` (
+  `id` int(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `file` mediumblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
