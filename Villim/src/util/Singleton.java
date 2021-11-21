@@ -22,7 +22,7 @@ public class Singleton {
 	private String previousLayoutClass;
 	// 현재 카테고리 이름 (카테고리 컨트롤러 전용)
 	private String currentCategory;
-
+	
 	public String getAccountId() {
 		return accountId;
 	}
