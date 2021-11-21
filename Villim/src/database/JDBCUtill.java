@@ -4,8 +4,6 @@ import util.Singleton;
 
 import java.sql.*;
 
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
-
 public class JDBCUtill {
 	// 싱글톤
 	private static JDBCUtill instance;
