@@ -18,4 +18,5 @@ Profile_Controller => 프로필 사진 가져오는 기능 제작 필요
 ProfileEdit_Controller => 프로필 사진 수정 기능 제작 필요
 Search_Controller => 게시글 가져오는 기능 제작 필요
 [ Start_Controller => 완성 ]
+ViewPost_Controller => 게시글 가져오는 기능 제작 필요
 WritePost_Controller => 99% 진행
