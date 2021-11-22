@@ -14,11 +14,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import util.MethodUtil;
-
-import static view.Login_Controller.userId;
+import util.Singleton;
 
 public class WritePost_Controller implements Initializable {
 
@@ -41,16 +41,26 @@ public class WritePost_Controller implements Initializable {
 	private Button write_success;
 	@FXML
 	private ComboBox<String> categoryComboBox = new ComboBox<String>();
-
 	private ObservableList<String> categoryItems = FXCollections.observableArrayList("의상 / 소품", "음반 / 악기", "전자기기",
 			"헬스 / 요가", "스포츠 / 레저", "등산 / 낚시 / 캠핑", "도서 / 문구", "유아 용품", "반려동물 용품", "기타");
-
+	@FXML
+	private ListView<String> photoList;
+	private ObservableList<String> photoListItems = FXCollections.observableArrayList();
+	
+	// 사진 추가
+	public void addPhoto() {
+		methodUtil.inputPhoto();
+		photoListItems.add(""); // 사진의 경로를 추가
+		photoList.setItems(photoListItems);
+	}
+	
+	// 게시글 작성
 	public void writePost() {
 		try {
 			String title = write_title.getText();
 			String content = write_content.getText();
 			String category = categoryComboBox.getValue();
-			String writer_id = userId;
+			String writer_id = Singleton.getInstance().getAccountId();
 			int recommend = 0;
 			Date date_now = new Date(System.currentTimeMillis());
 			SimpleDateFormat fourteen_format = new SimpleDateFormat("yyyy년 MM월 dd일");

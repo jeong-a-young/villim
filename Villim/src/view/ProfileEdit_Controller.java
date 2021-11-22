@@ -22,8 +22,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
-import static view.Login_Controller.userId;
-
 public class ProfileEdit_Controller implements Initializable {
 	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^
 	@Override
@@ -102,7 +100,7 @@ public class ProfileEdit_Controller implements Initializable {
 		} else if (!memberPassword.getText().isEmpty() && memberNickName.getText().isEmpty()) {
 			String password = memberPassword.getText();
 			String passwordCheck = memberPasswordCheck.getText();
-			sql = "update users set password='" + password + "' WHERE id='" + userId + "'";
+			sql = "update users set password='" + password + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
 
 			try {
 				pstmt = conn.prepareStatement(sql);
@@ -116,7 +114,7 @@ public class ProfileEdit_Controller implements Initializable {
 			String NickName = memberNickName.getText();
 			String password = memberPassword.getText();
 			String passwordCheck = memberPasswordCheck.getText();
-			sql = "update users set password='" + password + "' WHERE id='" + userId + "'";
+			sql = "update users set password='" + password + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
 			sql2 = "update users set name='" + NickName + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
 
 			try {

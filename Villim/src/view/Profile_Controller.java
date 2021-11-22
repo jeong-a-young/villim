@@ -11,12 +11,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import util.MethodUtil;
-
-import static view.Login_Controller.userId;
+import util.Singleton;
 
 public class Profile_Controller implements Initializable {
 
@@ -77,7 +77,7 @@ public class Profile_Controller implements Initializable {
 	private Label memberEmail;
 
 	public void getInformation() {
-		sql = "select id, name, email from users where id='" + userId + "'";
+		sql = "select id, name, email from users where id='" + Singleton.getInstance().getAccountId() + "'";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -91,6 +91,14 @@ public class Profile_Controller implements Initializable {
 		}
 	}
 
+	@FXML
+	private ImageView profileImage;
+	
+	// 프로필 사진 가져오기
+	public void getPhoto() {
+		profileImage.setImage(new Image(methodUtil.outputPhoto()));
+	}
+	
 	// 회원정보 변경 화면 전환
 	@FXML
 	private Button changeProfileEditBtn;
@@ -104,7 +112,7 @@ public class Profile_Controller implements Initializable {
 	private Button logoutBtn;
 
 	public void Logout() {
-		userId = "";
+		Singleton.getInstance().setAccountId(null);
 		alert("로그아웃 되었습니다");
 		methodUtil.changeScene("/view/Start_Layout.fxml", logoutBtn);
 	}
@@ -114,11 +122,11 @@ public class Profile_Controller implements Initializable {
 	private Button deleteAccountBtn;
 
 	public void deleteAccount() {
-		sql = "delete from users where id='" + userId + "'";
+		sql = "delete from users where id='" + Singleton.getInstance().getAccountId() + "'";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
-			userId = "";
+			Singleton.getInstance().setAccountId(null);
 			alert("탈퇴 처리되었습니다");
 			methodUtil.changeScene("/view/Start_Layout.fxml", deleteAccountBtn);
 		} catch (Exception e) {

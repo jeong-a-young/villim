@@ -113,9 +113,13 @@ public class MethodUtil {
 	// 굳이 파일을 저장하지 않고 바로 세팅하는 법은 없을까
 	
 	private static final int BUFFER_SIZE = 4096;
+	int numCount = 0;
+	
+	public String outputPhoto() {
 
-	public void outputPhoto() {
-
+		numCount += 1;
+		String srtCount = Integer.toString(numCount);
+		String filePath = "src\\photo\\" + Singleton.getInstance().getAccountId() + srtCount + ".png";
 		try {
 			sql = "SELECT file FROM photos WHERE"; // sql문 작성 필요
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -124,7 +128,7 @@ public class MethodUtil {
 			if (result.next()) {
 				Blob blob = result.getBlob("file");
 				InputStream inputStream = blob.getBinaryStream();
-				OutputStream outputStream = new FileOutputStream(""); // 사용자에게 받은 사진을 저장할 경로
+				OutputStream outputStream = new FileOutputStream(filePath);
 
 				int bytesRead = -1;
 				byte[] buffer = new byte[BUFFER_SIZE];
@@ -142,6 +146,7 @@ public class MethodUtil {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return filePath;
 	}
 
 }

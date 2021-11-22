@@ -7,15 +7,15 @@ ________________________________________________________________________________
 
 * 진행도 *
 
-<< 회원가입: 완성 >>
-로그인: 진행중
-메인 화면: 메뉴, 추천 목록 제외하고 완성
-검색 기능: 게시물 가져오는 기능 만들어야됨
-게시물 작성: 사진 추가 기능 제외하고 완성
-채팅: 시작도 안 함
-게시물 목록: 게시물 불러오는 것 제외하고 완성
-게시물 보기: 뭔가.. 어정쩡
-게시글 수정: sql문만 수정하면 완성
-<< 카테고리: 완성 >>
-프로필: 프로필 사진 변경 기능 제외하고 완성
-모드 전환: 디자인 구상중
+[ Category_Controller => 완성 ]
+Chatting_Controller => 시작도 안 함
+EditPost_Controller => 진행중
+Home_Controller => 추천 목록 빼고 대부분 완성, 시간이 부족하면 상단 메뉴 버튼은 없애야 할 거 같음
+[ Join_Controller => 완성 ]
+Login_Controller => 중복 확인 불가능, 시간이 부족하면 중복 확인은 빼야함
+PostList_Controller => 게시글 가져오는 기능 제작 필요
+Profile_Controller => 프로필 사진 가져오는 기능 제작 필요
+ProfileEdit_Controller => 프로필 사진 수정 기능 제작 필요
+Search_Controller => 게시글 가져오는 기능 제작 필요
+[ Start_Controller => 완성 ]
+WritePost_Controller => 99% 진행

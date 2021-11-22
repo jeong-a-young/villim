@@ -1,7 +1,5 @@
 package view;
 
-import static view.Login_Controller.userId;
-
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -71,7 +69,7 @@ public class ViewPost_Controller implements Initializable {
 	private Label contentLabel;
 
 	public void getPost() {
-		sql = "select * from post where id='" + userId + "'"; // post id 이용해서 불러오는 걸로 변경
+		sql = "select * from post where id='" + Singleton.getInstance().getAccountId() + "'"; // post id 이용해서 불러오는 걸로 변경
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -111,7 +109,7 @@ public class ViewPost_Controller implements Initializable {
 	public int getRecommend() {
 
 		String countRecommend = "";
-		sql = "select recommend from post where writer_id='" + userId + "'"; // post id
+		sql = "select recommend from post where writer_id='" + Singleton.getInstance().getAccountId() + "'"; // post id
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -131,7 +129,7 @@ public class ViewPost_Controller implements Initializable {
 		int numRecommend = getRecommend() + 1;
 		String countRecommend = Integer.toString(numRecommend);
 
-		sql = "update post set recommend='" + countRecommend + "' WHERE writer_id='" + userId + "'";
+		sql = "update post set recommend='" + countRecommend + "' WHERE writer_id='" + Singleton.getInstance().getAccountId() + "'";
 
 		try {
 			pstmt = conn.prepareStatement(sql);

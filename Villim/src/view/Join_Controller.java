@@ -74,13 +74,6 @@ public class Join_Controller implements Initializable {
 
 	MethodUtil methodUtil = new MethodUtil();
 
-	@FXML
-	private Button changeStartBtn;
-
-	public void changeStart() {
-		methodUtil.changeScene("/view/Start_Layout.fxml", changeStartBtn);
-	}
-
 	// 회원가입
 	@FXML
 	private ImageView checkPWImage;

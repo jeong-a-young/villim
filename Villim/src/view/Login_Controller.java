@@ -67,12 +67,13 @@ public class Login_Controller implements Initializable {
 		t.start();
 	}
 
+	MethodUtil methodUtil = new MethodUtil();
+	
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
+	ResultSet rs = null;
 	String sql = "";
 	Connection conn = JDBCUtill.getInstance().getConnection();
-
-	public static String userId = "";
 
 	@FXML
 	private TextField id;
@@ -81,6 +82,7 @@ public class Login_Controller implements Initializable {
 	@FXML
 	private Button loginButton;
 
+	// 공백 확인
 	public void login() {
 		if (id.getText().isEmpty() && pass.getText().isEmpty()) {
 			alert("아이디와 비밀번호를 입력해주세요");
@@ -93,35 +95,40 @@ public class Login_Controller implements Initializable {
 		}
 	}
 
-	@FXML
-	private Button changeStartBtn;
-	MethodUtil methodUtil = new MethodUtil();
-
+	// 아이디와 비밀번호 일치 확인
 	public void changeMainAfterLogin() {
+		
+		int count = 0;
+		sql = "select id, password from users";
+
 		try {
-
-			sql = "SELECT * FROM `profile` WHERE id = ? and password = ?";
-
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id.getText());
-			pstmt.setString(2, pass.getText());
-			ResultSet rs = pstmt.executeQuery();
-			if (rs.next()) {
-				System.out.println("로그인 성공");
-				Singleton.getInstance().setAccountId(id.getText());
-//				methodUtil.changeScene("/view/Home_Layout.fxml", loginButton);
-
-			} else {
-				System.out.println("로그인 실패");
-				userId = "";
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String getId = rs.getString("id");
+				String getPassword = rs.getString("password");
+				if (id.getText().equals(getId) && pass.getText().equals(getPassword)) {
+					count++;
+					Singleton.getInstance().setAccountId(getId);
+					System.out.println("로그인 성공" + Singleton.getInstance().getAccountId());
+					methodUtil.changeScene("/view/Home_Layout.fxml", loginButton);
+					break;
+				}
 			}
-			System.out.println(userId);
+			if (count != 1) {
+				System.out.println("로그인 실패" + Singleton.getInstance().getAccountId());
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	// 시작 화면 전환
+	@FXML
+	private Button changeStartBtn;
+	
 	public void changeStart() {
 		methodUtil.changeScene("/view/Start_Layout.fxml", changeStartBtn);
 	}
+	
 }

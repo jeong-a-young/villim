@@ -198,7 +198,7 @@ public class PostList_Controller implements Initializable {
 			Singleton.getInstance().setPreviousLayoutClass(null);
 		} else if (Singleton.getInstance().getPreviousLayoutClass().equals("Home_Controller")) {
 			methodUtil.changeScene("/view/Category_Layout.fxml", changeBackBtn);
-			Singleton.getInstance().setPreviousLayoutClass(null);
+			//Singleton.getInstance().setPreviousLayoutClass(null);
 		}
 	}
 

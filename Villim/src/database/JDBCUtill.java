@@ -1,7 +1,5 @@
 package database;
 
-import util.Singleton;
-
 import java.sql.*;
 
 public class JDBCUtill {
