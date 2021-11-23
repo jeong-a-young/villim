@@ -128,7 +128,7 @@ public class Login_Controller implements Initializable {
 	private Button changeStartBtn;
 	
 	public void changeStart() {
-		methodUtil.changeScene("/view/Start_Layout.fxml", changeStartBtn);
+		methodUtil.backScene(changeStartBtn);
 	}
 	
 }

@@ -1,5 +1,8 @@
 package util;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Singleton {
 	// 싱글톤
 	private static Singleton instance;
@@ -22,6 +25,8 @@ public class Singleton {
 	private String previousLayoutClass;
 	// 현재 카테고리 이름 (카테고리 컨트롤러 전용)
 	private String currentCategory;
+	// 레이아웃 기록 (이전 화면 돌아가기 전용)
+	public List<String> sceneList = Arrays.asList("/view/Start_Layout.fxml");
 	
 	public String getAccountId() {
 		return accountId;

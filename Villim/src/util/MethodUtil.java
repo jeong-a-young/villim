@@ -12,6 +12,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import database.JDBCUtill;
 import javafx.fxml.FXMLLoader;
@@ -43,7 +46,22 @@ public class MethodUtil {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		Singleton.getInstance().sceneList.add(url);
+		System.out.println(Singleton.getInstance().sceneList);
 	}
+	public void backScene(Button btn) {
+		try {
+			Parent main = FXMLLoader.load(getClass().getResource(Singleton.getInstance().sceneList.get(Singleton.getInstance().sceneList.size() - 1)));
+			Scene scene = new Scene(main);
+			Stage primaryStage = (Stage) btn.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Singleton.getInstance().sceneList.remove(Singleton.getInstance().sceneList.size());
+		System.out.println(Singleton.getInstance().sceneList);
+	}
+	
 
 	public void changePartScene(String url, BorderPane pane) {
 		try {
