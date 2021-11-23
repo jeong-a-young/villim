@@ -15,9 +15,6 @@ public class Start_Controller implements Initializable {
 	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// 현재 화면을 나타내는 변수
-		Singleton.getInstance().setCLC(getClass().getSimpleName());
-		
 		// 알림 메소드
 		alert("반갑습니다!");
 
@@ -35,12 +32,12 @@ public class Start_Controller implements Initializable {
 				Thread.sleep(500);
 				for (int i = -15; i <= 0; i++) {
 					alertPane.setLayoutY(i * 4);
-					Thread.sleep(20);
+					Thread.sleep(25);
 				}
 				Thread.sleep(2000);
 				for (int i = 0; i >= -15; i--) {
 					alertPane.setLayoutY(i * 4);
-					Thread.sleep(20);
+					Thread.sleep(25);
 				}
 			} catch (Exception e) {
 				System.out.println(getClass().getName() + " 쓰레드 오류: " + e);

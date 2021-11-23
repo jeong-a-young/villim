@@ -21,14 +21,9 @@ public class Login_Controller implements Initializable {
 	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// 현재 화면의 이전 화면을 변수
-		Singleton.getInstance().setPreviousLayoutClass(Singleton.getInstance().getCLC());
-
-		if (Singleton.getInstance().getCLC().equals("Join_Controller")) {
+		if (Singleton.getInstance().sceneList.get(Singleton.getInstance().sceneList.size() - 1).equals("/view/Join_Layout.fxml")) {
 			alert("회원가입을 완료하였습니다");
 		}
-		// 현재 화면을 나타내는 이 프로그램 내부의 정적 변수
-		Singleton.getInstance().setCLC(getClass().getSimpleName());
 	}
 
 	// 알림창
@@ -46,12 +41,12 @@ public class Login_Controller implements Initializable {
 					Thread.sleep(500);
 					for (int i = -15; i <= 0; i++) {
 						alertPane.setLayoutY(i * 4);
-						Thread.sleep(20);
+						Thread.sleep(25);
 					}
 					Thread.sleep(2000);
 					for (int i = 0; i >= -15; i--) {
 						alertPane.setLayoutY(i * 4);
-						Thread.sleep(20);
+						Thread.sleep(25);
 					}
 					isAliveThread = false;
 				} catch (Exception e) {
@@ -99,7 +94,7 @@ public class Login_Controller implements Initializable {
 	public void changeMainAfterLogin() {
 		
 		int count = 0;
-		sql = "select id, password from users";
+		sql = "select id, password from profile";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -117,6 +112,7 @@ public class Login_Controller implements Initializable {
 			}
 			if (count != 1) {
 				Singleton.getInstance().debug("로그인 실패" + Singleton.getInstance().getAccountId());
+				alert("아이디 또는 비밀번호가 틀렸습니다");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -25,7 +25,7 @@
                </image>
             </ImageView>
          </children></Pane>
-      <Button fx:id="changeHomeBtn" layoutX="39.0" layoutY="34.0" mnemonicParsing="false" onAction="#changeHome" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
+      <Button fx:id="backButton" layoutX="39.0" layoutY="34.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

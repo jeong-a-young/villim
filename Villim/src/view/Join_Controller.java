@@ -24,10 +24,6 @@ public class Join_Controller implements Initializable {
 	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// 현재 화면의 이전 화면을 변수
-		Singleton.getInstance().setPreviousLayoutClass(Singleton.getInstance().getCLC());
-		// 현재 화면을 나타내는 변수
-		Singleton.getInstance().setCLC(getClass().getSimpleName());
 	}
 
 	// 알림창
@@ -45,12 +41,12 @@ public class Join_Controller implements Initializable {
 					Thread.sleep(500);
 					for (int i = -15; i <= 0; i++) {
 						alertPane.setLayoutY(i * 4);
-						Thread.sleep(20);
+						Thread.sleep(25);
 					}
 					Thread.sleep(2000);
 					for (int i = 0; i >= -15; i--) {
 						alertPane.setLayoutY(i * 4);
-						Thread.sleep(20);
+						Thread.sleep(25);
 					}
 					isAliveThread = false;
 				} catch (Exception e) {
@@ -134,8 +130,9 @@ public class Join_Controller implements Initializable {
 	boolean isIdChecked = false;
 
 	public void checkId() {
-		if (!join_id_check()) {
+		if (join_id_check()) {
 			alert("이 아이디는 사용하실 수 없습니다");
+			isIdChecked = false;
 		} else {
 			alert("사용 가능한 아이디입니다");
 			isIdChecked = true;
@@ -183,7 +180,7 @@ public class Join_Controller implements Initializable {
 
 	// 회원가입 완료 후 로그인 화면 넘어가기
 	public void changeLoginAfterJoin() {
-		sql = "INSERT INTO `users`(`id`, `password`, `name`, `tree`, `email`, `theme`) " + "VALUES (?,?,?,?,?,?)";
+		sql = "INSERT INTO profile(nick, id, password, email, image) VALUES (?,?,?,?,?)";
 		try {
 			String joinId = join_id.getText();
 			String joinPass = join_pass.getText();
@@ -194,20 +191,19 @@ public class Join_Controller implements Initializable {
 
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setString(1, joinId);
-			pstmt.setString(2, joinPass);
-			pstmt.setString(3, joinName);
-			pstmt.setInt(4, tree);
-			pstmt.setString(5, joinEmail);
-			pstmt.setString(6, theme);
+			pstmt.setString(1, joinName);
+			pstmt.setString(2, joinId);
+			pstmt.setString(3, joinPass);
+			pstmt.setString(4, joinEmail);
+			pstmt.setString(5, null);
 			pstmt.executeUpdate();
 
 			Singleton.getInstance().debug("성공");
+			methodUtil.changeScene("/view/Login_Layout.fxml", join_button);
 		} catch (Exception e) {
 			Singleton.getInstance().debug("실패");
 			e.printStackTrace();
 		}
-		methodUtil.changeScene("/view/Login_Layout.fxml", join_button);
 	}
 	@FXML
 	private Button backButton;

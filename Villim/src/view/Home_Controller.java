@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import util.MethodUtil;
 import util.Singleton;
 
@@ -14,15 +16,49 @@ public class Home_Controller implements Initializable {
 	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// 현재 화면의 이전 화면을 변수
-		//(테스트용)시작이 홈일때는 아래
-		Singleton.getInstance().setPreviousLayoutClass(getClass().getSimpleName());
-		//평소에는 이것 Singleton.getInstance().setPreviousLayoutClass(Singleton.getInstance().getCLC());
-		// 현재 화면을 나타내는 변수
-		Singleton.getInstance().setCLC(getClass().getSimpleName());
-
+		if (Singleton.getInstance().sceneList.get(Singleton.getInstance().sceneList.size() - 1).equals("/view/Login_Layout.fxml")) {
+			alert("반갑습니다 "+Singleton.getInstance().getAccountId()+"님");
+		}
 	}
+	// 알림창
+	@FXML
+	public Pane alertPane;
+	@FXML
+	public Text alertText;
+	public boolean isAliveThread;
 
+	public void alert(String text) {
+		Thread t = new Thread() {
+			public void run() {
+				try {
+					isAliveThread = true;
+					Thread.sleep(500);
+					for (int i = -15; i <= 0; i++) {
+						alertPane.setLayoutY(i * 4);
+						Thread.sleep(25);
+					}
+					Thread.sleep(2000);
+					for (int i = 0; i >= -15; i--) {
+						alertPane.setLayoutY(i * 4);
+						Thread.sleep(25);
+					}
+					isAliveThread = false;
+				} catch (Exception e) {
+					Singleton.getInstance().debug(getClass().getName() + " 쓰레드 오류: " + e);
+				}
+
+			}
+		};
+		alertText.setText(text);
+		if (isAliveThread) {
+			return;
+		}
+		t.start();
+	}
+	
+	
+	
+	
 	MethodUtil methodUtil = new MethodUtil();
 
 	// 검색
@@ -60,7 +96,6 @@ public class Home_Controller implements Initializable {
 
 	public void changePostList() {
 		Singleton.getInstance().setCurrentCategory("전체");
-		Singleton.getInstance().setPreviousLayoutClass("게시물 목록");
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changePostListBtn);
 	}
 
@@ -69,8 +104,13 @@ public class Home_Controller implements Initializable {
 	private Button changeCategoryBtn;
 
 	public void changeCategory() {
-		Singleton.getInstance().setPreviousLayoutClass("카테고리"); // 카테고리 라고 set 했는데 왜 Home_Controller 라고 나오지?
 		methodUtil.changeScene("/view/Category_Layout.fxml", changeCategoryBtn);
 	}
-
+	//이전 화면으로 가는 코드
+		@FXML
+		private Button backButton;
+		
+		public void back() {
+			methodUtil.backScene(backButton);
+		}
 }

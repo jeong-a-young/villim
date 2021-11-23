@@ -185,21 +185,12 @@ public class PostList_Controller implements Initializable {
 
 	}
 
-	// 이전 화면 전환
-	@FXML
-	private Button changeBackBtn;
-
-	// 고쳐야 하는 버그
-	// 카테고리로 들어가서 콤보 박스로 선택했을 때 카테고리로 들어왔다는 판단을 하지 못해서 화면 전환이 되지 않음
-	
-	public void changeBack() {
-		if(Singleton.getInstance().getPreviousLayoutClass().equals("게시물 목록")) {
-			methodUtil.changeScene("/view/Home_Layout.fxml", changeBackBtn);
-			Singleton.getInstance().setPreviousLayoutClass(null);
-		} else if (Singleton.getInstance().getPreviousLayoutClass().equals("Home_Controller")) {
-			methodUtil.changeScene("/view/Category_Layout.fxml", changeBackBtn);
-			//Singleton.getInstance().setPreviousLayoutClass(null);
+	//이전 화면으로 가는 코드
+		@FXML
+		private Button backButton;
+		
+		public void back() {
+			methodUtil.backScene(backButton);
 		}
-	}
 
 }

@@ -29,7 +29,7 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <Button fx:id="changeProfileBtn" layoutX="40.0" layoutY="35.0" mnemonicParsing="false" onAction="#changeProfile" prefHeight="49.0" prefWidth="161.0" styleClass="transparencyBtn" />
+      <Button fx:id="backButton" layoutX="40.0" layoutY="35.0" mnemonicParsing="false" onAction="#back" prefHeight="49.0" prefWidth="161.0" styleClass="transparencyBtn" />
       <Button layoutX="1364.0" layoutY="804.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="174.0" styleClass="transparencyBtn" />
    </children>
 </AnchorPane>

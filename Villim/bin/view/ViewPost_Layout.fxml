@@ -38,7 +38,7 @@
             <Font size="50.0" />
          </font>
       </Label>
-      <Button fx:id="changeHomeBtn" layoutX="40.0" layoutY="35.0" mnemonicParsing="false" onAction="#changeHome" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
+      <Button fx:id="backButton" layoutX="40.0" layoutY="35.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

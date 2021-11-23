@@ -20,10 +20,6 @@ public class Singleton {
 
 	// 로그인한 유저의 아이디
 	private String accountId;
-	// 현재 화면 레이아웃의 컨트롤러 클래스 이름
-	private String currentLayoutClass;
-	// 이전 화면 레이아웃의 컨트롤러 클래스 이름
-	private String previousLayoutClass;
 	// 현재 카테고리 이름 (카테고리 컨트롤러 전용)
 	private String currentCategory;
 	// 레이아웃 기록 (이전 화면 돌아가기 전용)
@@ -37,14 +33,6 @@ public class Singleton {
 		this.accountId = accountId;
 	}
 
-	public String getPreviousLayoutClass() {
-		return previousLayoutClass;
-	}
-
-	public void setPreviousLayoutClass(String previousLayoutClass) {
-		this.previousLayoutClass = previousLayoutClass;
-	}
-
 	public String getCurrentCategory() {
 		return currentCategory;
 	}
@@ -52,26 +40,8 @@ public class Singleton {
 	public void setCurrentCategory(String currentCategory) {
 		this.currentCategory = currentCategory;
 	}
-
-	public void setCLC(String text) {
-		currentLayoutClass = text;
-	}
-
-	public String getCLC() {
-		return currentLayoutClass;
-	}
 	public void debug(String t) {
-		new Thread() {
-			public void run() {
-				System.err.print("디버그 ");
-				try {
-					Thread.sleep(1);
-				} catch (InterruptedException e) {
-					//silence 
-				}
-				System.out.println(t);
-			}
-		}.start();
-	}   
+			System.out.println("[ 디버그 ] " + t);
+	}
 
 }
