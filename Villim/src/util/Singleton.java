@@ -1,6 +1,6 @@
 package util;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Singleton {
@@ -8,6 +8,7 @@ public class Singleton {
 	private static Singleton instance;
 
 	private Singleton() {
+		sceneList.add("/view/Start_Layout.fxml");
 	}
 
 	public static Singleton getInstance() {
@@ -26,8 +27,8 @@ public class Singleton {
 	// 현재 카테고리 이름 (카테고리 컨트롤러 전용)
 	private String currentCategory;
 	// 레이아웃 기록 (이전 화면 돌아가기 전용)
-	public List<String> sceneList = Arrays.asList("/view/Start_Layout.fxml");
-	
+	public List<String> sceneList = new ArrayList<>();
+
 	public String getAccountId() {
 		return accountId;
 	}
@@ -59,5 +60,18 @@ public class Singleton {
 	public String getCLC() {
 		return currentLayoutClass;
 	}
+	public void debug(String t) {
+		new Thread() {
+			public void run() {
+				System.err.print("디버그 ");
+				try {
+					Thread.sleep(1);
+				} catch (InterruptedException e) {
+					//silence 
+				}
+				System.out.println(t);
+			}
+		}.start();
+	}   
 
 }

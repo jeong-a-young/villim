@@ -121,7 +121,7 @@ public class PostList_Controller implements Initializable {
 
 		// 음반, 악기
 		else if (Singleton.getInstance().getCurrentCategory().equals("음반 / 악기")) {
-			System.out.println("test: "+ Singleton.getInstance().getCurrentCategory());
+			Singleton.getInstance().debug("test: "+ Singleton.getInstance().getCurrentCategory());
 			titleImageView.setImage(new Image("/resources/instrumentLabel.png"));
 			category.setValue("음반 / 악기");
 			Singleton.getInstance().setCurrentCategory(null);

@@ -17,6 +17,7 @@ public class Start_Controller implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// 현재 화면을 나타내는 변수
 		Singleton.getInstance().setCLC(getClass().getSimpleName());
+		
 		// 알림 메소드
 		alert("반갑습니다!");
 

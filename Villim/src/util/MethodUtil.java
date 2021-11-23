@@ -34,7 +34,7 @@ public class MethodUtil {
 	PreparedStatement pstmt = null;
 	String sql = "";
 	Connection conn = JDBCUtill.getInstance().getConnection();
-	
+
 	// 화면 전환
 
 	public void changeScene(String url, Button btn) {
@@ -44,24 +44,27 @@ public class MethodUtil {
 			Stage primaryStage = (Stage) btn.getScene().getWindow();
 			primaryStage.setScene(scene);
 		} catch (Exception e) {
+			Singleton.getInstance().debug("오류[ " + e + " ]");
 			e.printStackTrace();
 		}
 		Singleton.getInstance().sceneList.add(url);
-		System.out.println(Singleton.getInstance().sceneList);
+		Singleton.getInstance().debug("scene 추적 기록" + Singleton.getInstance().sceneList);
 	}
+
 	public void backScene(Button btn) {
 		try {
-			Parent main = FXMLLoader.load(getClass().getResource(Singleton.getInstance().sceneList.get(Singleton.getInstance().sceneList.size() - 1)));
+			Parent main = FXMLLoader.load(getClass()
+					.getResource(Singleton.getInstance().sceneList.get(Singleton.getInstance().sceneList.size() - 2)));
 			Scene scene = new Scene(main);
 			Stage primaryStage = (Stage) btn.getScene().getWindow();
 			primaryStage.setScene(scene);
 		} catch (Exception e) {
+			Singleton.getInstance().debug("오류[ " + e + " ]");
 			e.printStackTrace();
 		}
-		Singleton.getInstance().sceneList.remove(Singleton.getInstance().sceneList.size());
-		System.out.println(Singleton.getInstance().sceneList);
+		Singleton.getInstance().sceneList.remove(Singleton.getInstance().sceneList.size() - 1);
+		Singleton.getInstance().debug("scene 추적 기록" + Singleton.getInstance().sceneList);
 	}
-	
 
 	public void changePartScene(String url, BorderPane pane) {
 		try {
@@ -89,26 +92,27 @@ public class MethodUtil {
 			stage.setTitle(title);
 			stage.show();
 		} catch (Exception e) {
+			Singleton.getInstance().debug("오류[ " + e + " ]");
 			e.printStackTrace();
 		}
 	}
 
 	// 사용자에게 사진 파일 받아오기
-	
+
 	private Stage selectStage;
-	
+
 	public String selectFile() {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("이미지 파일", "*.png", "*.PNG", "*.jpg", "*.jpeg"));
 		File file = fileChooser.showOpenDialog(selectStage);
 		return file.getPath();
 	}
-	
+
 	// DB에 사진 저장하고 가져오기
 
 	// 사진 저장
 	public void inputPhoto() {
-			
+
 		try {
 			File imgfile = new File(selectFile());
 			FileInputStream fin = new FileInputStream(imgfile);
@@ -117,22 +121,23 @@ public class MethodUtil {
 			pre.setString(2, "test");
 			pre.setBinaryStream(3, fin, (int) imgfile.length());
 			pre.executeUpdate();
-			System.out.println("사진 저장 성공");
+			Singleton.getInstance().debug("사진 저장 성공");
 			pre.close();
 			conn.close();
 		} catch (Exception e) {
+			Singleton.getInstance().debug("오류[ " + e + " ]");
 			e.printStackTrace();
 		}
 	}
 
 	// 사진 불러오기
-	
+
 	// 이클립스에서 새로고침을 해야만 사진을 인식함
 	// 굳이 파일을 저장하지 않고 바로 세팅하는 법은 없을까
-	
+
 	private static final int BUFFER_SIZE = 4096;
 	int numCount = 0;
-	
+
 	public String outputPhoto() {
 
 		numCount += 1;
@@ -156,7 +161,7 @@ public class MethodUtil {
 
 				inputStream.close();
 				outputStream.close();
-				System.out.println("사진 불러오기 성공");
+				Singleton.getInstance().debug("사진 불러오기 성공");
 			}
 			conn.close();
 		} catch (SQLException e) {

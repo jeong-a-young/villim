@@ -1,5 +1,7 @@
 package view;
 
+import static view.Home_Controller.searchContent;
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,8 +15,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import util.MethodUtil;
-
-import static view.Home_Controller.searchContent;
+import util.Singleton;
 
 public class SearchList_Controller implements Initializable {
 
@@ -48,7 +49,7 @@ public class SearchList_Controller implements Initializable {
 				// 테스트를 위해 출력문으로 작성한 것
 				// 나중에 게시물 목록에 게시글이 나타나게 수정
 				String title = rs.getString("title");
-				System.out.println(title);
+				Singleton.getInstance().debug(title);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

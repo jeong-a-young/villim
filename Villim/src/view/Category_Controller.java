@@ -37,7 +37,7 @@ public class Category_Controller implements Initializable {
 
 	public void changeInstrument() {
 		Singleton.getInstance().setCurrentCategory("음반 / 악기");
-		System.out.println(Singleton.getInstance().getCurrentCategory());
+		Singleton.getInstance().debug(Singleton.getInstance().getCurrentCategory());
 		methodUtil.changeScene("/view/PostList_Layout.fxml", changeInstrumentBtn);
 	}
 

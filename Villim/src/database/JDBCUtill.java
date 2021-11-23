@@ -2,6 +2,8 @@ package database;
 
 import java.sql.*;
 
+import util.Singleton;
+
 public class JDBCUtill {
 	// 싱글톤
 	private static JDBCUtill instance;
@@ -28,7 +30,7 @@ public class JDBCUtill {
 			String userId = "root";
 			String password = "";
 			conn = DriverManager.getConnection(connectionString, userId, password);
-			System.out.println("데이터베이스 연결됨");
+			Singleton.getInstance().debug("데이터베이스 연결됨");
 			
 			//자동 생성
 			String profile = "(nick text not null, id text not null, password text not null, email text not null, image text)";
@@ -38,8 +40,7 @@ public class JDBCUtill {
 			
 			
 		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("데이터베이스 연결 실패");
+			Singleton.getInstance().debug("데이터베이스 연결 실패 오류[ " + e +" ]");
 		}
 		return conn;
 	}
@@ -55,12 +56,12 @@ public class JDBCUtill {
 				String sql = "create database " + dbName;
 				boolean re = stmt.execute(sql);
 				if (!re)
-					System.out.println("데이터베이스 생성 실패" + re);
+					Singleton.getInstance().debug("데이터베이스 최초 생성 완료");
 				stmt.close();
 			}
 			conn.setCatalog(dbName);
 		} catch (Exception e) {
-			System.out.println("CreateOrChangeDatabase err : " + e);
+			Singleton.getInstance().debug("데이터베이스 생성 실패 오류[ " + e +" ]");
 		} finally {
 			try {
 				if (rs != null)
@@ -90,7 +91,7 @@ public class JDBCUtill {
 				stmt.close();
 			}
 		} catch (Exception e) {
-			System.out.println("CreateTable err : " + e);
+			Singleton.getInstance().debug("테이블 생성 실패 오류[ " + e +" ]");
 		} finally {
 			try {
 				if (rs != null)

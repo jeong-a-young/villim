@@ -57,7 +57,7 @@ public class ProfileEdit_Controller implements Initializable {
 					}
 					isAliveThread = false;
 				} catch (Exception e) {
-					System.out.println(getClass().getName() + " 쓰레드 오류: " + e);
+					Singleton.getInstance().debug(getClass().getName() + " 쓰레드 오류: " + e);
 				}
 
 			}

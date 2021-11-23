@@ -55,7 +55,7 @@ public class Login_Controller implements Initializable {
 					}
 					isAliveThread = false;
 				} catch (Exception e) {
-					System.out.println(getClass().getName() + " 쓰레드 오류: " + e);
+					Singleton.getInstance().debug(getClass().getName() + " 쓰레드 오류: " + e);
 				}
 
 			}
@@ -110,25 +110,27 @@ public class Login_Controller implements Initializable {
 				if (id.getText().equals(getId) && pass.getText().equals(getPassword)) {
 					count++;
 					Singleton.getInstance().setAccountId(getId);
-					System.out.println("로그인 성공" + Singleton.getInstance().getAccountId());
+					Singleton.getInstance().debug("로그인 성공" + Singleton.getInstance().getAccountId());
 					methodUtil.changeScene("/view/Home_Layout.fxml", loginButton);
 					break;
 				}
 			}
 			if (count != 1) {
-				System.out.println("로그인 실패" + Singleton.getInstance().getAccountId());
+				Singleton.getInstance().debug("로그인 실패" + Singleton.getInstance().getAccountId());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	// 시작 화면 전환
+	// 이전 화면으로
+	//시작 - 이 구역은 세트로 어디서든지 배치되야하는 코드
 	@FXML
-	private Button changeStartBtn;
+	private Button backButton;
 	
-	public void changeStart() {
-		methodUtil.backScene(changeStartBtn);
+	public void back() {
+		methodUtil.backScene(backButton);
 	}
+	//끝
 	
 }

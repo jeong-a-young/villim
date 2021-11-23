@@ -54,7 +54,7 @@ public class Join_Controller implements Initializable {
 					}
 					isAliveThread = false;
 				} catch (Exception e) {
-					System.out.println(getClass().getName() + " 쓰레드 오류: " + e);
+					Singleton.getInstance().debug(getClass().getName() + " 쓰레드 오류: " + e);
 				}
 
 			}
@@ -99,7 +99,7 @@ public class Join_Controller implements Initializable {
 	@FXML
 	private void signUp() {
 		// button event
-		System.out.println(join_pass.getText() + " and " + join_pass_ok.getText());
+		Singleton.getInstance().debug(join_pass.getText() + " and " + join_pass_ok.getText());
 		if (join_id.getText().isEmpty()) {
 			alert("아이디를 입력해주세요");
 		} else if (join_id.getText().matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*") || join_id.getText().contains(" ")) {
@@ -171,13 +171,13 @@ public class Join_Controller implements Initializable {
 		String joinPassOk = join_pass_ok.getText();
 		if (joinPass.equals(joinPassOk) && !joinPass.isEmpty()) {
 			checkPWImage.setImage(new Image("/resources/checkMark.png"));
-			System.out.println("확인 성공");
+			Singleton.getInstance().debug("확인 성공");
 		} else if (joinPass.equals(joinPassOk) && joinPass.isEmpty()) {
 			checkPWImage.setImage(new Image("/resources/xMark.png"));
-			System.out.println("확인 실패");
+			Singleton.getInstance().debug("확인 실패");
 		} else {
 			checkPWImage.setImage(new Image("/resources/xMark.png"));
-			System.out.println("확인 실패");
+			Singleton.getInstance().debug("확인 실패");
 		}
 	}
 
@@ -202,16 +202,17 @@ public class Join_Controller implements Initializable {
 			pstmt.setString(6, theme);
 			pstmt.executeUpdate();
 
-			System.out.println("성공");
+			Singleton.getInstance().debug("성공");
 		} catch (Exception e) {
-			System.out.println("실패");
+			Singleton.getInstance().debug("실패");
 			e.printStackTrace();
 		}
-
-//		얘 안됨
-//		|
-//		V
-//		new Login_Controller().alert("회원가입이 완료되었습니다");
 		methodUtil.changeScene("/view/Login_Layout.fxml", join_button);
+	}
+	@FXML
+	private Button backButton;
+	
+	public void back() {
+		methodUtil.backScene(backButton);
 	}
 }

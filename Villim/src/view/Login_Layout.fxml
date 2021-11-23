@@ -18,7 +18,7 @@
             <Image url="@../resources/loginPage.png" />
          </image>
       </ImageView>
-      <Button fx:id="changeStartBtn" layoutX="40.0" layoutY="34.0" mnemonicParsing="false" onAction="#changeStart" prefHeight="50.0" prefWidth="163.0" styleClass="transparencyBtn">
+      <Button fx:id="backButton" layoutX="40.0" layoutY="34.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="163.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
