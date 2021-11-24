@@ -15,7 +15,6 @@
             <Image url="@../resources/postListPage.png" />
          </image>
       </ImageView>
-      <Pagination layoutX="-1.0" layoutY="188.0" prefHeight="669.0" prefWidth="1602.0" />
       <ImageView fx:id="titleImageView" fitHeight="83.0" fitWidth="538.0" layoutX="546.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/campingLabel.png" />
@@ -27,5 +26,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Pagination layoutY="170.0" prefHeight="700.0" prefWidth="1600.0" />
    </children>
 </AnchorPane>
