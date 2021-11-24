@@ -17,6 +17,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import util.MethodUtil;
 import util.Singleton;
 
@@ -27,12 +30,48 @@ public class WritePost_Controller implements Initializable {
 		categoryComboBox.setItems(categoryItems);
 	}
 
+	// 알림창
+	@FXML
+	public Pane alertPane;
+	@FXML
+	public Text alertText;
+	public boolean isAliveThread;
+
+	public void alert(String text) {
+		Thread t = new Thread() {
+			public void run() {
+				try {
+					isAliveThread = true;
+					Thread.sleep(500);
+					for (int i = -15; i <= 0; i++) {
+						alertPane.setLayoutY(i * 4);
+						Thread.sleep(25);
+					}
+					Thread.sleep(2000);
+					for (int i = 0; i >= -15; i--) {
+						alertPane.setLayoutY(i * 4);
+						Thread.sleep(25);
+					}
+					isAliveThread = false;
+				} catch (Exception e) {
+					Singleton.getInstance().debug(getClass().getName() + " 쓰레드 오류: " + e);
+				}
+
+			}
+		};
+		alertText.setText(text);
+		if (isAliveThread) {
+			return;
+		}
+		t.start();
+	}
+
 	MethodUtil methodUtil = new MethodUtil();
 
 	PreparedStatement pstmt = null;
 	String sql = "";
 	Connection conn = JDBCUtill.getInstance().getConnection();
-
+	public String file = "";
 	@FXML
 	private TextField write_title;
 	@FXML
@@ -46,41 +85,58 @@ public class WritePost_Controller implements Initializable {
 	@FXML
 	private ListView<String> photoList;
 	private ObservableList<String> photoListItems = FXCollections.observableArrayList();
-	
+
 	// 사진 추가
 	public void addPhoto() {
-		methodUtil.inputPhoto();
+		file = methodUtil.selectFile();
 		photoListItems.add(""); // 사진의 경로를 추가
 		photoList.setItems(photoListItems);
 	}
-	
+
 	// 게시글 작성
 	public void writePost() {
-		try {
-			String title = write_title.getText();
-			String content = write_content.getText();
-			String category = categoryComboBox.getValue();
-			String writer_id = Singleton.getInstance().getAccountId();
-			int recommend = 0;
-			Date date_now = new Date(System.currentTimeMillis());
-			SimpleDateFormat fourteen_format = new SimpleDateFormat("yyyy년 MM월 dd일");
-			String now = fourteen_format.format(date_now);
+		String title = write_title.getText();
+		String content = write_content.getText();
+		String category = categoryComboBox.getValue();
+		String writer = Singleton.getInstance().getAccountNick() + "("
+				+ Singleton.getInstance().getAccountId().substring(0, 3) + "****)";
+		if (title.isEmpty()) {
+			alert("제목을 입력해주세요");
+		} else if (content.isEmpty()) {
+			alert("설명을 입력해주세요");
+		} else if (category == null) {
+			alert("카테고리를 설정해주세요");
+		} else {
+			try {
+				int recommend = 0;
+				Date date_now = new Date(System.currentTimeMillis());
+				SimpleDateFormat fourteen_format = new SimpleDateFormat("yyyy년 MM월 dd일 a hh시 mm분");
+				SimpleDateFormat fourteen_format2 = new SimpleDateFormat("yyyy:MM:dd:HH:mm:ss:");
+				String now = fourteen_format.format(date_now);
+				Singleton.getInstance().setNow2(fourteen_format2.format(date_now));
 
-			sql = "INSERT INTO post VALUES(?, ?, ?, ?, ?, ?)";
-			pstmt = conn.prepareStatement(sql);
+				sql = "INSERT INTO resource VALUES(?, ?, ?, ?, ?, ?, ?)";
+				pstmt = conn.prepareStatement(sql);
 
-			pstmt.setString(1, title);
-			pstmt.setString(2, content);
-			pstmt.setString(3, category);
-			pstmt.setInt(4, recommend);
-			pstmt.setString(5, now);
-			pstmt.setString(6, writer_id);
+				pstmt.setString(1, writer);
+				pstmt.setString(2, title);
+				pstmt.setString(3, content);
+				pstmt.setString(4, category);
+				pstmt.setString(5, now);
+				pstmt.setInt(6, recommend);
+				pstmt.setString(7, Singleton.getInstance().getNow2() + Singleton.getInstance().getAccountId());
 
-			int r = pstmt.executeUpdate();
-			System.out.println("작성 성공 " + r);
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("작성 실패");
+				int r = pstmt.executeUpdate();
+				methodUtil.inputPhoto(file);
+				Singleton.getInstance().debug("작성 성공 " + r);
+				Singleton.getInstance().setWriteSuccess(true);
+				methodUtil.backScene(write_success);
+			} catch (Exception e) {
+				
+				// TODO: handle exception
+				e.printStackTrace();
+				Singleton.getInstance().debug("작성 실패");
+			}
 		}
 	}
 
@@ -92,11 +148,11 @@ public class WritePost_Controller implements Initializable {
 		methodUtil.changeScene("/view/Home_Layout.fxml", changeHomeBtn);
 	}
 
-	//이전 화면으로 가는 코드
-		@FXML
-		private Button backButton;
-		
-		public void back() {
-			methodUtil.backScene(backButton);
-		}
+	// 이전 화면으로 가는 코드
+	@FXML
+	private Button backButton;
+
+	public void back() {
+		methodUtil.backScene(backButton);
+	}
 }

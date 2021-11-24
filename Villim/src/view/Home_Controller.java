@@ -16,10 +16,16 @@ public class Home_Controller implements Initializable {
 	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		if (Singleton.getInstance().sceneList.get(Singleton.getInstance().sceneList.size() - 1).equals("/view/Login_Layout.fxml")) {
-			alert("반갑습니다 "+Singleton.getInstance().getAccountId()+"님");
+		if (Singleton.getInstance().sceneList.get(Singleton.getInstance().sceneList.size() - 1)
+				.equals("/view/Login_Layout.fxml")) {
+			alert("반갑습니다 " + Singleton.getInstance().getAccountId() + "님");
+		}
+		if (Singleton.getInstance().isWriteSuccess()) {
+			alert("게시물을 업로드하였습니다");
+			Singleton.getInstance().setWriteSuccess(false);
 		}
 	}
+
 	// 알림창
 	@FXML
 	public Pane alertPane;
@@ -55,10 +61,7 @@ public class Home_Controller implements Initializable {
 		}
 		t.start();
 	}
-	
-	
-	
-	
+
 	MethodUtil methodUtil = new MethodUtil();
 
 	// 검색
@@ -106,11 +109,12 @@ public class Home_Controller implements Initializable {
 	public void changeCategory() {
 		methodUtil.changeScene("/view/Category_Layout.fxml", changeCategoryBtn);
 	}
-	//이전 화면으로 가는 코드
-		@FXML
-		private Button backButton;
-		
-		public void back() {
-			methodUtil.backScene(backButton);
-		}
+
+	// 이전 화면으로 가는 코드
+	@FXML
+	private Button backButton;
+
+	public void back() {
+		methodUtil.backScene(backButton);
+	}
 }

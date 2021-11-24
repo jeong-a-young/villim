@@ -94,17 +94,19 @@ public class Login_Controller implements Initializable {
 	public void changeMainAfterLogin() {
 		
 		int count = 0;
-		sql = "select id, password from profile";
+		sql = "select nick, id, password from profile";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				String getId = rs.getString("id");
+				String getNick = rs.getString("nick");
 				String getPassword = rs.getString("password");
 				if (id.getText().equals(getId) && pass.getText().equals(getPassword)) {
 					count++;
 					Singleton.getInstance().setAccountId(getId);
+					Singleton.getInstance().setAccountNick(getNick);
 					Singleton.getInstance().debug("로그인 성공" + Singleton.getInstance().getAccountId());
 					methodUtil.changeScene("/view/Home_Layout.fxml", loginButton);
 					break;

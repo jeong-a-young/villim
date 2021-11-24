@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.mysql.cj.result.BinaryStreamValueFactory;
+
 import database.JDBCUtill;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -102,30 +104,37 @@ public class MethodUtil {
 	private Stage selectStage;
 
 	public String selectFile() {
-		FileChooser fileChooser = new FileChooser();
+		try {
+			FileChooser fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("이미지 파일", "*.png", "*.PNG", "*.jpg", "*.jpeg"));
 		File file = fileChooser.showOpenDialog(selectStage);
 		return file.getPath();
+		} catch (Exception e) {
+			return "";
+		}
+		
 	}
 
 	// DB에 사진 저장하고 가져오기
 
 	// 사진 저장
-	public void inputPhoto() {
-
+	public void inputPhoto(String a) {
+		if(a.isEmpty()) {
+			return;
+		}
 		try {
-			File imgfile = new File(selectFile());
+			File imgfile = new File(a);
 			FileInputStream fin = new FileInputStream(imgfile);
-			PreparedStatement pre = conn.prepareStatement("insert into photos (id, name, file) VALUES (?, ?, ?)");
-			pre.setInt(1, 5); // test
-			pre.setString(2, "test");
+			PreparedStatement pre = conn.prepareStatement("insert into image (type, code, image) VALUES (?, ?, ?)");
+			//년도:월:일:시:분:초:아이디
+			pre.setString(1, "resource"); //이 사진은 게시물 사진
+			pre.setString(2, Singleton.getInstance().getNow2()+Singleton.getInstance().getAccountId());
 			pre.setBinaryStream(3, fin, (int) imgfile.length());
 			pre.executeUpdate();
 			Singleton.getInstance().debug("사진 저장 성공");
 			pre.close();
 			conn.close();
 		} catch (Exception e) {
-			Singleton.getInstance().debug("오류[ " + e + " ]");
 			e.printStackTrace();
 		}
 	}
@@ -169,7 +178,17 @@ public class MethodUtil {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		//파일 경로를 웹형식으로 불러와서 출력
 		return filePath;
+	}
+	//리스트를 문자열로 문자열을 리스트로 만드는
+	public String test(List<String> list) {
+		String result = String.join(", ", list);
+		return result;
+	}
+	public List<String> test(String text) {
+		ArrayList<String> result = new ArrayList<String>(Arrays.asList(text.split(", ")));
+		return result;
 	}
 
 }

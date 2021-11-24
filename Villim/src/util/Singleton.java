@@ -9,6 +9,7 @@ public class Singleton {
 
 	private Singleton() {
 		sceneList.add("/view/Start_Layout.fxml");
+		writeSuccess = false;
 	}
 
 	public static Singleton getInstance() {
@@ -20,6 +21,33 @@ public class Singleton {
 
 	// 로그인한 유저의 아이디
 	private String accountId;
+	private String accountNick;
+	private String now2;
+	private boolean writeSuccess;
+	public boolean isWriteSuccess() {
+		return writeSuccess;
+	}
+
+	public void setWriteSuccess(boolean writeSuccess) {
+		this.writeSuccess = writeSuccess;
+	}
+
+	public String getNow2() {
+		return now2;
+	}
+
+	public void setNow2(String now2) {
+		this.now2 = now2;
+	}
+
+	public String getAccountNick() {
+		return accountNick;
+	}
+
+	public void setAccountNick(String accountNick) {
+		this.accountNick = accountNick;
+	}
+
 	// 현재 카테고리 이름 (카테고리 컨트롤러 전용)
 	private String currentCategory;
 	// 레이아웃 기록 (이전 화면 돌아가기 전용)

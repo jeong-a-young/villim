@@ -31,39 +31,32 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Pane layoutY="200.0" prefHeight="125.0" prefWidth="1602.0">
+      <Pane layoutY="157.0" prefHeight="125.0" prefWidth="1602.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8">
          <children>
-            <ImageView fitHeight="173.0" fitWidth="1602.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="173.0" fitWidth="1602.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" scaleZ="0.8">
                <image>
                   <Image url="@../resources/menu.png" />
                </image>
             </ImageView>
-            <Button fx:id="changeWritePostBtn" layoutX="160.0" layoutY="16.0" mnemonicParsing="false" onAction="#changeWritePost" prefHeight="93.0" prefWidth="90.0" styleClass="nonHovertransparencyBtn">
+            <Button fx:id="changeWritePostBtn" layoutX="220.0" layoutY="15.0" mnemonicParsing="false" onAction="#changeWritePost" prefHeight="93.0" prefWidth="90.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="changeChattingBtn" layoutX="540.0" layoutY="16.0" mnemonicParsing="false" onAction="#changeChatting" prefHeight="93.0" prefWidth="91.0" styleClass="nonHovertransparencyBtn">
+            <Button fx:id="changeChattingBtn" layoutX="564.0" layoutY="19.0" mnemonicParsing="false" onAction="#changeChatting" prefHeight="93.0" prefWidth="91.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="changePostListBtn" layoutX="953.0" layoutY="17.0" mnemonicParsing="false" onAction="#changePostList" prefHeight="91.0" prefWidth="91.0" styleClass="nonHovertransparencyBtn">
+            <Button fx:id="changePostListBtn" layoutX="935.0" layoutY="18.0" mnemonicParsing="false" onAction="#changePostList" prefHeight="91.0" prefWidth="91.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="changeCategoryBtn" layoutX="1343.0" layoutY="16.0" mnemonicParsing="false" onAction="#changeCategory" prefHeight="93.0" prefWidth="88.0" styleClass="nonHovertransparencyBtn">
+            <Button fx:id="changeCategoryBtn" layoutX="1284.0" layoutY="19.0" mnemonicParsing="false" onAction="#changeCategory" prefHeight="93.0" prefWidth="88.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
          </children>
       </Pane>
       <Button layoutX="1436.0" layoutY="81.0" mnemonicParsing="false" styleClass="nonHovertransparencyBtn">
-         <graphic>
-            <ImageView fitHeight="53.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/menuBtn.png" />
-               </image>
-            </ImageView>
-         </graphic>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -74,11 +67,6 @@
          </image>
       </ImageView>
       <Pagination layoutX="-2.0" layoutY="441.0" prefHeight="419.0" prefWidth="1603.0" />
-      <ImageView fitHeight="70.0" fitWidth="278.0" layoutX="702.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resources/recommendListTitle.png" />
-         </image>
-      </ImageView>
       <Pane fx:id="alertPane" layoutY="-60.0" prefHeight="60.0" prefWidth="1600.0">
          <children>
             <Pane opacity="0.8" prefHeight="60.0" prefWidth="1600.0" style="-fx-background-color: #1187CF;" />
@@ -89,5 +77,10 @@
             </Text>
          </children>
       </Pane>
+      <ImageView fitHeight="53.0" fitWidth="64.0" layoutX="1379.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/menuBtn.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

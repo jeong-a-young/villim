@@ -180,7 +180,7 @@ public class Join_Controller implements Initializable {
 
 	// 회원가입 완료 후 로그인 화면 넘어가기
 	public void changeLoginAfterJoin() {
-		sql = "INSERT INTO profile(nick, id, password, email, image) VALUES (?,?,?,?,?)";
+		sql = "INSERT INTO profile(nick, id, password, email) VALUES (?,?,?,?)";
 		try {
 			String joinId = join_id.getText();
 			String joinPass = join_pass.getText();
@@ -195,7 +195,6 @@ public class Join_Controller implements Initializable {
 			pstmt.setString(2, joinId);
 			pstmt.setString(3, joinPass);
 			pstmt.setString(4, joinEmail);
-			pstmt.setString(5, null);
 			pstmt.executeUpdate();
 
 			Singleton.getInstance().debug("성공");

@@ -33,10 +33,13 @@ public class JDBCUtill {
 			Singleton.getInstance().debug("데이터베이스 연결됨");
 			
 			//자동 생성
-			String profile = "(nick text not null, id text not null, password text not null, email text not null, image text)";
-			String resource = "(nick text, title text, lore text, category text, image text)";
+			String profile = "(nick text not null, id text not null, password text not null, email text not null)";
+			String resource = "(id text, title text, content text, category text, now text, recommand int, code text)";
+			String image = "(type text, code text, image blob)";
+			
 			CreateTable("villim", "profile", profile);
 			CreateTable("villim", "resource", resource);
+			CreateTable("villim", "image", image);
 			
 			
 		} catch (Exception e) {
