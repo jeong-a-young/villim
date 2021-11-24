@@ -48,7 +48,7 @@ public class ViewPost_Controller implements Initializable {
 		if (meWriteCount == 1) {
 			methodUtil.changePartScene("/view/MeWrite_Layout.fxml", btnPane);
 		} else if (otherWriteCount == 1) {
-			methodUtil.changePartScene("/viewotherWrite_Layout.fxml", btnPane);
+			methodUtil.changePartScene("/view/OtherWrite_Layout.fxml", btnPane);
 		}
 	}
 

@@ -20,7 +20,10 @@
             <Image url="@../resources/campingLabel.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="category" layoutX="1362.0" layoutY="116.0" onAction="#setComboLabel" prefHeight="52.0" prefWidth="202.0" styleClass="grayComboBox" />
+      <ComboBox fx:id="category" layoutX="1362.0" layoutY="116.0" onAction="#setComboLabel" prefHeight="52.0" prefWidth="202.0" styleClass="grayComboBox">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
       <Button fx:id="backButton" layoutX="41.0" layoutY="35.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />

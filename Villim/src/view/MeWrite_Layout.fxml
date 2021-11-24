@@ -13,7 +13,7 @@
             <Image url="@../resources/meWritePage.png" />
          </image>
       </ImageView>
-      <Button fx:id="changeEditPostBtn" layoutX="1.0" layoutY="28.0" mnemonicParsing="false" onAction="#changeEditPost" prefHeight="44.0" prefWidth="141.0" styleClass="transparencyBtn">
+      <Button fx:id="changeEditPostBtn" layoutX="1.0" layoutY="28.0" mnemonicParsing="false" onAction="#changeEditPost" prefHeight="44.0" prefWidth="140.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

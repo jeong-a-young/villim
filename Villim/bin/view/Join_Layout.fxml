@@ -23,12 +23,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1028.0" layoutY="299.0" mnemonicParsing="false" onAction="#checkId" prefHeight="50.0" prefWidth="161.0" styleClass="transparencyBtn">
+      <Button layoutX="1028.0" layoutY="299.0" mnemonicParsing="false" onAction="#checkId" prefHeight="49.0" prefWidth="161.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="join_button" layoutX="712.0" layoutY="758.0" mnemonicParsing="false" onAction="#signUp" prefHeight="56.0" prefWidth="176.0" styleClass="transparencyBtn">
+      <Button fx:id="join_button" layoutX="712.0" layoutY="759.0" mnemonicParsing="false" onAction="#signUp" prefHeight="53.0" prefWidth="176.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -86,5 +86,10 @@
             </Text>
          </children>
       </Pane>
+      <Button layoutX="1033.0" layoutY="634.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="161.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
