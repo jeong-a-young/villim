@@ -63,11 +63,12 @@ public class SearchList_Controller implements Initializable {
 	public void changeHome() {
 		methodUtil.changeScene("/view/Home_Layout.fxml", changeHomeBtn);
 	}
-	//이전 화면으로 가는 코드
-		@FXML
-		private Button backButton;
-		
-		public void back() {
-			methodUtil.backScene(backButton);
-		}
+
+	// 이전 화면으로 가는 코드
+	@FXML
+	private Button backButton;
+
+	public void back() {
+		methodUtil.backScene(backButton);
+	}
 }

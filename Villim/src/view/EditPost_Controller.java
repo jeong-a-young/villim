@@ -47,7 +47,8 @@ public class EditPost_Controller implements Initializable {
 			"헬스 / 요가", "스포츠 / 레저", "등산 / 낚시 / 캠핑", "도서 / 문구", "유아 용품", "반려동물 용품", "기타");
 
 	public void getPost() {
-		sql = "select * from post where writer_id='" + Singleton.getInstance().getAccountId() + "'"; // 해당 게시글을 찾아오는 sql문을 어떻게 짤까
+		sql = "select * from post where writer_id='" + Singleton.getInstance().getAccountId() + "'"; // 해당 게시글을 찾아오는
+																										// sql문을 어떻게 짤까
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -68,12 +69,13 @@ public class EditPost_Controller implements Initializable {
 	public void changeViewPost() {
 		methodUtil.changeScene("/view/ViewPost_Layout.fxml", changeViewPostBtn);
 	}
-	//이전 화면으로 가는 코드
-		@FXML
-		private Button backButton;
-		
-		public void back() {
-			methodUtil.backScene(backButton);
-		}
+
+	// 이전 화면으로 가는 코드
+	@FXML
+	private Button backButton;
+
+	public void back() {
+		methodUtil.backScene(backButton);
+	}
 
 }

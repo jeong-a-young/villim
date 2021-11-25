@@ -121,7 +121,7 @@ public class PostList_Controller implements Initializable {
 
 		// 음반, 악기
 		else if (Singleton.getInstance().getCurrentCategory().equals("음반 / 악기")) {
-			Singleton.getInstance().debug("test: "+ Singleton.getInstance().getCurrentCategory());
+			Singleton.getInstance().debug("test: " + Singleton.getInstance().getCurrentCategory());
 			titleImageView.setImage(new Image("/resources/instrumentLabel.png"));
 			category.setValue("음반 / 악기");
 			Singleton.getInstance().setCurrentCategory(null);
@@ -185,12 +185,12 @@ public class PostList_Controller implements Initializable {
 
 	}
 
-	//이전 화면으로 가는 코드
-		@FXML
-		private Button backButton;
-		
-		public void back() {
-			methodUtil.backScene(backButton);
-		}
+	// 이전 화면으로 가는 코드
+	@FXML
+	private Button backButton;
+
+	public void back() {
+		methodUtil.backScene(backButton);
+	}
 
 }

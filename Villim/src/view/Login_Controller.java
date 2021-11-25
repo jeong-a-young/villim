@@ -21,7 +21,8 @@ public class Login_Controller implements Initializable {
 	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		if (Singleton.getInstance().sceneList.get(Singleton.getInstance().sceneList.size() - 1).equals("/view/Join_Layout.fxml")) {
+		if (Singleton.getInstance().sceneList.get(Singleton.getInstance().sceneList.size() - 1)
+				.equals("/view/Join_Layout.fxml")) {
 			alert("회원가입을 완료하였습니다");
 		}
 	}
@@ -63,7 +64,7 @@ public class Login_Controller implements Initializable {
 	}
 
 	MethodUtil methodUtil = new MethodUtil();
-	
+
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
@@ -92,7 +93,7 @@ public class Login_Controller implements Initializable {
 
 	// 아이디와 비밀번호 일치 확인
 	public void changeMainAfterLogin() {
-		
+
 		int count = 0;
 		sql = "select nick, id, password from profile";
 
@@ -122,13 +123,13 @@ public class Login_Controller implements Initializable {
 	}
 
 	// 이전 화면으로
-	//시작 - 이 구역은 세트로 어디서든지 배치되야하는 코드
+	// 시작 - 이 구역은 세트로 어디서든지 배치되야하는 코드
 	@FXML
 	private Button backButton;
-	
+
 	public void back() {
 		methodUtil.backScene(backButton);
 	}
-	//끝
-	
+	// 끝
+
 }

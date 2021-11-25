@@ -17,7 +17,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import util.MethodUtil;
@@ -98,7 +97,8 @@ public class WritePost_Controller implements Initializable {
 		String title = write_title.getText();
 		String content = write_content.getText();
 		String category = categoryComboBox.getValue();
-		String writer = Singleton.getInstance().getAccountNick() + "(" + Singleton.getInstance().getAccountId().substring(0, 3) + "****)";
+		String writer = Singleton.getInstance().getAccountNick() + "("
+				+ Singleton.getInstance().getAccountId().substring(0, 3) + "****)";
 		if (title.isEmpty()) {
 			alert("제목을 입력해주세요");
 		} else if (content.isEmpty()) {
@@ -112,7 +112,7 @@ public class WritePost_Controller implements Initializable {
 				SimpleDateFormat fourteen_format = new SimpleDateFormat("yyyy년 MM월 dd일 a hh시 mm분");
 				SimpleDateFormat fourteen_format2 = new SimpleDateFormat("yyyyMMddHHmmss");
 				String now = fourteen_format.format(date_now);
-				Singleton.getInstance().setNow2((String)fourteen_format2.format(date_now));
+				Singleton.getInstance().setNow2((String) fourteen_format2.format(date_now));
 
 				sql = "INSERT INTO resource(id, title, content, category, now, recommand, code) VALUES(?, ?, ?, ?, ?, ?, ?)";
 				pstmt = conn.prepareStatement(sql);
@@ -130,7 +130,7 @@ public class WritePost_Controller implements Initializable {
 				Singleton.getInstance().setWriteSuccess(true);
 				methodUtil.backScene(write_success);
 			} catch (Exception e) {
-				
+
 				// TODO: handle exception
 				e.printStackTrace();
 				Singleton.getInstance().debug("작성 실패");

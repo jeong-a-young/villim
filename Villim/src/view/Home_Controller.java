@@ -3,7 +3,6 @@ package view;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -26,10 +25,11 @@ public class Home_Controller implements Initializable {
 			alert("게시물을 업로드하였습니다");
 			Singleton.getInstance().setWriteSuccess(false);
 		}
-		//postListPage.set
-		
+		// postListPage.set
+
 	}
-	//private final ChangeListener<Number> paginationChangeListener = (observable, oldValue, newValue) -> changePage();
+	// private final ChangeListener<Number> paginationChangeListener = (observable,
+	// oldValue, newValue) -> changePage();
 
 	@FXML
 	public Pagination postListPage;
