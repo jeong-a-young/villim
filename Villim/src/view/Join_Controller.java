@@ -138,7 +138,6 @@ public class Join_Controller implements Initializable {
 			isIdChecked = true;
 		}
 	}
-//중복 확인이 안됨
 	public boolean join_id_check() {
 		sql = "SELECT count(*) cnt from profile where id=?";
 		try {

@@ -111,7 +111,7 @@ public class WritePost_Controller implements Initializable {
 				int recommend = 0;
 				Date date_now = new Date(System.currentTimeMillis());
 				SimpleDateFormat fourteen_format = new SimpleDateFormat("yyyy년 MM월 dd일 a hh시 mm분");
-				SimpleDateFormat fourteen_format2 = new SimpleDateFormat("yyyy:MM:dd:HH:mm:ss:");
+				SimpleDateFormat fourteen_format2 = new SimpleDateFormat("yyyyMMddHHmmss");
 				String now = fourteen_format.format(date_now);
 				Singleton.getInstance().setNow2(fourteen_format2.format(date_now));
 
