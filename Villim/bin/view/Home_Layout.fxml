@@ -81,6 +81,9 @@
          <image>
             <Image url="@../resources/menuBtn.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <Pane layoutX="100.0" layoutY="300.0" prefHeight="500.0" prefWidth="1400.0">
          <children>

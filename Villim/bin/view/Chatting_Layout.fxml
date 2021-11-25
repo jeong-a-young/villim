@@ -21,7 +21,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="1215.0" layoutY="771.0" mnemonicParsing="false" onAction="#send" prefHeight="61.0" prefWidth="200.0" styleClass="transparencyBtn">
+      <Button layoutX="1215.0" layoutY="771.0" mnemonicParsing="false" onAction="#send" prefHeight="61.0" prefWidth="199.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
