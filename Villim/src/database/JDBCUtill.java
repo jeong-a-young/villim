@@ -21,7 +21,6 @@ public class JDBCUtill {
 	private Connection conn = null;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	int rs2;
 
 	public Connection getConnection() {
 		try {
@@ -88,9 +87,10 @@ public class JDBCUtill {
 			rs = pstmt.executeQuery();
 			if (!rs.next()) {
 				Statement stmt = conn.createStatement();
-				String sql = "create table " + tName
-						+ info;
-				rs2 = stmt.executeUpdate(sql);
+				String sql = "create table " + tName+ info;
+				String sql2 = "ALTER TABLE "+tName+" convert to charset utf8";
+				stmt.executeUpdate(sql);
+				stmt.executeUpdate(sql2);
 				stmt.close();
 			}
 		} catch (Exception e) {

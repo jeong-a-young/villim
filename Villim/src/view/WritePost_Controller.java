@@ -98,8 +98,7 @@ public class WritePost_Controller implements Initializable {
 		String title = write_title.getText();
 		String content = write_content.getText();
 		String category = categoryComboBox.getValue();
-		String writer = Singleton.getInstance().getAccountNick() + "("
-				+ Singleton.getInstance().getAccountId().substring(0, 3) + "****)";
+		String writer = Singleton.getInstance().getAccountNick() + "(" + Singleton.getInstance().getAccountId().substring(0, 3) + "****)";
 		if (title.isEmpty()) {
 			alert("제목을 입력해주세요");
 		} else if (content.isEmpty()) {
@@ -113,9 +112,9 @@ public class WritePost_Controller implements Initializable {
 				SimpleDateFormat fourteen_format = new SimpleDateFormat("yyyy년 MM월 dd일 a hh시 mm분");
 				SimpleDateFormat fourteen_format2 = new SimpleDateFormat("yyyyMMddHHmmss");
 				String now = fourteen_format.format(date_now);
-				Singleton.getInstance().setNow2(fourteen_format2.format(date_now));
+				Singleton.getInstance().setNow2((String)fourteen_format2.format(date_now));
 
-				sql = "INSERT INTO resource VALUES(?, ?, ?, ?, ?, ?, ?)";
+				sql = "INSERT INTO resource(id, title, content, category, now, recommand, code) VALUES(?, ?, ?, ?, ?, ?, ?)";
 				pstmt = conn.prepareStatement(sql);
 
 				pstmt.setString(1, writer);
@@ -125,10 +124,9 @@ public class WritePost_Controller implements Initializable {
 				pstmt.setString(5, now);
 				pstmt.setInt(6, recommend);
 				pstmt.setString(7, Singleton.getInstance().getNow2() + Singleton.getInstance().getAccountId());
-
-				int r = pstmt.executeUpdate();
+				pstmt.executeUpdate();
 				methodUtil.inputPhoto(file);
-				Singleton.getInstance().debug("작성 성공 " + r);
+				Singleton.getInstance().debug("작성 성공 ");
 				Singleton.getInstance().setWriteSuccess(true);
 				methodUtil.backScene(write_success);
 			} catch (Exception e) {
