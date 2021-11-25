@@ -31,7 +31,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Pane layoutY="157.0" prefHeight="125.0" prefWidth="1602.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8">
+      <Pane layoutY="166.0" prefHeight="125.0" prefWidth="1602.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8">
          <children>
             <ImageView fitHeight="173.0" fitWidth="1602.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" scaleZ="0.8">
                <image>
