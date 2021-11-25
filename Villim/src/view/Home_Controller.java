@@ -83,7 +83,7 @@ public class Home_Controller implements Initializable {
 	public void changeSearch() {
 		searchContent = searchTextField.getText();
 		if (searchContent.isEmpty()) {
-			System.out.println("검색어를 입력해 주세요.");
+			alert("검색어를 입력해 주세요.");
 		} else {
 			methodUtil.changeScene("/view/SearchList_Layout.fxml", searchBtn);
 		}
