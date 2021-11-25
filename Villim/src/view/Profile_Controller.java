@@ -93,12 +93,12 @@ public class Profile_Controller implements Initializable {
 
 	@FXML
 	private ImageView profileImage;
-	
+
 	// 프로필 사진 가져오기
 	public void getPhoto() {
 		profileImage.setImage(new Image(methodUtil.outputPhoto()));
 	}
-	
+
 	// 회원정보 변경 화면 전환
 	@FXML
 	private Button changeProfileEditBtn;
@@ -141,12 +141,13 @@ public class Profile_Controller implements Initializable {
 	public void changeHome() {
 		methodUtil.changeScene("/view/Home_Layout.fxml", changeHomeBtn);
 	}
-	//이전 화면으로 가는 코드
-		@FXML
-		private Button backButton;
-		
-		public void back() {
-			methodUtil.backScene(backButton);
-		}
+
+	// 이전 화면으로 가는 코드
+	@FXML
+	private Button backButton;
+
+	public void back() {
+		methodUtil.backScene(backButton);
+	}
 
 }

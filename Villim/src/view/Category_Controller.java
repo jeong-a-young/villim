@@ -1,13 +1,13 @@
 package view;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import util.MethodUtil;
 import util.Singleton;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class Category_Controller implements Initializable {
 	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^
@@ -17,7 +17,7 @@ public class Category_Controller implements Initializable {
 	}
 
 	MethodUtil methodUtil = new MethodUtil();
-	
+
 	// 의상, 소품
 	@FXML
 	private Button changeClothesBtn;
@@ -116,10 +116,11 @@ public class Category_Controller implements Initializable {
 	public void changeHome() {
 		methodUtil.changeScene("/view/Home_Layout.fxml", changeHomeBtn);
 	}
-	//이전 화면으로 가는 코드
+
+	// 이전 화면으로 가는 코드
 	@FXML
 	private Button backButton;
-	
+
 	public void back() {
 		methodUtil.backScene(backButton);
 	}

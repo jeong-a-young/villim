@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import util.MethodUtil;
-import util.Singleton;
 
 public class Start_Controller implements Initializable {
 	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^

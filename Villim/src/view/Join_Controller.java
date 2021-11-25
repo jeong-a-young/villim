@@ -138,6 +138,7 @@ public class Join_Controller implements Initializable {
 			isIdChecked = true;
 		}
 	}
+
 	public boolean join_id_check() {
 		sql = "SELECT count(*) cnt from profile where id=?";
 		try {
@@ -203,9 +204,10 @@ public class Join_Controller implements Initializable {
 			e.printStackTrace();
 		}
 	}
+
 	@FXML
 	private Button backButton;
-	
+
 	public void back() {
 		methodUtil.backScene(backButton);
 	}

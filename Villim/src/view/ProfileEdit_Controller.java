@@ -6,6 +6,12 @@
 
 package view;
 
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ResourceBundle;
+
 import database.JDBCUtill;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,12 +21,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import util.MethodUtil;
 import util.Singleton;
-
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ResourceBundle;
 
 public class ProfileEdit_Controller implements Initializable {
 	// 이 클래스가 실행되면 호출되는 메소드 ^ 이거 있어야함 ^
@@ -96,7 +96,8 @@ public class ProfileEdit_Controller implements Initializable {
 		} else if (!memberPassword.getText().isEmpty() && memberNickName.getText().isEmpty()) {
 			String password = memberPassword.getText();
 			String passwordCheck = memberPasswordCheck.getText();
-			sql = "update users set password='" + password + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
+			sql = "update users set password='" + password + "' WHERE id='" + Singleton.getInstance().getAccountId()
+					+ "'";
 
 			try {
 				pstmt = conn.prepareStatement(sql);
@@ -110,7 +111,8 @@ public class ProfileEdit_Controller implements Initializable {
 			String NickName = memberNickName.getText();
 			String password = memberPassword.getText();
 			String passwordCheck = memberPasswordCheck.getText();
-			sql = "update users set password='" + password + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
+			sql = "update users set password='" + password + "' WHERE id='" + Singleton.getInstance().getAccountId()
+					+ "'";
 			sql2 = "update users set name='" + NickName + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
 
 			try {
@@ -134,11 +136,12 @@ public class ProfileEdit_Controller implements Initializable {
 	public void changeProfile() {
 		methodUtil.changeScene("/view/Profile_Layout.fxml", changeProfileBtn);
 	}
-	//이전 화면으로 가는 코드
-		@FXML
-		private Button backButton;
-		
-		public void back() {
-			methodUtil.backScene(backButton);
-		}
+
+	// 이전 화면으로 가는 코드
+	@FXML
+	private Button backButton;
+
+	public void back() {
+		methodUtil.backScene(backButton);
+	}
 }

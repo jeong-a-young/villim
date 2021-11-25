@@ -125,7 +125,8 @@ public class ViewPost_Controller implements Initializable {
 		int numRecommend = getRecommend() + 1;
 		String countRecommend = Integer.toString(numRecommend);
 
-		sql = "update post set recommend='" + countRecommend + "' WHERE writer_id='" + Singleton.getInstance().getAccountId() + "'";
+		sql = "update post set recommend='" + countRecommend + "' WHERE writer_id='"
+				+ Singleton.getInstance().getAccountId() + "'";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -150,12 +151,13 @@ public class ViewPost_Controller implements Initializable {
 	public void changeHome() {
 		methodUtil.changeScene("/view/Home_Layout.fxml", changeHomeBtn);
 	}
-	//이전 화면으로 가는 코드
-		@FXML
-		private Button backButton;
-		
-		public void back() {
-			methodUtil.backScene(backButton);
-		}
+
+	// 이전 화면으로 가는 코드
+	@FXML
+	private Button backButton;
+
+	public void back() {
+		methodUtil.backScene(backButton);
+	}
 
 }
