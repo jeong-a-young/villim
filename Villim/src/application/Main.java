@@ -28,9 +28,9 @@ public class Main extends Application {
 
 			primaryStage.setTitle("Villim");
 			primaryStage.setScene(scene);
-			primaryStage.setMaxHeight(900);
+			primaryStage.setMaxHeight(940);
 			primaryStage.setMaxWidth(1600);
-			primaryStage.setMinHeight(900);
+			primaryStage.setMinHeight(940);
 			primaryStage.setMinWidth(1600);
 			primaryStage.show();
 			createAdminAccount();

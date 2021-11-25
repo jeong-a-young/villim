@@ -25,6 +25,7 @@ public class Home_Controller implements Initializable {
 			alert("게시물을 업로드하였습니다");
 			Singleton.getInstance().setWriteSuccess(false);
 		}
+		
 		// postListPage.set
 
 	}
