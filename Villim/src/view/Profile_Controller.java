@@ -77,7 +77,7 @@ public class Profile_Controller implements Initializable {
 	private Label memberEmail;
 
 	public void getInformation() {
-		sql = "select id, name, email from users where id='" + Singleton.getInstance().getAccountId() + "'";
+		sql = "select id, name, email from profile where id='" + Singleton.getInstance().getAccountId() + "'";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();

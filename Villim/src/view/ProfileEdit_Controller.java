@@ -83,7 +83,7 @@ public class ProfileEdit_Controller implements Initializable {
 	public void passwordChange() {
 		if (memberPassword.getText().isEmpty() && !memberNickName.getText().isEmpty()) {
 			String NickName = memberNickName.getText();
-			sql = "update users set name='" + NickName + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
+			sql = "update profile set name='" + NickName + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
 
 			try {
 				pstmt = conn.prepareStatement(sql);
@@ -96,7 +96,7 @@ public class ProfileEdit_Controller implements Initializable {
 		} else if (!memberPassword.getText().isEmpty() && memberNickName.getText().isEmpty()) {
 			String password = memberPassword.getText();
 			String passwordCheck = memberPasswordCheck.getText();
-			sql = "update users set password='" + password + "' WHERE id='" + Singleton.getInstance().getAccountId()
+			sql = "update profile set password='" + password + "' WHERE id='" + Singleton.getInstance().getAccountId()
 					+ "'";
 
 			try {
@@ -111,9 +111,9 @@ public class ProfileEdit_Controller implements Initializable {
 			String NickName = memberNickName.getText();
 			String password = memberPassword.getText();
 			String passwordCheck = memberPasswordCheck.getText();
-			sql = "update users set password='" + password + "' WHERE id='" + Singleton.getInstance().getAccountId()
+			sql = "update profile set password='" + password + "' WHERE id='" + Singleton.getInstance().getAccountId()
 					+ "'";
-			sql2 = "update users set name='" + NickName + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
+			sql2 = "update profile set name='" + NickName + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
 
 			try {
 				pstmt = conn.prepareStatement(sql);

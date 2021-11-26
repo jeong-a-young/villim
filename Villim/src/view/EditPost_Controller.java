@@ -47,7 +47,7 @@ public class EditPost_Controller implements Initializable {
 			"헬스 / 요가", "스포츠 / 레저", "등산 / 낚시 / 캠핑", "도서 / 문구", "유아 용품", "반려동물 용품", "기타");
 
 	public void getPost() {
-		sql = "select * from post where writer_id='" + Singleton.getInstance().getAccountId() + "'"; // 해당 게시글을 찾아오는
+		sql = "select * from resource where writer_id='" + Singleton.getInstance().getAccountId() + "'"; // 해당 게시글을 찾아오는
 																										// sql문을 어떻게 짤까
 		try {
 			pstmt = conn.prepareStatement(sql);

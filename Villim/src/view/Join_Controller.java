@@ -185,9 +185,7 @@ public class Join_Controller implements Initializable {
 			String joinId = join_id.getText();
 			String joinPass = join_pass.getText();
 			String joinName = join_name.getText();
-			int tree = 0;
 			String joinEmail = join_email.getText();
-			String theme = "white";
 
 			pstmt = conn.prepareStatement(sql);
 
