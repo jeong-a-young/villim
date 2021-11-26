@@ -41,7 +41,7 @@ public class SearchList_Controller implements Initializable {
 		titleLabel.setAlignment(Pos.CENTER);
 
 		// 검색한 게시글 가져오기
-		sql = "select title from post where title like '" + searchContent + "%'";
+		sql = "select title from resource where title like '" + searchContent + "%'";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
