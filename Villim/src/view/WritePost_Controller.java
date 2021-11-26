@@ -93,7 +93,7 @@ public class WritePost_Controller implements Initializable {
 			alert("사진 파일이 아닙니다");
 			return;
 		}
-		photoListItems.add(""); // 사진의 경로를 추가
+		photoListItems.add(file);
 		photoList.setItems(photoListItems);
 	}
 
