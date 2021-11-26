@@ -1,3 +1,6 @@
 /application/
-/view/
+/database/
+/library/
 /resources/
+/util/
+/view/

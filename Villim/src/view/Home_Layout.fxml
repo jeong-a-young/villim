@@ -2,13 +2,13 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -32,13 +32,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-<<<<<<< HEAD
+      <Button layoutX="1436.0" layoutY="81.0" mnemonicParsing="false" styleClass="nonHovertransparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
       <Pane layoutY="160.0" prefHeight="125.0" prefWidth="1600.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8">
-=======
-      <Pane layoutY="166.0" prefHeight="125.0" prefWidth="1602.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8">
->>>>>>> 4a1ab6c4b2d601443fe7d4abd62694dc7caf27f1
          <children>
-            <ImageView fitHeight="173.0" fitWidth="1602.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" scaleZ="0.8">
+            <ImageView fitHeight="173.0" fitWidth="1602.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" scaleZ="0.8">
                <image>
                   <Image url="@../resources/menu.png" />
                </image>
@@ -54,18 +55,14 @@
             <Button fx:id="changePostListBtn" layoutX="935.0" layoutY="18.0" mnemonicParsing="false" onAction="#changePostList" prefHeight="91.0" prefWidth="91.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
+               </cursor>
+            </Button>
             <Button fx:id="changeCategoryBtn" layoutX="1284.0" layoutY="19.0" mnemonicParsing="false" onAction="#changeCategory" prefHeight="93.0" prefWidth="88.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
          </children>
       </Pane>
-      <Button layoutX="1436.0" layoutY="81.0" mnemonicParsing="false" styleClass="nonHovertransparencyBtn">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       <ImageView fitHeight="82.0" fitWidth="145.0" layoutX="154.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/koreanLogo_black.png" />
@@ -89,15 +86,44 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <TableView layoutX="89.0" layoutY="302.0" prefHeight="535.0" prefWidth="1440.0" style="-fx-background-color: #fafafa; -fx-border-color: #303030; -fx-border-radius: 5;">
-        <columns>
-          <TableColumn prefWidth="79.0" style="-fx-background-color: #fafafa; -fx-border-color: #303030; -fx-border-radius: 10; -fx-border-width: 2;" text="추천 수" />
-          <TableColumn minWidth="0.0" prefWidth="159.0" style="-fx-background-color: #fafafa; -fx-border-color: #303030; -fx-border-radius: 10; -fx-border-width: 2;" text="사진" />
-            <TableColumn minWidth="0.0" prefWidth="485.0" style="-fx-background-color: #fafafa; -fx-border-color: #303030; -fx-border-radius: 10; -fx-border-width: 2;" text="제목" />
-            <TableColumn minWidth="0.0" prefWidth="211.0" style="-fx-background-color: #fafafa; -fx-border-color: #303030; -fx-border-radius: 10; -fx-border-width: 2;" text="작성자" />
-            <TableColumn minWidth="0.0" prefWidth="198.0" style="-fx-background-color: #fafafa; -fx-border-color: #303030; -fx-border-radius: 10; -fx-border-width: 2;" text="카테고리" />
-            <TableColumn minWidth="0.0" prefWidth="304.0" style="-fx-background-color: #fafafa; -fx-border-color: #303030; -fx-border-radius: 10; -fx-border-width: 2;" text="작성 시간" />
-        </columns>
-      </TableView>
+      <TilePane alignment="CENTER_LEFT" hgap="65.0" layoutX="110.0" layoutY="308.0" prefColumns="4" prefHeight="500.0" prefRows="4" prefTileHeight="400.0" prefTileWidth="300.0" prefWidth="1400.0" tileAlignment="CENTER_LEFT">
+         <children>
+            <Pane prefHeight="450.0" prefWidth="222.0" style="-fx-border-color: #949494; -fx-border-radius: 15; -fx-border-width: 3; -fx-background-radius: 15;">
+               <children>
+                  <Text layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="아아아아아아아아..." textAlignment="CENTER" wrappingWidth="299.99996960163116">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Text>
+                  <Text layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021년 11월 26일 오전 10시 23분" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="admin(adm***)" textAlignment="CENTER" wrappingWidth="299.99996960163116">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="196.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="헬스 / 요가" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이미지 없음" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#1187cf" layoutX="13.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="312.99998196959496">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Text>
+               </children></Pane>
+         </children>
+      </TilePane>
+      <Pagination layoutX="10.0" layoutY="797.0" pageCount="1" prefHeight="83.0" prefWidth="1600.0" />
    </children>
 </AnchorPane>
