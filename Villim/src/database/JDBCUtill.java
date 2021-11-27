@@ -34,7 +34,7 @@ public class JDBCUtill {
 			//자동 생성
 			String profile = "(nick text not null, id varchar(100) primary key, password text not null, email text not null)";
 			String resource = "(id text, title text, content text, category text, now text, recommand int, code text)";
-			String image = "(type text, code text, image mediumblob)";
+			String image = "(id varchar(100), type text, code text, image mediumblob)";
 			
 			CreateTable("villim", "profile", profile);
 			CreateTable("villim", "resource", resource);

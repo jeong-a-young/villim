@@ -23,7 +23,7 @@ public class Profile_Controller implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		getInformation();
 		methodUtil.getPhoto(
-				"select * from image where type='profile' and code='" + Singleton.getInstance().getAccountId() + "'",
+				"select * from image where type='profile' and id='" + Singleton.getInstance().getAccountId() + "'",
 				profileImage);
 	}
 
