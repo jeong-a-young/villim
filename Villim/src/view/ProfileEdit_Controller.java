@@ -1,9 +1,3 @@
-//
-//
-//아직 미완성 클래스
-//
-//
-
 package view;
 
 import java.net.URL;
@@ -69,7 +63,7 @@ public class ProfileEdit_Controller implements Initializable {
 
 	ResultSet rs = null;
 	PreparedStatement pstmt = null;
-	String sql, sql2 = "";
+	String sql = "";
 	Connection conn = JDBCUtill.getInstance().getConnection();
 
 	// 변경
@@ -80,61 +74,82 @@ public class ProfileEdit_Controller implements Initializable {
 	@FXML
 	private TextField memberPasswordCheck;
 
-	public void passwordChange() {
-		if (memberPassword.getText().isEmpty() && !memberNickName.getText().isEmpty()) {
-			String NickName = memberNickName.getText();
-			sql = "update profile set name='" + NickName + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
+	public void memberChange() {
 
-			try {
-				pstmt = conn.prepareStatement(sql);
-				pstmt.executeUpdate();
-				// 변경된 회원정보를 새로고침 하려면?
-				alert("변경에 성공했습니다");
-			} catch (Exception e) {
-				e.printStackTrace();
+		// 만약 닉네임만 채워져있다면
+		if (!memberNickName.getText().isEmpty() && memberPassword.getText().isEmpty()) {
+			String nickName = memberNickName.getText();
+			if (nickName.length() > 8) {
+				alert("닉네임은 8자를 넘을 수 없습니다");
+			} else {
+				sql = "update profile set nick='" + nickName + "' WHERE id='" + Singleton.getInstance().getAccountId()
+						+ "'";
+				try {
+					pstmt = conn.prepareStatement(sql);
+					pstmt.executeUpdate();
+					alert("닉네임 변경에 성공했습니다.");
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
+
+			// 만약 비밀번호만 채워져있다면
 		} else if (!memberPassword.getText().isEmpty() && memberNickName.getText().isEmpty()) {
 			String password = memberPassword.getText();
 			String passwordCheck = memberPasswordCheck.getText();
-			sql = "update profile set password='" + password + "' WHERE id='" + Singleton.getInstance().getAccountId()
-					+ "'";
-
-			try {
-				pstmt = conn.prepareStatement(sql);
-				pstmt.executeUpdate();
-				// 변경된 회원정보를 새로고침 하려면?
-				alert("변경에 성공했습니다");
-			} catch (Exception e) {
-				e.printStackTrace();
+			if (password.equals(passwordCheck)) {
+				if (password.length() < 8) {
+					alert("비밀번호는 8자가 넘어야 합니다.");
+				} else if (password.matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*") || password.contains(" ")) {
+					alert("비밀번호에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
+				} else if (password.matches("^[a-zA-Z0-9]*$")) {
+					alert("비밀번호는 특수문자를 포함해야합니다");
+				} else {
+					sql = "update profile set password='" + password + "' WHERE id='"
+							+ Singleton.getInstance().getAccountId() + "'";
+					try {
+						pstmt = conn.prepareStatement(sql);
+						pstmt.executeUpdate();
+						alert("비밀번호 변경에 성공했습니다.");
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			} else {
+				alert("비밀번호가 일치하지 않습니다.");
 			}
+
+			// 만약 닉네임과 비밀번호가 둘 다 채워져있다면
 		} else if (!memberPassword.getText().isEmpty() && !memberNickName.getText().isEmpty()) {
-			String NickName = memberNickName.getText();
+			String nickName = memberNickName.getText();
 			String password = memberPassword.getText();
 			String passwordCheck = memberPasswordCheck.getText();
-			sql = "update profile set password='" + password + "' WHERE id='" + Singleton.getInstance().getAccountId()
-					+ "'";
-			sql2 = "update profile set name='" + NickName + "' WHERE id='" + Singleton.getInstance().getAccountId() + "'";
+			if (nickName.length() > 8) {
+				alert("닉네임은 8자를 넘을 수 없습니다");
+			} else {
+				if (password.equals(passwordCheck)) {
+					if (password.length() < 8) {
+						alert("비밀번호는 8자가 넘어야 합니다.");
+					} else if (password.matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*") || password.contains(" ")) {
+						alert("비밀번호에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
+					} else if (password.matches("^[a-zA-Z0-9]*$")) {
+						alert("비밀번호는 특수문자를 포함해야합니다");
+					} else {
+						sql = "update profile set nick='" + nickName + "',password='" + password + "'";
+						try {
+							pstmt = conn.prepareStatement(sql);
+							pstmt.executeUpdate();
+							alert("회원정보 변경에 성공했습니다.");
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
 
-			try {
-				pstmt = conn.prepareStatement(sql);
-				pstmt.executeUpdate();
-				pstmt = conn.prepareStatement(sql2);
-				pstmt.executeUpdate();
-				// 변경된 회원정보를 새로고침 하려면?
-				alert("변경에 성공했습니다");
-			} catch (Exception e) {
-				e.printStackTrace();
+				} else {
+					alert("비밀번호가 일치하지 않습니다.");
+				}
 			}
 		}
-
-	}
-
-	// 프로필 화면 전환
-	@FXML
-	private Button changeProfileBtn;
-
-	public void changeProfile() {
-		methodUtil.changeScene("/view/Profile_Layout.fxml", changeProfileBtn);
 	}
 
 	// 이전 화면으로 가는 코드
@@ -144,4 +159,5 @@ public class ProfileEdit_Controller implements Initializable {
 	public void back() {
 		methodUtil.backScene(backButton);
 	}
+
 }

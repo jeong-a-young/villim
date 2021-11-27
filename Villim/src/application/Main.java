@@ -81,8 +81,6 @@ public class Main extends Application {
 		if (!join_id_check()) {
 			sql = "INSERT INTO profile(nick, id, password, email) VALUES (?,?,?,?)";
 			try {
-				int tree = 0;
-				String theme = "white";
 
 				pstmt = conn.prepareStatement(sql);
 

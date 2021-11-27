@@ -2,15 +2,11 @@ package view;
 
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import database.JDBCUtill;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
