@@ -32,7 +32,7 @@ public class JDBCUtill {
 			Singleton.getInstance().debug("데이터베이스 연결됨");
 			
 			//자동 생성
-			String profile = "(nick text not null, id text not null, password text not null, email text not null)";
+			String profile = "(nick text not null, id varchar(100) primary key, password text not null, email text not null)";
 			String resource = "(id text, title text, content text, category text, now text, recommand int, code text)";
 			String image = "(type text, code text, image mediumblob)";
 			
