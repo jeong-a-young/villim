@@ -123,10 +123,29 @@ public class Join_Controller implements Initializable {
 			alert("아이디 중복체크를 해야합니다.");
 		} else if (!isEmailChecked) {
 			alert("이메일 중복체크를 해야합니다.");
+		} else if (idEmailReCheck()) {
+			alert("꼼수부리지 마십쇼");
 		} else {
 			changeLoginAfterJoin();
 
 		}
+	}
+
+	public boolean idEmailReCheck() {
+		sql = "SELECT * from profile where email=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, join_email.getText());
+			ResultSet rs = pstmt.executeQuery();
+			if (rs.next()) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		return true;
 	}
 
 	// 아이디 중복 체크
@@ -165,7 +184,7 @@ public class Join_Controller implements Initializable {
 		}
 		return false;
 	}
-	
+
 	// 비밀번호 확인
 	public void join_pass_check() {
 		String joinPass = join_pass.getText();
@@ -251,5 +270,5 @@ public class Join_Controller implements Initializable {
 	public void back() {
 		methodUtil.backScene(backButton);
 	}
-	
+
 }
