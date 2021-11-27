@@ -37,31 +37,43 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Pane layoutY="160.0" prefHeight="125.0" prefWidth="1600.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8">
+      <Pane layoutX="-84.0" layoutY="179.0" prefHeight="140.0" prefWidth="1773.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8">
          <children>
-            <ImageView fitHeight="173.0" fitWidth="1602.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" scaleZ="0.8">
+            <ImageView fitHeight="171.0" fitWidth="1977.0" layoutX="-105.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" scaleZ="0.8">
                <image>
                   <Image url="@../resources/menu.png" />
                </image>
             </ImageView>
-            <Button fx:id="changeWritePostBtn" layoutX="220.0" layoutY="15.0" mnemonicParsing="false" onAction="#changeWritePost" prefHeight="93.0" prefWidth="90.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button fx:id="changeChattingBtn" layoutX="564.0" layoutY="19.0" mnemonicParsing="false" onAction="#changeChatting" prefHeight="93.0" prefWidth="91.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button fx:id="changePostListBtn" layoutX="935.0" layoutY="18.0" mnemonicParsing="false" onAction="#changePostList" prefHeight="91.0" prefWidth="91.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
+            <Button fx:id="changeWritePostBtn" layoutX="107.0" layoutY="16.0" mnemonicParsing="false" onAction="#changeWritePost" prefHeight="113.0" prefWidth="113.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="changeCategoryBtn" layoutX="1284.0" layoutY="19.0" mnemonicParsing="false" onAction="#changeCategory" prefHeight="93.0" prefWidth="88.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
+            <Button fx:id="changeChattingBtn" layoutX="415.0" layoutY="20.0" mnemonicParsing="false" onAction="#changeChatting" prefHeight="109.0" prefWidth="111.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button fx:id="changeProfileBtn" layoutX="1517.0" layoutY="47.0" mnemonicParsing="false" onAction="#changeProfile" text="프로필" />
+               </cursor>
+            </Button>
+            <Button fx:id="changePostListBtn" layoutX="718.0" layoutY="16.0" mnemonicParsing="false" onAction="#changePostList" prefHeight="112.0" prefWidth="111.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="changeCategoryBtn" layoutX="1021.0" layoutY="20.0" mnemonicParsing="false" onAction="#changeCategory" prefHeight="107.0" prefWidth="107.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="changeProfileBtn" layoutX="1318.0" layoutY="22.0" mnemonicParsing="false" onAction="#changeProfile" prefHeight="92.0" prefWidth="79.0" styleClass="nonHovertransparencyBtn">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="changeInformationBtn" layoutX="1556.0" layoutY="25.0" mnemonicParsing="false" onAction="#changeInformation" prefHeight="95.0" prefWidth="95.0" styleClass="nonHovertransparencyBtn">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </Pane>
       <ImageView fitHeight="82.0" fitWidth="145.0" layoutX="154.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
@@ -79,14 +91,6 @@
             </Text>
          </children>
       </Pane>
-      <ImageView fitHeight="53.0" fitWidth="64.0" layoutX="1379.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resources/menuBtn.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
       <TilePane alignment="CENTER_LEFT" hgap="65.0" layoutX="110.0" layoutY="308.0" prefColumns="4" prefHeight="500.0" prefRows="4" prefTileHeight="400.0" prefTileWidth="300.0" prefWidth="1400.0" tileAlignment="CENTER_LEFT">
          <children>
             <Pane prefHeight="450.0" prefWidth="222.0" style="-fx-border-color: #949494; -fx-border-radius: 15; -fx-border-width: 3; -fx-background-radius: 15;">

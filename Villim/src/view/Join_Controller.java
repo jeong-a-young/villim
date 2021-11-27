@@ -87,6 +87,7 @@ public class Join_Controller implements Initializable {
 	@FXML
 	private Button join_button;
 
+	ResultSet rs = null;
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
 	String sql = "";
@@ -97,36 +98,38 @@ public class Join_Controller implements Initializable {
 		// button event
 		Singleton.getInstance().debug(join_pass.getText() + " and " + join_pass_ok.getText());
 		if (join_id.getText().isEmpty()) {
-			alert("아이디를 입력해주세요");
+			alert("아이디를 입력해 주세요.");
 		} else if (join_id.getText().matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*") || join_id.getText().contains(" ")) {
-			alert("아이디에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
+			alert("아이디에는 한글 또는 띄어쓰기를 사용할 수 없습니다.");
 		} else if (join_pass.getText().isEmpty()) {
-			alert("비밀번호를 입력해주세요");
+			alert("비밀번호를 입력해 주세요.");
 		} else if (!join_pass.getText().equals(join_pass_ok.getText())) {
-			alert("비밀번호 확인을 다시 해주세요");
+			alert("비밀번호를 다시 한 번 입력해 주세요.");
 		} else if (join_pass.getText().length() < 8) {
-			alert("비밀번호는 8자가 넘어야 합니다");
+			alert("비밀번호는 8자 이상이여야 합니다.");
 		} else if (join_pass.getText().matches(".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*") || join_pass.getText().contains(" ")) {
-			alert("비밀번호에는 한글 또는 띄어쓰기를 사용할 수 없습니다");
+			alert("비밀번호에는 한글 또는 띄어쓰기를 사용할 수 없습니다.");
 		} else if (join_pass.getText().matches("^[a-zA-Z0-9]*$")) {
-			alert("비밀번호는 특수문자를 포함해야합니다");
+			alert("비밀번호는 특수문자를 포함해야 합니다.");
 		} else if (join_name.getText().isEmpty()) {
-			alert("닉네임을 입력해주세요");
+			alert("닉네임을 입력해 주세요.");
 		} else if (join_name.getText().length() > 8) {
-			alert("닉네임은 8자를 넘을 수 없습니다");
+			alert("닉네임은 8자 이상이여야 합니다.");
 		} else if (join_email.getText().isEmpty()) {
-			alert("이메일을 입력해주세요");
+			alert("이메일을 입력해 주세요.");
 		} else if (!join_email.getText().contains("@")) {
-			alert("이메일이 잘못되었습니다");
+			alert("이메일 형식이 잘못 되었습니다.");
 		} else if (!isIdChecked) {
-			alert("아이디 중복체크를 해주세요");
+			alert("아이디 중복체크를 해야합니다.");
+		} else if (!isEmailChecked) {
+			alert("이메일 중복체크를 해야합니다.");
 		} else {
 			changeLoginAfterJoin();
 
 		}
 	}
 
-//	아이디 중복 체크를 체크한다
+	// 아이디 중복 체크
 	boolean isIdChecked = false;
 
 	public void checkId() {
@@ -162,7 +165,8 @@ public class Join_Controller implements Initializable {
 		}
 		return false;
 	}
-
+	
+	// 비밀번호 확인
 	public void join_pass_check() {
 		String joinPass = join_pass.getText();
 		String joinPassOk = join_pass_ok.getText();
@@ -176,6 +180,43 @@ public class Join_Controller implements Initializable {
 			checkPWImage.setImage(new Image("/resources/xMark.png"));
 			Singleton.getInstance().debug("확인 실패");
 		}
+	}
+
+	// 이메일 중복 체크
+	boolean isEmailChecked = false;
+
+	public void checkEmail() {
+		if (join_email_check()) {
+			alert("이 이메일은 사용하실 수 없습니다");
+			isEmailChecked = false;
+		} else {
+			alert("사용 가능한 이메일입니다");
+			isEmailChecked = true;
+		}
+	}
+
+	public boolean join_email_check() {
+		int cnt = 0;
+		sql = "SELECT email from profile";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String email = rs.getString("email");
+				if (join_email.getText().equals(email)) {
+					cnt++;
+					if (cnt >= 1) {
+						return true;
+					} else {
+						break;
+					}
+				}
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return false;
 	}
 
 	// 회원가입 완료 후 로그인 화면 넘어가기
@@ -203,10 +244,12 @@ public class Join_Controller implements Initializable {
 		}
 	}
 
+	// 이전 화면 전환
 	@FXML
 	private Button backButton;
 
 	public void back() {
 		methodUtil.backScene(backButton);
 	}
+	
 }
