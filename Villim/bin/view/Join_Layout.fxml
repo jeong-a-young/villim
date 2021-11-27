@@ -48,7 +48,7 @@
             <Font size="17.0" />
          </font>
       </PasswordField>
-      <TextField fx:id="join_name" layoutX="591.0" layoutY="544.0" prefHeight="57.0" prefWidth="420.0" promptText="8자를 넘지 않아야 합니다.">
+      <TextField fx:id="join_name" layoutX="591.0" layoutY="544.0" prefHeight="57.0" prefWidth="420.0" promptText="8자 이상이여야 합니다.">
          <font>
             <Font size="17.0" />
          </font>
@@ -71,7 +71,7 @@
             </ImageView>
          </children>
       </Pane>
-      <TextField fx:id="join_email" layoutX="590.0" layoutY="627.0" prefHeight="57.0" prefWidth="420.0" promptText="8자를 넘지 않아야 합니다.">
+      <TextField fx:id="join_email" layoutX="590.0" layoutY="627.0" prefHeight="57.0" prefWidth="420.0" promptText="이메일 형식대로 입력해야 합니다.">
          <font>
             <Font size="17.0" />
          </font>
@@ -86,7 +86,7 @@
             </Text>
          </children>
       </Pane>
-      <Button layoutX="1033.0" layoutY="634.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="161.0" styleClass="transparencyBtn">
+      <Button layoutX="1033.0" layoutY="634.0" mnemonicParsing="false" onAction="#checkEmail" prefHeight="49.0" prefWidth="161.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

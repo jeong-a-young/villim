@@ -45,7 +45,7 @@ public class Home_Controller implements Initializable {
 	public Pane postPane3;
 	@FXML
 	public Pane postPane4;
-	
+
 	@FXML
 	public Text recommand2;
 	@FXML
@@ -58,7 +58,7 @@ public class Home_Controller implements Initializable {
 	public Text time2;
 	@FXML
 	public ImageView image2;
-	
+
 	@FXML
 	public Text recommand3;
 	@FXML
@@ -71,7 +71,7 @@ public class Home_Controller implements Initializable {
 	public Text time3;
 	@FXML
 	public ImageView image3;
-	
+
 	@FXML
 	public Text recommand4;
 	@FXML
@@ -108,8 +108,7 @@ public class Home_Controller implements Initializable {
 		Singleton.getInstance().setPostList(postList);
 		if (a.length() >= 10) {
 			System.out.println(a.substring(0, 10) + "...");
-		}
-		else {
+		} else {
 			System.out.println(a);
 		}
 	}
@@ -210,19 +209,28 @@ public class Home_Controller implements Initializable {
 		methodUtil.changeScene("/view/Category_Layout.fxml", changeCategoryBtn);
 	}
 
-	// (임시) 프로필
+	// 프로필
 	@FXML
 	private Button changeProfileBtn;
 
 	public void changeProfile() {
 		methodUtil.changeScene("/view/Profile_Layout.fxml", changeProfileBtn);
 	}
-	
-	// 이전 화면으로 가는 코드
+
+	// 제작자 정보
+	@FXML
+	private Button changeInformationBtn;
+
+	public void changeInformation() {
+		methodUtil.changeScene("/view/Information_Layout.fxml", changeInformationBtn);
+	}
+
+	// 이전 화면 전환
 	@FXML
 	private Button backButton;
 
 	public void back() {
 		methodUtil.backScene(backButton);
 	}
+	
 }

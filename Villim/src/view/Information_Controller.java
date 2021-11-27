@@ -5,7 +5,9 @@ import javafx.scene.control.Button;
 import util.MethodUtil;
 
 public class Information_Controller {
+	
 	MethodUtil methodUtil = new MethodUtil();
+	
 	// 이전 화면으로 가는 코드
 	@FXML
 	private Button backButton;
@@ -13,4 +15,5 @@ public class Information_Controller {
 	public void back() {
 		methodUtil.backScene(backButton);
 	}
+	
 }

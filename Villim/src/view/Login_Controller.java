@@ -23,7 +23,7 @@ public class Login_Controller implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		if (Singleton.getInstance().sceneList.get(Singleton.getInstance().sceneList.size() - 1)
 				.equals("/view/Join_Layout.fxml")) {
-			alert("회원가입을 완료하였습니다");
+			alert("회원가입을 완료하였습니다.");
 		}
 	}
 
@@ -120,6 +120,14 @@ public class Login_Controller implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	// 아이디, 비밀번호 찾기
+	@FXML
+	private Button changeFindBtn;
+
+	public void changeFind() {
+		methodUtil.changeScene("/view/Find_Layout.fxml", changeFindBtn);
 	}
 
 	// 이전 화면으로

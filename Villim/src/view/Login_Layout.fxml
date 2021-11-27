@@ -23,12 +23,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="loginButton" layoutX="857.0" layoutY="663.0" mnemonicParsing="false" onAction="#login" prefHeight="53.0" prefWidth="173.0" styleClass="transparencyBtn">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="539.0" layoutY="663.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="276.0" styleClass="transparencyBtn">
+      <Button fx:id="loginButton" layoutX="856.0" layoutY="663.0" mnemonicParsing="false" onAction="#login" prefHeight="53.0" prefWidth="173.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -52,5 +47,10 @@
             </Text>
          </children>
       </Pane>
+      <Button fx:id="changeFindBtn" layoutX="537.0" layoutY="663.0" mnemonicParsing="false" onAction="#changeFind" prefHeight="53.0" prefWidth="278.0" styleClass="transparencyBtn">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
