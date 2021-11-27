@@ -17,7 +17,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import util.MethodUtil;
@@ -71,7 +70,9 @@ public class WritePost_Controller implements Initializable {
 	PreparedStatement pstmt = null;
 	String sql = "";
 	Connection conn = JDBCUtill.getInstance().getConnection();
+	
 	public String file = "";
+	
 	@FXML
 	private TextField write_title;
 	@FXML
@@ -92,9 +93,10 @@ public class WritePost_Controller implements Initializable {
 		if (file.equals("NO IMAGE")) {
 			alert("사진 파일이 아닙니다");
 			return;
-		}
-		photoListItems.add(file);
-		photoList.setItems(photoListItems);
+		} else {
+			photoListItems.add(file);
+			photoList.setItems(photoListItems);
+		}	
 	}
 
 	// 게시글 작성
@@ -129,25 +131,15 @@ public class WritePost_Controller implements Initializable {
 				pstmt.setInt(6, recommend);
 				pstmt.setString(7, Singleton.getInstance().getNow2() + Singleton.getInstance().getAccountId());
 				pstmt.executeUpdate();
-				methodUtil.inputPhoto(file);
-				Singleton.getInstance().debug("작성 성공 ");
+				methodUtil.inputPhoto(file, "resources");
+				Singleton.getInstance().debug("작성 성공");
 				Singleton.getInstance().setWriteSuccess(true);
 				methodUtil.backScene(write_success);
 			} catch (Exception e) {
-				
-				// TODO: handle exception
 				e.printStackTrace();
 				Singleton.getInstance().debug("작성 실패");
 			}
 		}
-	}
-
-	// 홈 화면 전환
-	@FXML
-	private Button changeHomeBtn;
-
-	public void changeHome() {
-		methodUtil.changeScene("/view/Home_Layout.fxml", changeHomeBtn);
 	}
 
 	// 이전 화면으로 가는 코드
@@ -157,4 +149,5 @@ public class WritePost_Controller implements Initializable {
 	public void back() {
 		methodUtil.backScene(backButton);
 	}
+	
 }

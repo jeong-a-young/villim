@@ -61,6 +61,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
+            <Button fx:id="changeProfileBtn" layoutX="1517.0" layoutY="47.0" mnemonicParsing="false" onAction="#changeProfile" text="프로필" />
          </children>
       </Pane>
       <ImageView fitHeight="82.0" fitWidth="145.0" layoutX="154.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">

@@ -23,6 +23,7 @@ public class Profile_Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		getInformation();
+		getProfileImage();
 	}
 
 	// 알림창
@@ -77,13 +78,13 @@ public class Profile_Controller implements Initializable {
 	private Label memberEmail;
 
 	public void getInformation() {
-		sql = "select id, name, email from profile where id='" + Singleton.getInstance().getAccountId() + "'";
+		sql = "select nick, id, email from profile where id='" + Singleton.getInstance().getAccountId() + "'";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
+				memberName.setText(rs.getString("nick"));
 				memberId.setText(rs.getString("id"));
-				memberName.setText(rs.getString("name"));
 				memberEmail.setText(rs.getString("email"));
 			}
 		} catch (Exception e) {
@@ -93,10 +94,22 @@ public class Profile_Controller implements Initializable {
 
 	@FXML
 	private ImageView profileImage;
-
+	public String file = "";
+	
+	// 프로필 사진 추가, 변경하기
+	public void addChangeProfileImage() {
+		file = methodUtil.selectFile();
+		if (file.equals("NO IMAGE")) {
+			alert("사진 파일이 아닙니다");
+			return;
+		} else {
+			methodUtil.inputPhoto(file, "profile");
+		}	
+	}
+	
 	// 프로필 사진 가져오기
-	public void getPhoto() {
-		profileImage.setImage(new Image(methodUtil.outputPhoto()));
+	public void getProfileImage() {
+		methodUtil.getPhoto("select * from image where type='profile'", profileImage);
 	}
 
 	// 회원정보 변경 화면 전환

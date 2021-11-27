@@ -23,6 +23,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
@@ -34,6 +36,7 @@ public class MethodUtil {
 
 	Statement stmt = null;
 	PreparedStatement pstmt = null;
+	ResultSet rs = null;
 	String sql = "";
 	Connection conn = JDBCUtill.getInstance().getConnection();
 
@@ -118,16 +121,16 @@ public class MethodUtil {
 	// DB에 사진 저장하고 가져오기
 
 	// 사진 저장
-	public void inputPhoto(String a) {
-		if(a.isEmpty()) {
+	public void inputPhoto(String fileFath, String type) {
+		if(fileFath.isEmpty()) {
 			return;
 		}
 		try {
-			File imgfile = new File(a);
+			File imgfile = new File(fileFath);
 			FileInputStream fin = new FileInputStream(imgfile);
 			PreparedStatement pre = conn.prepareStatement("insert into image (type, code, image) VALUES (?, ?, ?)");
 			//년도:월:일:시:분:초:아이디
-			pre.setString(1, "resource"); //이 사진은 게시물 사진
+			pre.setString(1, type); // 게시물 사진일 경우 resources, 프로필 사진일 경우 profile
 			pre.setString(2, Singleton.getInstance().getNow2()+Singleton.getInstance().getAccountId());
 			pre.setBinaryStream(3, fin, (int) imgfile.length());
 			pre.executeUpdate();
@@ -141,6 +144,21 @@ public class MethodUtil {
 
 	// 사진 불러오기
 
+	// 사진을 저장하지 않고 바로 세팅하는 형식
+	public void getPhoto(String sql, ImageView imageView) {
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Blob blob = rs.getBlob("image");
+				InputStream inputStream = blob.getBinaryStream();
+				imageView.setImage(new Image(inputStream));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	// 이클립스에서 새로고침을 해야만 사진을 인식함
 	// 굳이 파일을 저장하지 않고 바로 세팅하는 법은 없을까
 

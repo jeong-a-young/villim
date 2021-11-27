@@ -214,6 +214,14 @@ public class Home_Controller implements Initializable {
 		methodUtil.changeScene("/view/Category_Layout.fxml", changeCategoryBtn);
 	}
 
+	// (임시) 프로필
+	@FXML
+	private Button changeProfileBtn;
+
+	public void changeProfile() {
+		methodUtil.changeScene("/view/Profile_Layout.fxml", changeProfileBtn);
+	}
+	
 	// 이전 화면으로 가는 코드
 	@FXML
 	private Button backButton;

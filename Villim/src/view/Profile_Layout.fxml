@@ -19,7 +19,7 @@
       </ImageView>
       <Pane layoutX="214.0" layoutY="222.0" prefHeight="400.0" prefWidth="400.0">
          <children>
-            <ImageView fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="profileImage" fitHeight="400.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/basicProfile.png" />
                </image>
@@ -40,7 +40,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="264.0" layoutY="656.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="298.0" styleClass="transparencyBtn">
+      <Button layoutX="264.0" layoutY="656.0" mnemonicParsing="false" onAction="#addChangeProfileImage" prefHeight="63.0" prefWidth="298.0" styleClass="transparencyBtn">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
