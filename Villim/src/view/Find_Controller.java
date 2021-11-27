@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import database.JDBCUtill;
@@ -29,6 +30,7 @@ public class Find_Controller implements Initializable {
 	public Pane alertPane;
 	@FXML
 	public Text alertText;
+
 	public boolean isAliveThread;
 
 	public void alert(String text) {

@@ -2,7 +2,9 @@ package view;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -168,11 +170,30 @@ public class Home_Controller implements Initializable {
 	public static String searchContent = "";
 
 	public void changeSearch() {
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		String sql = "";
+		Connection conn = JDBCUtill.getInstance().getConnection();
+
 		searchContent = searchTextField.getText();
+		
 		if (searchContent.isEmpty()) {
 			alert("검색어를 입력해 주세요.");
 		} else {
 			methodUtil.changeScene("/view/SearchList_Layout.fxml", searchBtn);
+			
+			sql = "select * from resource where title like (?)";
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, "%"+searchContent+"%");
+				
+				rs = pstmt.executeQuery();
+				System.out.println(rs.next());
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -232,5 +253,5 @@ public class Home_Controller implements Initializable {
 	public void back() {
 		methodUtil.backScene(backButton);
 	}
-	
+
 }
