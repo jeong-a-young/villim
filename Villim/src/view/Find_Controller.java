@@ -4,7 +4,6 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import database.JDBCUtill;
@@ -92,7 +91,7 @@ public class Find_Controller implements Initializable {
 				alert("이메일을 입력해 주세요.");
 			} else if (rs.next()) {
 				String id = rs.getNString("id");
-				popUpAlert(id, "아이디를 찾았습니다.");
+				popUpAlert("아이디: " + id, "아이디를 찾았습니다.");
 			} else {
 				alert("해당 이메일로 가입된 아이디를 찾지 못했습니다.");
 			}
@@ -106,7 +105,12 @@ public class Find_Controller implements Initializable {
 	private TextField memberId;
 
 	public void findPassword() {
+		int idCount = selectId();
+		int emailCount = selectEmail();
+		int findCount = 0;
+		
 		sql = "select password from profile where id='" + memberId.getText() + "'";
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -114,11 +118,14 @@ public class Find_Controller implements Initializable {
 				alert("아이디를 입력해 주세요.");
 			} else if (memberEmail.getText().isEmpty()) {
 				alert("이메일을 입력해 주세요.");
-			} else {
+			} else if (idCount > 0 && emailCount > 0) {
 				if (rs.next()) {
 					String password = rs.getNString("password");
-					popUpAlert(password, "비밀번호를 찾았습니다.");
+					popUpAlert("비밀번호: " + password, "비밀번호를 찾았습니다.");
+					findCount++;
 				}
+			} else if (findCount == 0) {
+				alert("입력된 정보로 가입된 회원정보를 찾지 못했습니다.");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -126,7 +133,7 @@ public class Find_Controller implements Initializable {
 	}
 
 	// 가입된 아이디인지 판단
-	public void selectId() {
+	public int selectId() {
 		int count = 0;
 		sql = "select * from profile where id='" + memberId.getText() + "'";
 		try {
@@ -136,19 +143,16 @@ public class Find_Controller implements Initializable {
 				String id = rs.getNString("id");
 				if (memberId.getText().equals(id)) {
 					count++;
-				} else if (count < 0) {
-					alert("해당 아이디는 가입되지 않았습니다.");
-				} else if (memberId.getText().isEmpty()) {
-					alert("아이디를 입력해 주세요.");
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return count;
 	}
 
 	// 가입된 이메일인지 판단
-	public void selectEmail() {
+	public int selectEmail() {
 		int count = 0;
 		sql = "select * from profile where email='" + memberEmail.getText() + "'";
 		try {
@@ -158,15 +162,12 @@ public class Find_Controller implements Initializable {
 				String email = rs.getNString("email");
 				if (memberEmail.getText().equals(email)) {
 					count++;
-				} else if (count < 0) {
-					alert("해당 이메일은 가입되지 않았습니다.");
-				} else if (memberEmail.getText().isEmpty()) {
-					alert("이메일을 입력해 주세요.");
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return count;
 	}
 
 	// 이전 화면 전환

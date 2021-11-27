@@ -99,31 +99,21 @@ public class MethodUtil {
 	public void inputPhoto(String fileFath, String type) {
 		if (fileFath.isEmpty()) {
 			return;
-		}	
+		}
 		try {
 			File imgfile = new File(fileFath);
 			FileInputStream fin = new FileInputStream(imgfile);
-			PreparedStatement pre = conn.prepareStatement("insert into image (type, code, image) VALUES (?, ?, ?)");
+			PreparedStatement pre = conn
+					.prepareStatement("insert into image (id, type, code, image) VALUES (?, ?, ?, ?)");
 			// 년도:월:일:시:분:초:아이디
-
-			if (type.equals("profile")) { // 만약 프로필 사진이라면
-				pre.setString(1, type);
-				pre.setString(2, Singleton.getInstance().getAccountId());
-				pre.setBinaryStream(3, fin, (int) imgfile.length());
-				pre.executeUpdate();
-				Singleton.getInstance().debug("프로필 사진 저장 성공");
-				pre.close();
-				conn.close();
-			} else if (type.equals("resources")) { // 만약 게시글 사진이라면
-				pre.setString(1, type);
-				pre.setString(2, Singleton.getInstance().getNow2()+Singleton.getInstance().getAccountId());
-				pre.setString(2, Singleton.getInstance().getAccountId());
-				pre.setBinaryStream(3, fin, (int) imgfile.length());
-				pre.executeUpdate();
-				Singleton.getInstance().debug("게시글 사진 저장 성공");
-				pre.close();
-				conn.close();
-			}
+			pre.setString(1, Singleton.getInstance().getAccountId());
+			pre.setString(2, type);
+			pre.setString(3, Singleton.getInstance().getNow2() + Singleton.getInstance().getAccountId());
+			pre.setBinaryStream(4, fin, (int) imgfile.length());
+			pre.executeUpdate();
+			Singleton.getInstance().debug("사진 저장 성공");
+			pre.close();
+			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -155,7 +145,7 @@ public class MethodUtil {
 			e.printStackTrace();
 		}
 	}
-	
+
 	// 이클립스에서 새로고침을 해야만 사진을 인식함
 	// 굳이 파일을 저장하지 않고 바로 세팅하는 법은 없을까
 
