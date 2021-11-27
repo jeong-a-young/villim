@@ -33,25 +33,6 @@
 	-fx-border-radius: 30.0px;
 }
 
-.grayBtn {
-	-fx-background-color: #E2E2E2;
-	-fx-background-radius: 5.0px;
-	-fx-border-color: #E2E2E2;
-	-fx-border-radius: 5.0px;
-	-fx-padding: 8.0px 25.0px;
-}
-
-.grayBtn:hover {
-	-fx-background-color: #d6d6d6;
-	-fx-border-color: #d6d6d6;
-}
-
-.transparencyTextfield {
-   /* -fx-border-color: rgba(190.0, 190.0, 190.0, 1.0);
-   -fx-border-width: 0 0 1 0; */
-   -fx-background-color: transparent;
-}
-
 .grayComboBox {
 	-fx-background-color: #E2E2E2;
 	-fx-font-size: 15;
@@ -94,4 +75,8 @@
     -fx-background-insets: 0;
     -fx-background-color: #1187CF;
     -fx-text-fill: white;
+}
+
+#photoListView {
+	-fx-font-size: 17;
 }
