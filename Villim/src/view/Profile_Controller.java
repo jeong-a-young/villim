@@ -22,8 +22,7 @@ public class Profile_Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		getInformation();
-		methodUtil.getPhoto(
-				"select * from image where type='profile' and id='" + Singleton.getInstance().getAccountId() + "'",
+		methodUtil.getProfilePhoto(Singleton.getInstance().getAccountId(),
 				profileImage);
 	}
 
@@ -126,6 +125,8 @@ public class Profile_Controller implements Initializable {
 		} else {
 			methodUtil.inputPhoto(file, "profile");
 		}
+		methodUtil.getProfilePhoto(Singleton.getInstance().getAccountId(),
+				profileImage);
 	}
 
 	// 프로필 사진 삭제하기

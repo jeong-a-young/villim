@@ -34,11 +34,12 @@ public class MethodUtil {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	String sql = "";
-	Connection conn = JDBCUtill.getInstance().getConnection();
+	Connection conn = null;
 
 	// 화면 전환
 	public void changeScene(String url, Button btn) {
 		try {
+			
 			Parent main = FXMLLoader.load(getClass().getResource(url));
 			Scene scene = new Scene(main);
 			Stage primaryStage = (Stage) btn.getScene().getWindow();
@@ -104,12 +105,11 @@ public class MethodUtil {
 			File imgfile = new File(fileFath);
 			FileInputStream fin = new FileInputStream(imgfile);
 			PreparedStatement pre = conn
-					.prepareStatement("insert into image (id, type, code, image) VALUES (?, ?, ?, ?)");
+					.prepareStatement("insert into image (type, code, image) VALUES (?, ?, ?)");
 			// 년도:월:일:시:분:초:아이디
-			pre.setString(1, Singleton.getInstance().getAccountId());
-			pre.setString(2, type);
-			pre.setString(3, Singleton.getInstance().getNow2() + Singleton.getInstance().getAccountId());
-			pre.setBinaryStream(4, fin, (int) imgfile.length());
+			pre.setString(1, type);
+			pre.setString(2, Singleton.getInstance().getNow2() + Singleton.getInstance().getAccountId());
+			pre.setBinaryStream(3, fin, (int) imgfile.length());
 			pre.executeUpdate();
 			Singleton.getInstance().debug("사진 저장 성공");
 			pre.close();
@@ -120,14 +120,40 @@ public class MethodUtil {
 	}
 
 	// 사진 불러오기
-	public void getPhoto(String sql, ImageView imageView) {
+	public void getProfilePhoto(String s, ImageView imageView) {
 		try {
+			sql = "select * from image where code='" + s + "'";
+			conn = JDBCUtill.getInstance().getConnection();
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				Blob blob = rs.getBlob("image");
-				InputStream inputStream = blob.getBinaryStream();
-				imageView.setImage(new Image(inputStream));
+
+				if (rs.getString("type").equals("profile")) {
+					Blob blob = rs.getBlob("image");
+					InputStream inputStream = blob.getBinaryStream();
+					imageView.setImage(new Image(inputStream));
+				}
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void getResourcePhoto(String s, ImageView imageView) {
+		try {
+			sql = "select * from image where code='" + s + "'";
+			conn = JDBCUtill.getInstance().getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+
+				if (rs.getString("type").equals("resource")) {
+					Blob blob = rs.getBlob("image");
+					InputStream inputStream = blob.getBinaryStream();
+					imageView.setImage(new Image(inputStream));
+				}
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -138,6 +164,7 @@ public class MethodUtil {
 	public void delPhoto() {
 		sql = "delete from image where code='" + Singleton.getInstance().getAccountId() + "'";
 		try {
+			conn = JDBCUtill.getInstance().getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.executeUpdate();
 			Singleton.getInstance().debug("사진 삭제 성공");
@@ -153,6 +180,7 @@ public class MethodUtil {
 	int numCount = 0;
 
 	public String outputPhoto() {
+		conn = JDBCUtill.getInstance().getConnection();
 
 		numCount += 1;
 		String srtCount = Integer.toString(numCount);

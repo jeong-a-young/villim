@@ -12,6 +12,7 @@ public class Singleton {
 	private Singleton() {
 		sceneList.add("/view/Start_Layout.fxml");
 		writeSuccess = false;
+		now2 = "";
 	}
 
 	public static Singleton getInstance() {
@@ -79,7 +80,7 @@ public class Singleton {
 	private List<String> postList = new ArrayList<String>();
 	public void setPostList(List<String> t) {
 		Collections.sort(t, Collections.reverseOrder());
-		this.postList = postList;
+		this.postList = t;
 	}
 	public List<String> getPostList(){
 		return this.postList;

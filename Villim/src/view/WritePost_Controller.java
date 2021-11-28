@@ -131,7 +131,7 @@ public class WritePost_Controller implements Initializable {
 				pstmt.setInt(6, recommend);
 				pstmt.setString(7, Singleton.getInstance().getNow2() + Singleton.getInstance().getAccountId());
 				pstmt.executeUpdate();
-				methodUtil.inputPhoto(file, "resources");
+				methodUtil.inputPhoto(file, "resource");
 				Singleton.getInstance().debug("작성 성공");
 				Singleton.getInstance().setWriteSuccess(true);
 				methodUtil.backScene(write_success);

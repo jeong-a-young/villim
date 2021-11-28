@@ -91,44 +91,154 @@
             </Text>
          </children>
       </Pane>
-      <TilePane alignment="CENTER_LEFT" hgap="65.0" layoutX="110.0" layoutY="308.0" prefColumns="4" prefHeight="500.0" prefRows="4" prefTileHeight="400.0" prefTileWidth="300.0" prefWidth="1400.0" tileAlignment="CENTER_LEFT">
+      <TilePane alignment="CENTER_LEFT" hgap="65.0" layoutX="100.0" layoutY="324.0" prefColumns="4" prefHeight="500.0" prefRows="4" prefTileHeight="400.0" prefTileWidth="300.0" prefWidth="1400.0" style="-fx-background-color: #fafafa;" tileAlignment="CENTER_LEFT">
          <children>
-            <Pane prefHeight="450.0" prefWidth="222.0" style="-fx-border-color: #949494; -fx-border-radius: 15; -fx-border-width: 3; -fx-background-radius: 15;">
+            <Pane fx:id="postPane1" prefHeight="450.0" prefWidth="222.0" style="-fx-border-color: #949494; -fx-border-radius: 15; -fx-border-width: 3; -fx-background-radius: 15;" visible="false">
                <children>
-                  <Text layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="아아아아아아아아..." textAlignment="CENTER" wrappingWidth="299.99996960163116">
+                  <Text fx:id="title1" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="아아아아아아아아..." textAlignment="CENTER" wrappingWidth="299.99996960163116">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <Text layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021년 11월 26일 오전 10시 23분" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                  <Text fx:id="time1" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021년 11월 26일 오전 10시 23분" textAlignment="CENTER" wrappingWidth="300.00000858679414">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <Text layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="admin(adm***)" textAlignment="CENTER" wrappingWidth="299.99996960163116">
+                  <Text fx:id="writer1" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="admin(adm***)" textAlignment="CENTER" wrappingWidth="299.99996960163116">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="196.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
-                  <Text layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="헬스 / 요가" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                  <Text layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이미지 없음" textAlignment="CENTER" wrappingWidth="300.00000858679414">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이미지 없음" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                  <ImageView fx:id="image1" fitHeight="198.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 15;" />
+                  <Text fx:id="category1" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="헬스 / 요가" textAlignment="CENTER" wrappingWidth="300.00000858679414">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fill="#1187cf" layoutX="13.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="312.99998196959496">
+                  <Text fx:id="recommand1" fill="#1187cf" layoutX="13.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="312.99998196959496">
                      <font>
                         <Font name="System Bold" size="26.0" />
                      </font>
                   </Text>
                </children></Pane>
+            <Pane fx:id="postPane2" prefHeight="450.0" prefWidth="222.0" style="-fx-border-color: #949494; -fx-border-radius: 15; -fx-border-width: 3; -fx-background-radius: 15;" visible="false">
+               <children>
+                  <Text fx:id="title2" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="아아아아아아아아..." textAlignment="CENTER" wrappingWidth="299.99996960163116">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="time2" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021년 11월 26일 오전 10시 23분" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="writer2" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="admin(adm***)" textAlignment="CENTER" wrappingWidth="299.99996960163116">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이미지 없음" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="image2" fitHeight="198.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 15;" />
+                  <Text fx:id="category2" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="헬스 / 요가" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="recommand2" fill="#1187cf" layoutX="13.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="312.99998196959496">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="postPane3" prefHeight="450.0" prefWidth="222.0" style="-fx-border-color: #949494; -fx-border-radius: 15; -fx-border-width: 3; -fx-background-radius: 15;" visible="false">
+               <children>
+                  <Text fx:id="title3" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="아아아아아아아아..." textAlignment="CENTER" wrappingWidth="299.99996960163116">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="time3" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021년 11월 26일 오전 10시 23분" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="writer3" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="admin(adm***)" textAlignment="CENTER" wrappingWidth="299.99996960163116">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이미지 없음" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="image3" fitHeight="198.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 15;" />
+                  <Text fx:id="category3" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="헬스 / 요가" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="recommand3" fill="#1187cf" layoutX="13.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="312.99998196959496">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="postPane4" prefHeight="450.0" prefWidth="222.0" style="-fx-border-color: #949494; -fx-border-radius: 15; -fx-border-width: 3; -fx-background-radius: 15;" visible="false">
+               <children>
+                  <Text fx:id="title4" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="아아아아아아아아..." textAlignment="CENTER" wrappingWidth="299.99996960163116">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="time4" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021년 11월 26일 오전 10시 23분" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="writer4" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="admin(adm***)" textAlignment="CENTER" wrappingWidth="299.99996960163116">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <Text layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이미지 없음" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="image4" fitHeight="198.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 15;" />
+                  <Text fx:id="category4" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="헬스 / 요가" textAlignment="CENTER" wrappingWidth="300.00000858679414">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="recommand4" fill="#1187cf" layoutX="13.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" wrappingWidth="312.99998196959496">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
          </children>
       </TilePane>
-      <Pagination layoutX="10.0" layoutY="797.0" pageCount="1" prefHeight="83.0" prefWidth="1600.0" />
+      <Pagination fx:id="postListPage" layoutX="8.0" layoutY="814.0" onMouseClicked="#batchPost" pageCount="1" prefHeight="45.0" prefWidth="1600.0" />
+      <Text fx:id="nonPostList" layoutX="701.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="게시물 없음">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
