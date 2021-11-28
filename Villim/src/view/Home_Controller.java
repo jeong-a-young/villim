@@ -36,8 +36,40 @@ public class Home_Controller implements Initializable {
 			alert("게시물을 업로드하였습니다");
 			Singleton.getInstance().setWriteSuccess(false);
 		}
+		batchPost();
+		postListPage.setPageCount(3);
 
 	}
+
+	public void batchPage() {
+		try {
+			System.out.println("A1");
+			conn = JDBCUtill.getInstance().getConnection();
+			sql = "SELECT COUNT(*) FROM resource";
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery(sql);
+			System.out.println("A2");
+			int size = 0;
+			if (rs != null) {
+				System.out.println("A3");
+				rs.next();
+				size = rs.getRow(); // get row id
+				System.out.println("A4" + size);
+			}
+			if (size % 4 == 0) {
+				System.out.println("A5");
+				postListPage.setPageCount(size / 4);
+			} else if (size % 4 != 0) {
+				System.out.println("A51");
+				postListPage.setPageCount((int) (size / 4) + 1);
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+	}
+
 
 
 	@FXML
@@ -146,8 +178,7 @@ public class Home_Controller implements Initializable {
 				rs.next();
 				rc = rs.getInt("recommand");
 				a = rs.getString("title");
-				if (Singleton.getInstance().getPostList().indexOf(t) + 1 == ((postListPage.getCurrentPageIndex()) * 4)
-						+ 1) {
+				if (Singleton.getInstance().getPostList().indexOf(t) + 1 == 1) {
 					postPane1.setVisible(true);
 					recommand1.setText(String.valueOf(rc));
 					if (a.length() >= 10) {
@@ -160,7 +191,7 @@ public class Home_Controller implements Initializable {
 					time1.setText(rs.getString("now"));
 					methodUtil.getResourcePhoto(t, image1);
 				} else if (Singleton.getInstance().getPostList().indexOf(t)
-						+ 1 == ((postListPage.getCurrentPageIndex()) * 4) + 2) {
+						+ 1 == 2) {
 					postPane2.setVisible(true);
 					recommand2.setText(String.valueOf(rc));
 					if (a.length() >= 10) {
@@ -173,7 +204,7 @@ public class Home_Controller implements Initializable {
 					time2.setText(rs.getString("now"));
 					methodUtil.getResourcePhoto(t, image2);
 				} else if (Singleton.getInstance().getPostList().indexOf(t)
-						+ 1 == (postListPage.getCurrentPageIndex()) * 4 + 3) {
+						+ 1 == 3) {
 					postPane3.setVisible(true);
 					recommand3.setText(String.valueOf(rc));
 					if (a.length() >= 10) {
@@ -186,7 +217,7 @@ public class Home_Controller implements Initializable {
 					time3.setText(rs.getString("now"));
 					methodUtil.getResourcePhoto(t, image3);
 				} else if (Singleton.getInstance().getPostList().indexOf(t)
-						+ 1 == (postListPage.getCurrentPageIndex()) * 4 + 4) {
+						+ 1 == 4) {
 					postPane4.setVisible(true);
 					recommand4.setText(String.valueOf(rc));
 					if (a.length() >= 10) {
@@ -203,6 +234,7 @@ public class Home_Controller implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		batchPage();
 	}
 
 	@FXML
