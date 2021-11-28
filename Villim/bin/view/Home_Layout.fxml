@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -229,8 +228,7 @@
             </Pane>
          </children>
       </TilePane>
-      <Pagination fx:id="postListPage" layoutX="8.0" layoutY="814.0" onMouseClicked="#batchPost" pageCount="1" prefHeight="45.0" prefWidth="1600.0" />
-      <Text fx:id="nonPostList" layoutX="701.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="게시물 없음">
+      <Text fx:id="nonPostList" layoutX="657.0" layoutY="529.0" strokeType="OUTSIDE" strokeWidth="0.0" text="최근 게시물 없음">
          <font>
             <Font size="38.0" />
          </font>

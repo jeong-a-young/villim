@@ -34,7 +34,7 @@ public class MethodUtil {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	String sql = "";
-	Connection conn = null;
+	Connection conn = JDBCUtill.getInstance().getConnection();
 
 	// 화면 전환
 	public void changeScene(String url, Button btn) {
@@ -104,16 +104,16 @@ public class MethodUtil {
 		try {
 			File imgfile = new File(fileFath);
 			FileInputStream fin = new FileInputStream(imgfile);
-			PreparedStatement pre = conn
-					.prepareStatement("insert into image (type, code, image) VALUES (?, ?, ?)");
+			String sql = "INSERT INTO image(type, code, image) VALUES (?, ?, ?)";
+			PreparedStatement pre;
+			pre = conn.prepareStatement(sql);
 			// 년도:월:일:시:분:초:아이디
 			pre.setString(1, type);
 			pre.setString(2, Singleton.getInstance().getNow2() + Singleton.getInstance().getAccountId());
 			pre.setBinaryStream(3, fin, (int) imgfile.length());
 			pre.executeUpdate();
 			Singleton.getInstance().debug("사진 저장 성공");
-			pre.close();
-			conn.close();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
