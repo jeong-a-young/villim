@@ -36,39 +36,9 @@ public class Home_Controller implements Initializable {
 			alert("게시물을 업로드하였습니다");
 			Singleton.getInstance().setWriteSuccess(false);
 		}
-		batchPost();
-		postListPage.setPageCount(3);
 
 	}
 
-	public void batchPage() {
-		try {
-			System.out.println("A1");
-			conn = JDBCUtill.getInstance().getConnection();
-			sql = "SELECT COUNT(*) FROM resource";
-			pstmt = conn.prepareStatement(sql);
-			ResultSet rs = pstmt.executeQuery(sql);
-			System.out.println("A2");
-			int size = 0;
-			if (rs != null) {
-				System.out.println("A3");
-				rs.next();
-				size = rs.getRow(); // get row id
-				System.out.println("A4" + size);
-			}
-			if (size % 4 == 0) {
-				System.out.println("A5");
-				postListPage.setPageCount(size / 4);
-			} else if (size % 4 != 0) {
-				System.out.println("A51");
-				postListPage.setPageCount((int) (size / 4) + 1);
-			}
-
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-
-	}
 
 	@FXML
 	public Pane postPane1;
@@ -233,7 +203,6 @@ public class Home_Controller implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		batchPage();
 	}
 
 	@FXML
