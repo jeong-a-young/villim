@@ -11,7 +11,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import util.MethodUtil;
 import util.Singleton;
 
@@ -20,7 +22,43 @@ public class ViewPost_Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		getPost();
-		changeBtn();
+		getPhoto();
+	}
+
+	// 알림창
+	@FXML
+	public Pane alertPane;
+	@FXML
+	public Text alertText;
+	public boolean isAliveThread;
+
+	public void alert(String text) {
+		Thread t = new Thread() {
+			public void run() {
+				try {
+					isAliveThread = true;
+					Thread.sleep(500);
+					for (int i = -15; i <= 0; i++) {
+						alertPane.setLayoutY(i * 4);
+						Thread.sleep(25);
+					}
+					Thread.sleep(2000);
+					for (int i = 0; i >= -15; i--) {
+						alertPane.setLayoutY(i * 4);
+						Thread.sleep(25);
+					}
+					isAliveThread = false;
+				} catch (Exception e) {
+					Singleton.getInstance().debug(getClass().getName() + " 쓰레드 오류: " + e);
+				}
+
+			}
+		};
+		alertText.setText(text);
+		if (isAliveThread) {
+			return;
+		}
+		t.start();
 	}
 
 	MethodUtil methodUtil = new MethodUtil();
@@ -30,28 +68,6 @@ public class ViewPost_Controller implements Initializable {
 	String sql = "";
 	Connection conn = JDBCUtill.getInstance().getConnection();
 
-	// 내가 쓴 게시글인지 다른 사람이 쓴 게시글인지 판단
-	@FXML
-	private BorderPane btnPane;
-
-	int meWriteCount = 0;
-	int otherWriteCount = 0;
-
-	public void changeBtn() {
-		// DB를 이용해서 내가 쓴 게시글인지 다른 사람이 쓴 게시글인지 판단
-
-		// 만약 내가 쓴 게시글이면
-		// meWriteCount++;
-		// 다른 사람이 쓴 게시글이면
-		// otherWriteCount++;
-
-		if (meWriteCount == 1) {
-			methodUtil.changePartScene("/view/MeWrite_Layout.fxml", btnPane);
-		} else if (otherWriteCount == 1) {
-			methodUtil.changePartScene("/view/OtherWrite_Layout.fxml", btnPane);
-		}
-	}
-
 	// 게시글 불러오기
 	@FXML
 	private Label titleLabel;
@@ -60,104 +76,98 @@ public class ViewPost_Controller implements Initializable {
 	@FXML
 	private Label dateLabel;
 	@FXML
-	private Label recommendLabel;
-	@FXML
 	private Label contentLabel;
 
 	public void getPost() {
-		sql = "select * from resource where id='" + Singleton.getInstance().getAccountId() + "'"; // post id 이용해서 불러오는 걸로 변경
+		sql = "select * from resource where code='" + Singleton.getInstance().getCode() + "'";
+		System.out.println(Singleton.getInstance().getCode());
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
+				System.out.println("ㅅㄷㄴㅆㄴㄱㅁㄱㅁㅇㅁㄴㅇ");
+				writerLabel.setText(rs.getString("id"));
 				titleLabel.setText(rs.getString("title"));
 				contentLabel.setText(rs.getString("content"));
-				dateLabel.setText(rs.getString("registration"));
-				writerLabel.setText(rs.getString("writer_id"));
+				dateLabel.setText(rs.getString("now"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	// 내가 쓴 게시물이라면
+	// 이미지 불러오기
+	@FXML
+	private ImageView postImageView;
+
+	public void getPhoto() {
+		methodUtil.getResourcePhoto(Singleton.getInstance().getCode(), postImageView);
+		
+	}
 
 	// 수정 화면 전환
 	@FXML
 	private Button changeEditPostBtn;
 
 	public void changeEditPost() {
-		methodUtil.changeScene("/view/EditPost_Layout.fxml", changeEditPostBtn);
+		if (checkId() > 0) {
+			methodUtil.changeScene("/view/EditPost_Layout.fxml", changeEditPostBtn);
+		} else {
+			alert("작성자만 수정할 수 있습니다.");
+		}
 	}
 
 	// 삭제
-	public void delete() {
-		// DB 이용해서 삭제 구현
+	@FXML
+	private Button deletePostBtn;
+	
+	public void deletePost() {
+		if (checkId() > 0) {
+			sql = "delete from resource where code='" + Singleton.getInstance().getCode() + "'";
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.executeUpdate();
+				methodUtil.backScene(deletePostBtn);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			alert("작성자만 삭제할 수 있습니다.");
+		}
 	}
 
-	// 다른 사람이 쓴 게시물이라면
+	// 게시글 작성자와 로그인 한 사용자의 아이디가 같은가 체크
+	public int checkId() {
 
-	// Recommend
+		int count = 0;
+		sql = "select * from resource where code='" + Singleton.getInstance().getCode() + "'";
 
-	// 찜 개수 가져오기
-	int recommend = 0;
-
-	public int getRecommend() {
-
-		String countRecommend = "";
-		sql = "select recommend from resource where writer_id='" + Singleton.getInstance().getAccountId() + "'"; // post id
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				countRecommend = (rs.getString("recommend"));
-				recommend = Integer.parseInt(countRecommend);
+				String writerId = rs.getString("id");
+				if (writerId.equals(Singleton.getInstance().getAccountNick() + "("
+						+ Singleton.getInstance().getAccountId().substring(0, 3) + "****)")) {
+					count++;
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return recommend;
+		return count;
 	}
 
-	// 찜하기 버튼을 눌렀을 때 찜 개수 늘어나게 하기
-	public void updateRecommend() {
-
-		int numRecommend = getRecommend() + 1;
-		String countRecommend = Integer.toString(numRecommend);
-
-		sql = "update resource set recommend='" + countRecommend + "' WHERE writer_id='"
-				+ Singleton.getInstance().getAccountId() + "'";
-
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public void name() {
+		
 	}
-
-	// 채팅하기
-	@FXML
-	private Button changeChattingBtn;
-
-	public void changeChatting() {
-		methodUtil.changeScene("/view/Chatting_Layout.fxml", changeChattingBtn);
-	}
-
-	// 홈 화면 전환
-	@FXML
-	private Button changeHomeBtn;
-
-	public void changeHome() {
-		methodUtil.changeScene("/view/Home_Layout.fxml", changeHomeBtn);
-	}
-
 	// 이전 화면으로 가는 코드
 	@FXML
 	private Button backButton;
 
 	public void back() {
 		methodUtil.backScene(backButton);
+		Singleton.getInstance().setCode(null);
 	}
 
 }

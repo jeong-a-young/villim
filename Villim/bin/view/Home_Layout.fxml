@@ -44,32 +44,27 @@
                   <Image url="@../resources/menu.png" />
                </image>
             </ImageView>
-            <Button fx:id="changeWritePostBtn" layoutX="107.0" layoutY="16.0" mnemonicParsing="false" onAction="#changeWritePost" prefHeight="113.0" prefWidth="113.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
+            <Button fx:id="changeWritePostBtn" layoutX="130.0" layoutY="16.0" mnemonicParsing="false" onAction="#changeWritePost" prefHeight="113.0" prefWidth="113.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="changeChattingBtn" layoutX="415.0" layoutY="20.0" mnemonicParsing="false" onAction="#changeChatting" prefHeight="109.0" prefWidth="111.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
+            <Button fx:id="changePostListBtn" layoutX="468.0" layoutY="16.0" mnemonicParsing="false" onAction="#changePostList" prefHeight="112.0" prefWidth="111.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="changePostListBtn" layoutX="718.0" layoutY="16.0" mnemonicParsing="false" onAction="#changePostList" prefHeight="112.0" prefWidth="111.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
+            <Button fx:id="changeCategoryBtn" layoutX="831.0" layoutY="20.0" mnemonicParsing="false" onAction="#changeCategory" prefHeight="107.0" prefWidth="107.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="changeCategoryBtn" layoutX="1021.0" layoutY="20.0" mnemonicParsing="false" onAction="#changeCategory" prefHeight="107.0" prefWidth="107.0" scaleX="0.9" scaleY="0.9" scaleZ="0.8" styleClass="nonHovertransparencyBtn">
+            <Button fx:id="changeProfileBtn" layoutX="1199.0" layoutY="22.0" mnemonicParsing="false" onAction="#changeProfile" prefHeight="92.0" prefWidth="79.0" styleClass="nonHovertransparencyBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="changeProfileBtn" layoutX="1318.0" layoutY="22.0" mnemonicParsing="false" onAction="#changeProfile" prefHeight="92.0" prefWidth="79.0" styleClass="nonHovertransparencyBtn">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="changeInformationBtn" layoutX="1556.0" layoutY="25.0" mnemonicParsing="false" onAction="#changeInformation" prefHeight="95.0" prefWidth="95.0" styleClass="nonHovertransparencyBtn">
+            <Button fx:id="changeInformationBtn" layoutX="1499.0" layoutY="25.0" mnemonicParsing="false" onAction="#changeInformation" prefHeight="95.0" prefWidth="95.0" styleClass="nonHovertransparencyBtn">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

@@ -320,14 +320,6 @@ public class Home_Controller implements Initializable {
 		methodUtil.changeScene("/view/WritePost_Layout.fxml", changeWritePostBtn);
 	}
 
-	// 채팅
-	@FXML
-	private Button changeChattingBtn;
-
-	public void changeChatting() {
-		methodUtil.changeScene("/view/Chatting_Layout.fxml", changeChattingBtn);
-	}
-
 	// 게시물 목록
 	@FXML
 	private Button changePostListBtn;

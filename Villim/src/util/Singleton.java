@@ -76,15 +76,26 @@ public class Singleton {
 	public void debug(String t) {
 		System.out.println("[ 디버그 ] " + t);
 	}
-	
+
 	private List<String> postList = new ArrayList<String>();
+
 	public void setPostList(List<String> t) {
 		Collections.sort(t, Collections.reverseOrder());
 		this.postList = t;
 	}
-	public List<String> getPostList(){
+
+	public List<String> getPostList() {
 		return this.postList;
 	}
 
+	private String code;
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
 
 }
