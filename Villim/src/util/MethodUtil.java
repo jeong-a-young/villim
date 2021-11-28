@@ -16,8 +16,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.mysql.cj.result.BinaryStreamValueFactory;
-
 import database.JDBCUtill;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,9 +25,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.stage.FileChooser.ExtensionFilter;
 
 public class MethodUtil {
@@ -41,7 +37,6 @@ public class MethodUtil {
 	Connection conn = JDBCUtill.getInstance().getConnection();
 
 	// 화면 전환
-
 	public void changeScene(String url, Button btn) {
 		try {
 			Parent main = FXMLLoader.load(getClass().getResource(url));
@@ -56,6 +51,7 @@ public class MethodUtil {
 		Singleton.getInstance().debug("scene 추적 기록" + Singleton.getInstance().sceneList);
 	}
 
+	// 이전 화면 전환
 	public void backScene(Button btn) {
 		try {
 			Parent main = FXMLLoader.load(getClass()
@@ -71,6 +67,7 @@ public class MethodUtil {
 		Singleton.getInstance().debug("scene 추적 기록" + Singleton.getInstance().sceneList);
 	}
 
+	// 부분 화면 전환
 	public void changePartScene(String url, BorderPane pane) {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource(url));
@@ -80,59 +77,39 @@ public class MethodUtil {
 		}
 	}
 
-	public void popUpScene(Button btn, Stage stage, String url, String title) {
-
-		Stage mainStage = (Stage) btn.getScene().getWindow();
-		stage = new Stage(StageStyle.DECORATED);
-		stage.initModality(Modality.WINDOW_MODAL);
-		stage.initOwner(mainStage);
-
-		try {
-			Parent root = FXMLLoader.load(getClass().getResource(url));
-
-			Scene sc = new Scene(root);
-			sc.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-			stage.setScene(sc);
-			stage.setResizable(false);
-			stage.setTitle(title);
-			stage.show();
-		} catch (Exception e) {
-			Singleton.getInstance().debug("오류[ " + e + " ]");
-			e.printStackTrace();
-		}
-	}
-
 	// 사용자에게 사진 파일 받아오기
-
 	private Stage selectStage;
 
 	public String selectFile() {
 		try {
 			FileChooser fileChooser = new FileChooser();
-		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("이미지 파일", "*.png", "*.PNG", "*.jpg", "*.jpeg"));
-		File file = fileChooser.showOpenDialog(selectStage);
-		return file.getPath();
+			fileChooser.getExtensionFilters()
+					.addAll(new ExtensionFilter("이미지 파일", "*.png", "*.PNG", "*.jpg", "*.jpeg"));
+			File file = fileChooser.showOpenDialog(selectStage);
+			return file.getPath();
 		} catch (Exception e) {
 			return "";
 		}
-		
+
 	}
 
-	// DB에 사진 저장하고 가져오기
+	// DB에서 사진 관리하기
 
-	// 사진 저장
+	// 사진 저장 (type은 게시물 사진일 경우 resources, 프로필 사진일 경우 profile)
 	public void inputPhoto(String fileFath, String type) {
-		if(fileFath.isEmpty()) {
+		if (fileFath.isEmpty()) {
 			return;
 		}
 		try {
 			File imgfile = new File(fileFath);
 			FileInputStream fin = new FileInputStream(imgfile);
-			PreparedStatement pre = conn.prepareStatement("insert into image (type, code, image) VALUES (?, ?, ?)");
-			//년도:월:일:시:분:초:아이디
-			pre.setString(1, type); // 게시물 사진일 경우 resources, 프로필 사진일 경우 profile
-			pre.setString(2, Singleton.getInstance().getNow2()+Singleton.getInstance().getAccountId());
-			pre.setBinaryStream(3, fin, (int) imgfile.length());
+			PreparedStatement pre = conn
+					.prepareStatement("insert into image (id, type, code, image) VALUES (?, ?, ?, ?)");
+			// 년도:월:일:시:분:초:아이디
+			pre.setString(1, Singleton.getInstance().getAccountId());
+			pre.setString(2, type);
+			pre.setString(3, Singleton.getInstance().getNow2() + Singleton.getInstance().getAccountId());
+			pre.setBinaryStream(4, fin, (int) imgfile.length());
 			pre.executeUpdate();
 			Singleton.getInstance().debug("사진 저장 성공");
 			pre.close();
@@ -143,8 +120,6 @@ public class MethodUtil {
 	}
 
 	// 사진 불러오기
-
-	// 사진을 저장하지 않고 바로 세팅하는 형식
 	public void getPhoto(String sql, ImageView imageView) {
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -158,7 +133,19 @@ public class MethodUtil {
 			e.printStackTrace();
 		}
 	}
-	
+
+	// 사진 삭제하기
+	public void delPhoto() {
+		sql = "delete from image where code='" + Singleton.getInstance().getAccountId() + "'";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.executeUpdate();
+			Singleton.getInstance().debug("사진 삭제 성공");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	// 이클립스에서 새로고침을 해야만 사진을 인식함
 	// 굳이 파일을 저장하지 않고 바로 세팅하는 법은 없을까
 
@@ -196,14 +183,16 @@ public class MethodUtil {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		//파일 경로를 웹형식으로 불러와서 출력
+		// 파일 경로를 웹형식으로 불러와서 출력
 		return filePath;
 	}
-	//리스트를 문자열로 문자열을 리스트로 만드는
+
+	// 리스트를 문자열로 문자열을 리스트로 만드는
 	public String test(List<String> list) {
 		String result = String.join(", ", list);
 		return result;
 	}
+
 	public List<String> test(String text) {
 		ArrayList<String> result = new ArrayList<String>(Arrays.asList(text.split(", ")));
 		return result;

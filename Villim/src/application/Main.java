@@ -28,9 +28,9 @@ public class Main extends Application {
 
 			primaryStage.setTitle("Villim");
 			primaryStage.setScene(scene);
-			primaryStage.setMaxHeight(940);
+			primaryStage.setMaxHeight(935);
 			primaryStage.setMaxWidth(1600);
-			primaryStage.setMinHeight(940);
+			primaryStage.setMinHeight(935);
 			primaryStage.setMinWidth(1600);
 			primaryStage.show();
 			createAdminAccount();
@@ -81,8 +81,6 @@ public class Main extends Application {
 		if (!join_id_check()) {
 			sql = "INSERT INTO profile(nick, id, password, email) VALUES (?,?,?,?)";
 			try {
-				int tree = 0;
-				String theme = "white";
 
 				pstmt = conn.prepareStatement(sql);
 

@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -23,7 +22,9 @@ public class Profile_Controller implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		getInformation();
-		getProfileImage();
+		methodUtil.getPhoto(
+				"select * from image where type='profile' and id='" + Singleton.getInstance().getAccountId() + "'",
+				profileImage);
 	}
 
 	// 알림창
@@ -95,21 +96,41 @@ public class Profile_Controller implements Initializable {
 	@FXML
 	private ImageView profileImage;
 	public String file = "";
-	
+
+	// 원래 있던 프로필 사진이 있나 찾기
+	public int selectProfileImage() {
+		int count = 0;
+		sql = "select * from profile where id='" + Singleton.getInstance().getAccountId() + "'";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				count++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+
 	// 프로필 사진 추가, 변경하기
 	public void addChangeProfileImage() {
+		int count = selectProfileImage();
 		file = methodUtil.selectFile();
 		if (file.equals("NO IMAGE")) {
 			alert("사진 파일이 아닙니다");
 			return;
+		} else if (count >= 1) {
+			methodUtil.delPhoto();
+			methodUtil.inputPhoto(file, "profile");
 		} else {
 			methodUtil.inputPhoto(file, "profile");
-		}	
+		}
 	}
-	
-	// 프로필 사진 가져오기
-	public void getProfileImage() {
-		methodUtil.getPhoto("select * from image where type='profile'", profileImage);
+
+	// 프로필 사진 삭제하기
+	public void delProfileImage() {
+		methodUtil.delPhoto();
 	}
 
 	// 회원정보 변경 화면 전환
